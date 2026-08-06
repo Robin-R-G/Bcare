@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BCare Bakery &amp; Kitchen Equipments - Product Catalog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "surface-tint": "#2d6193",
+                            "inverse-on-surface": "#eaf1ff",
+                            "surface-container-lowest": "#ffffff",
+                            "secondary-fixed": "#d9e3f6",
+                            "on-secondary-container": "#596373",
+                            "on-secondary-fixed": "#121c2a",
+                            "surface-bright": "#f8f9ff",
+                            "error-container": "#ffdad6",
+                            "on-primary": "#ffffff",
+                            "surface-container-highest": "#d3e4fe",
+                            "on-primary-container": "#8abaf1",
+                            "on-error": "#ffffff",
+                            "surface-container-low": "#eff4ff",
+                            "on-tertiary-container": "#b1b7bc",
+                            "tertiary-container": "#42484c",
+                            "inverse-primary": "#9dcaff",
+                            "secondary": "#555f6f",
+                            "primary-container": "#0a4a7a",
+                            "tertiary": "#2c3236",
+                            "error": "#ba1a1a",
+                            "on-error-container": "#93000a",
+                            "on-primary-fixed-variant": "#084979",
+                            "primary-fixed-dim": "#9dcaff",
+                            "on-tertiary-fixed-variant": "#41484c",
+                            "tertiary-fixed": "#dde3e8",
+                            "secondary-container": "#d6e0f3",
+                            "on-primary-fixed": "#001d35",
+                            "surface": "#f8f9ff",
+                            "on-background": "#0b1c30",
+                            "primary": "#003358",
+                            "primary-fixed": "#d1e4ff",
+                            "surface-dim": "#cbdbf5",
+                            "on-secondary-fixed-variant": "#3d4756",
+                            "on-surface-variant": "#42474f",
+                            "surface-container": "#e5eeff",
+                            "on-tertiary-fixed": "#161c20",
+                            "outline-variant": "#c2c7d0",
+                            "secondary-fixed-dim": "#bdc7d9",
+                            "on-secondary": "#ffffff",
+                            "surface-container-high": "#dce9ff",
+                            "on-tertiary": "#ffffff",
+                            "tertiary-fixed-dim": "#c1c7cc",
+                            "surface-variant": "#d3e4fe",
+                            "outline": "#727780",
+                            "background": "#f8f9ff",
+                            "inverse-surface": "#213145",
+                            "on-surface": "#0b1c30"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px",
+                            "card": "24px"
+                    },
+                    "spacing": {
+                            "container-max": "1280px",
+                            "unit": "8px",
+                            "section-padding": "80px",
+                            "gutter": "24px",
+                            "margin-desktop": "40px",
+                            "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                            "label-sm": ["Inter"],
+                            "headline-lg-mobile": ["Inter"],
+                            "body-lg": ["Inter"],
+                            "body-md": ["Inter"],
+                            "display-lg": ["Inter"],
+                            "title-md": ["Inter"],
+                            "headline-xl": ["Inter"],
+                            "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                            "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                            "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                            "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    },
+                    "boxShadow": {
+                        "ambient": "0 10px 30px 4px rgba(10, 74, 122, 0.04)",
+                        "ambient-hover": "0 20px 40px 8px rgba(10, 74, 122, 0.08)"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .ambient-shadow { box-shadow: theme('boxShadow.ambient'); }
+        .ambient-shadow:hover { box-shadow: theme('boxShadow.ambient-hover'); }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface font-label-sm text-label-sm docked full-width top-0 sticky border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto z-50">
+<!-- Brand Logo -->
+<a class="font-title-md text-title-md font-bold text-primary dark:text-primary-fixed-dim" href="#">
+                BCare Bakery &amp; Kitchen Equipments
+            </a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex space-x-6 items-center">
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">Products</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">Services</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">Projects</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">About</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#">Contact</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">search</span>
+<button class="text-primary dark:text-primary-fixed-dim hover:text-primary transition-colors duration-200 font-label-sm">Language</button>
+<button class="bg-[#F97316] text-white px-4 py-2 rounded font-label-sm hover:opacity-90 transition-opacity">Request Quote</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Mobile) -->
+<nav class="bg-surface dark:bg-surface-container font-label-sm text-label-sm docked left-0 h-full w-64 md:hidden shadow-xl dark:shadow-none bg-surface shadow-xl fixed left-0 top-0 h-full z-50 p-4 transform -translate-x-full transition-transform" id="mobileNav">
+<div class="mb-8 flex items-center justify-between">
+<div>
+<h2 class="font-title-md text-title-md font-black text-primary">BCare Equipments</h2>
+<p class="text-on-surface-variant text-xs mt-1">Professional Culinary Solutions</p>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant" onclick="document.getElementById('mobileNav').classList.toggle('-translate-x-full')">close</button>
+</div>
+<ul class="space-y-2">
+<li><a class="flex items-center gap-4 text-on-surface-variant p-3 hover:bg-surface-container-highest transition-colors active:scale-98" href="#"><span class="material-symbols-outlined">home</span>Home</a></li>
+<li><a class="flex items-center gap-4 bg-primary-container text-on-primary-container rounded-lg p-3 hover:bg-surface-container-highest transition-colors active:scale-98" href="#"><span class="material-symbols-outlined">restaurant</span>Products</a></li>
+<li><a class="flex items-center gap-4 text-on-surface-variant p-3 hover:bg-surface-container-highest transition-colors active:scale-98" href="#"><span class="material-symbols-outlined">architecture</span>Projects</a></li>
+<li><a class="flex items-center gap-4 text-on-surface-variant p-3 hover:bg-surface-container-highest transition-colors active:scale-98" href="#"><span class="material-symbols-outlined">request_quote</span>Quote</a></li>
+<li><a class="flex items-center gap-4 text-on-surface-variant p-3 hover:bg-surface-container-highest transition-colors active:scale-98" href="#"><span class="material-symbols-outlined">contact_support</span>Support</a></li>
+</ul>
+<div class="mt-8">
+<button class="w-full bg-[#F97316] text-white py-3 rounded font-label-sm text-center">Get a Quote</button>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-padding">
+<!-- Header Section -->
+<div class="mb-12 border-b border-[#BFC5CA] pb-6 flex items-end justify-between">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-2 hidden md:block">Our Professional Equipment Range</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 md:hidden">Our Professional Equipment Range</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">High-precision commercial kitchen and bakery equipment designed for durability and performance in demanding professional environments.</p>
+</div>
+<button class="md:hidden material-symbols-outlined bg-surface-container p-2 rounded" onclick="document.getElementById('mobileNav').classList.toggle('-translate-x-full')">menu</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Sidebar / Filters -->
+<aside class="lg:col-span-3">
+<div class="sticky top-32">
+<h3 class="font-title-md text-title-md text-on-surface mb-6 border-b border-[#BFC5CA] pb-2">Categories</h3>
+<ul class="space-y-3 font-label-sm text-label-sm">
+<li>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="text-primary-container focus:ring-primary-container border-[#BFC5CA]" name="category" type="radio"/>
+<span class="text-on-surface group-hover:text-primary transition-colors">All Equipments</span>
+</label>
+</li>
+<li>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="text-primary-container focus:ring-primary-container border-[#BFC5CA]" name="category" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Bakery Equipments</span>
+</label>
+</li>
+<li>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="text-primary-container focus:ring-primary-container border-[#BFC5CA]" name="category" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Refrigeration</span>
+</label>
+</li>
+<li>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="text-primary-container focus:ring-primary-container border-[#BFC5CA]" name="category" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Processing Equipments</span>
+</label>
+</li>
+<li>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="text-primary-container focus:ring-primary-container border-[#BFC5CA]" name="category" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">SS Fabrication</span>
+</label>
+</li>
+</ul>
+<h3 class="font-title-md text-title-md text-on-surface mb-6 mt-12 border-b border-[#BFC5CA] pb-2">Filters</h3>
+<div class="space-y-4 font-label-sm text-label-sm">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input checked="" class="text-primary-container rounded border-[#BFC5CA] focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface-variant">In Stock Ready</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer">
+<input class="text-primary-container rounded border-[#BFC5CA] focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface-variant">Energy Efficient (A++)</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer">
+<input checked="" class="text-primary-container rounded border-[#BFC5CA] focus:ring-primary-container" type="checkbox"/>
+<span class="text-on-surface-variant">Stainless Steel 304</span>
+</label>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="lg:col-span-9">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Product Card 1 -->
+<div class="bg-surface-container-lowest rounded-card ambient-shadow p-6 flex flex-col transition-all duration-300">
+<div class="relative bg-surface rounded-lg mb-6 overflow-hidden h-64 flex items-center justify-center border border-outline-variant/30">
+<div class="absolute top-4 left-4 bg-primary-container/10 text-primary-container font-label-sm text-xs px-3 py-1 rounded-full">Commercial Grade</div>
+<img class="object-contain h-full w-full p-4 mix-blend-multiply" data-alt="A highly detailed, professional studio photograph of a heavy-duty stainless steel commercial bakery convection oven, isolated on a stark white background. The lighting is crisp, bright, and high-key, emphasizing the polished metallic textures and robust industrial build. The aesthetic is clean, modern, and technical, suitable for a premium product catalog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5DD40japHuEIqCU5YZS2EabyqBftRslhP9kYp5W9caM0kRtck-15Qyo14BIzgvCVt37lULAVa1kPKBkALWzSzhOEcKjXlQH4AlQmBHgA13E8x5guv8oKatoMm3PfrWka5KTs2OovpYruoDQxzuoRJsRgZf1CmmP9YO71iEPmdeSkkNoPOS44k50uBkRp_4oZm_nD61h0StpsY7cKy_pRzqJs2I4f2FGXT1stAtlFndwDYPfGuZATJtA"/>
+</div>
+<div class="flex-grow">
+<span class="text-outline font-label-sm text-xs tracking-wider uppercase">Model: BC-CO-10</span>
+<h3 class="font-title-md text-title-md text-primary mt-2 mb-3">Professional 10-Tray Convection Oven</h3>
+<ul class="space-y-2 font-body-md text-sm text-on-surface-variant mb-6">
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> Stainless Steel 304 Construction</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> Digital Temperature Control (up to 300°C)</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> Energy Efficient Triple-glazed Door</li>
+</ul>
+</div>
+<div class="flex gap-4 mt-auto">
+<button class="flex-1 bg-[#F97316] text-white py-3 rounded font-label-sm hover:opacity-90 transition-opacity">Get Quote</button>
+<button class="flex-1 border-[1.5px] border-[#BFC5CA] text-on-surface py-3 rounded font-label-sm hover:border-primary-container hover:text-primary-container transition-colors">Details</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface-container-lowest rounded-card ambient-shadow p-6 flex flex-col transition-all duration-300">
+<div class="relative bg-surface rounded-lg mb-6 overflow-hidden h-64 flex items-center justify-center border border-outline-variant/30">
+<div class="absolute top-4 left-4 bg-[#F97316]/10 text-[#F97316] font-label-sm text-xs px-3 py-1 rounded-full">In Stock</div>
+<img class="object-contain h-full w-full p-4 mix-blend-multiply" data-alt="A high-resolution, bright studio shot of a massive industrial spiral dough mixer, featuring a heavy stainless steel bowl and thick mixing hooks, isolated on a pure white background. The lighting highlights the rugged, industrial texture and premium build quality of the machine, aligning with a modern, professional kitchen equipment design aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC84WVSFAI1f9MSt82y8g0WeivkMqoAYpduzJl6Lh7MN8pcJ6ZI5zKX7M-AZlLfFzNsOXyhfLFzkvhNMr5ZpacKT5njkHIe56shKomgKVBAJWH-mPTAS0lkmS8EtMEDF3qs2FIZbufaDj3kAuXa9mmW69z1yqT9FsfrilzzY8NlFf1UHXDeFnhrwUX-_j4ohv5VaxAJvM8JowZurUynjwt9aWUXMXBPO975US4HwGJn3CQZatJWIw_CZg"/>
+</div>
+<div class="flex-grow">
+<span class="text-outline font-label-sm text-xs tracking-wider uppercase">Model: BC-SM-50</span>
+<h3 class="font-title-md text-title-md text-primary mt-2 mb-3">50kg Heavy Duty Spiral Mixer</h3>
+<ul class="space-y-2 font-body-md text-sm text-on-surface-variant mb-6">
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> 2-Speed High Torque Motor</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> Stainless Steel Bowl &amp; Spiral</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> Auto-timer Function</li>
+</ul>
+</div>
+<div class="flex gap-4 mt-auto">
+<button class="flex-1 bg-[#F97316] text-white py-3 rounded font-label-sm hover:opacity-90 transition-opacity">Get Quote</button>
+<button class="flex-1 border-[1.5px] border-[#BFC5CA] text-on-surface py-3 rounded font-label-sm hover:border-primary-container hover:text-primary-container transition-colors">Details</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-surface-container-lowest rounded-card ambient-shadow p-6 flex flex-col transition-all duration-300">
+<div class="relative bg-surface rounded-lg mb-6 overflow-hidden h-64 flex items-center justify-center border border-outline-variant/30">
+<img class="object-contain h-full w-full p-4 mix-blend-multiply" data-alt="A crisp, professional product photograph of a commercial two-door stainless steel upright freezer against a stark white background. The bright, high-key studio lighting emphasizes the sleek, modern design, reflective handles, and heavy-duty industrial finish of the refrigeration unit, perfectly suited for a premium corporate catalog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9r38fB7oqEJx2GEcuHPfaU4WwBCufSI5KAKLvXJ0n39inBB-GOUJhk6gN351tIybgyP8SjD9nNF5Pem4BzA_5TApAwjZ3QGHsaUYSVTUxGlPkTxJ92XPon2kxWDwOx3FPP6oAoSi3ujBEySNo5TPf-f2bBznL_C-QOuUCfPllU9nI7WJDHfnpmRVNqt_J2-3fcacvL7H1EJUasENzR3KC1goCO4ixPJsksXvMf2ZshmwGk5IUZrNMCg"/>
+</div>
+<div class="flex-grow">
+<span class="text-outline font-label-sm text-xs tracking-wider uppercase">Model: BC-RF-2D</span>
+<h3 class="font-title-md text-title-md text-primary mt-2 mb-3">Upright 2-Door Commercial Freezer</h3>
+<ul class="space-y-2 font-body-md text-sm text-on-surface-variant mb-6">
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> -18°C to -22°C Range</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> CFC-Free High Density Insulation</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> Auto Defrost System</li>
+</ul>
+</div>
+<div class="flex gap-4 mt-auto">
+<button class="flex-1 bg-[#F97316] text-white py-3 rounded font-label-sm hover:opacity-90 transition-opacity">Get Quote</button>
+<button class="flex-1 border-[1.5px] border-[#BFC5CA] text-on-surface py-3 rounded font-label-sm hover:border-primary-container hover:text-primary-container transition-colors">Details</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-surface-container-lowest rounded-card ambient-shadow p-6 flex flex-col transition-all duration-300">
+<div class="relative bg-surface rounded-lg mb-6 overflow-hidden h-64 flex items-center justify-center border border-outline-variant/30">
+<div class="absolute top-4 left-4 bg-primary-container/10 text-primary-container font-label-sm text-xs px-3 py-1 rounded-full">Custom Fabrication</div>
+<img class="object-contain h-full w-full p-4 mix-blend-multiply" data-alt="A meticulously lit, professional studio image of a custom stainless steel commercial kitchen work table with a built-in sink, shown on a pure white background. The lighting is crisp and even, highlighting the brushed steel texture and robust, hygienic construction expected in high-end culinary environments." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnBp3sE1NCKFEqAsKDrDpJ6U4LgEwGEKG16MWzbTM3VDdExCIaxYtLLXByemdkPlhrq62OWLZoznsvikFbED6y6UncuNporSmx-QisYsJv_ruIzgwlae_VNg4sGrLhEXpXMrva9V00T9gjvVq_eFZh_65IdO3qpLwsfCJ4S4pjz1-HC_2QTakkf1Cta2dftp2X3gFeWdRcS7FN_yUTRGCyfut9VBEoJ7j8zOzmSOyIrsLZ44fsYUpRuQ"/>
+</div>
+<div class="flex-grow">
+<span class="text-outline font-label-sm text-xs tracking-wider uppercase">Model: BC-SS-WT</span>
+<h3 class="font-title-md text-title-md text-primary mt-2 mb-3">Custom SS Work Table with Sink</h3>
+<ul class="space-y-2 font-body-md text-sm text-on-surface-variant mb-6">
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> 100% SS 304 Food Grade</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> Reinforced Under-shelf</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-[18px] mr-2 text-outline">check_circle</span> Adjustable Bullet Feet</li>
+</ul>
+</div>
+<div class="flex gap-4 mt-auto">
+<button class="flex-1 bg-[#F97316] text-white py-3 rounded font-label-sm hover:opacity-90 transition-opacity">Get Quote</button>
+<button class="flex-1 border-[1.5px] border-[#BFC5CA] text-on-surface py-3 rounded font-label-sm hover:border-primary-container hover:text-primary-container transition-colors">Details</button>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-16 flex justify-center border-t border-[#BFC5CA] pt-8">
+<button class="border-[1.5px] border-[#BFC5CA] text-on-surface px-8 py-3 rounded font-label-sm hover:border-primary-container hover:text-primary-container transition-colors flex items-center gap-2">
+                        Load More Products
+                        <span class="material-symbols-outlined text-[20px]">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-inverse-surface font-body-md text-body-md full-width bottom-0 bg-surface-container-high dark:bg-tertiary-container flat no shadows mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-padding max-w-container-max mx-auto">
+<div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim mb-6">BCare Bakery &amp; Kitchen Equipments</h2>
+<p class="text-on-surface-variant dark:text-surface-variant mb-4">Leading manufacturer and supplier of professional culinary equipment.</p>
+<p class="text-on-surface-variant dark:text-surface-variant text-sm">© 2024 BCare Bakery &amp; Kitchen Equipments. All rights reserved.</p>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-4">Navigation</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">Products</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">Projects</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">About</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-4">Contact</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">Contact</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">WhatsApp</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">Phone</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">Email</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all opacity-80 hover:opacity-100" href="#">Kerala Office Locations</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-4">Newsletter</h4>
+<form class="flex flex-col gap-3">
+<input class="border-[1px] border-[#BFC5CA] rounded p-2 focus:border-primary-container focus:ring-1 focus:ring-primary-container font-body-md bg-white" placeholder="Email Address" type="email"/>
+<button class="bg-primary-container text-white py-2 rounded font-label-sm hover:opacity-90 transition-opacity" type="button">Subscribe</button>
+</form>
+</div>
+</div>
+</footer>
+</body></html>

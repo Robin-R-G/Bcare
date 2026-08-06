@@ -42,7 +42,7 @@ export default function CareersPage() {
           >
             <h1 className="font-display-lg text-display-lg text-primary mb-6">Build Your Career With Us</h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant">
-              Join the leading commercial kitchen solutions provider in Kerala. We're looking for passionate individuals to help us engineer the future of culinary spaces.
+              Join the leading commercial kitchen solutions provider in Kerala. We&apos;re looking for passionate individuals to help us engineer the future of culinary spaces.
             </p>
           </motion.div>
         </div>
@@ -122,9 +122,9 @@ export default function CareersPage() {
           </div>
 
           <div className="mt-16 bg-surface-container p-8 rounded-2xl text-center border border-outline-variant/50">
-            <h3 className="font-title-md text-title-md text-on-surface mb-2">Don't see a fit?</h3>
+            <h3 className="font-title-md text-title-md text-on-surface mb-2">Don&apos;t see a fit?</h3>
             <p className="text-on-surface-variant font-body-md text-body-md mb-6 max-w-lg mx-auto">
-              We're always looking for talented individuals. Send your resume to careers@bcareequipments.com and we'll keep you in mind for future openings.
+              We&apos;re always looking for talented individuals. Send your resume to careers@bcareequipments.com and we&apos;ll keep you in mind for future openings.
             </p>
             <Link href="mailto:careers@bcareequipments.com">
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">

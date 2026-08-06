@@ -10,6 +10,9 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
+import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { submitContactMessage } from '@/lib/supabase/mutations';
+
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
@@ -21,15 +24,19 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 export default function ContactPage() {
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
   const onSubmit = async (data: FormData) => {
-    // This will be connected to Supabase or an API route in Phase 4
-    console.log('Form data:', data);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    alert('Thank you for your message. We will get back to you shortly.');
+    try {
+      await submitContactMessage(data);
+      alert('Thank you for contacting BCare. Our team in Thrissur will get back to you shortly.');
+      reset();
+    } catch (err) {
+      console.error(err);
+      alert('Failed to send message. Please reach us directly via WhatsApp.');
+    }
   };
 
   return (
@@ -44,7 +51,7 @@ export default function ContactPage() {
           >
             <h1 className="font-display-lg text-display-lg text-primary mb-6">Contact Us</h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant">
-              Get in touch with our commercial kitchen experts for consultations, quotes, or support.
+              {COMPANY_DETAILS.positioningText}
             </p>
           </motion.div>
         </div>
@@ -68,10 +75,9 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-title-md text-title-md text-on-surface mb-1">Head Office</h3>
+                    <h3 className="font-title-md text-title-md text-on-surface mb-1">Primary Headquarters</h3>
                     <p className="text-on-surface-variant font-body-md text-body-md">
-                      123 Industrial Area, Phase 1<br />
-                      Kochi, Kerala 682001
+                      {COMPANY_DETAILS.address.full}
                     </p>
                   </div>
                 </div>
@@ -81,10 +87,9 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-title-md text-title-md text-on-surface mb-1">Phone</h3>
+                    <h3 className="font-title-md text-title-md text-on-surface mb-1">Phone / WhatsApp</h3>
                     <p className="text-on-surface-variant font-body-md text-body-md">
-                      +91 98765 43210<br />
-                      +91 484 2345678
+                      {COMPANY_DETAILS.phone}
                     </p>
                   </div>
                 </div>
@@ -96,8 +101,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-title-md text-title-md text-on-surface mb-1">Email</h3>
                     <p className="text-on-surface-variant font-body-md text-body-md">
-                      info@bcareequipments.com<br />
-                      sales@bcareequipments.com
+                      {COMPANY_DETAILS.email}
                     </p>
                   </div>
                 </div>
@@ -110,7 +114,7 @@ export default function ContactPage() {
                     <h3 className="font-title-md text-title-md text-on-surface mb-1">Working Hours</h3>
                     <p className="text-on-surface-variant font-body-md text-body-md">
                       Monday - Saturday: 9:00 AM - 6:00 PM<br />
-                      Sunday: Closed
+                      <span className="text-error font-medium">Sunday: Closed</span>
                     </p>
                   </div>
                 </div>

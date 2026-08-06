@@ -118,7 +118,7 @@ export default function ProjectsPage() {
                     {project.testimonial && (
                       <div className="bg-surface-variant/30 p-6 rounded-xl border border-outline-variant/30 mb-8 relative">
                         <Quote className="w-8 h-8 text-primary/20 absolute top-4 right-4" />
-                        <p className="italic font-body-md text-on-surface-variant mb-4">"{project.testimonial.quote}"</p>
+                        <p className="italic font-body-md text-on-surface-variant mb-4">&quot;{project.testimonial.quote}&quot;</p>
                         <div>
                           <p className="font-title-md text-sm text-on-surface">{project.testimonial.author}</p>
                           <p className="text-xs text-on-surface-variant">{project.testimonial.designation}</p>

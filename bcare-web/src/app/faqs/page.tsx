@@ -130,7 +130,7 @@ export default function FAQPage() {
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <h2 className="font-headline-lg text-headline-lg mb-4 text-primary">Still have questions?</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl mx-auto">
-            Can't find the answer you're looking for? Please chat to our friendly team.
+            Can&apos;t find the answer you&apos;re looking for? Please chat to our friendly team.
           </p>
           <Link href="/contact">
             <Button size="lg" className="bg-primary text-white hover:bg-primary-container font-label-sm px-8 h-12">

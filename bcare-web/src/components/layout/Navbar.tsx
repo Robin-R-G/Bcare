@@ -2,96 +2,111 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, Sparkles, Scale, MessageCircle, Phone } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCompare } from '@/context/CompareContext';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { useState } from 'react';
 
 export function Navbar() {
   const pathname = usePathname();
-  const { compareProducts } = useCompare();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
     { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
     { name: 'Products', href: '/products' },
-    { name: 'Solution Builder', href: '/kitchen-solution-builder', isHighlight: true },
-    { name: 'Services', href: '/services' },
+    { name: 'Solutions', href: '/services' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Gallery', href: '/gallery' },
     { name: 'Blogs', href: '/blogs' },
-    { name: 'Thrissur HQ', href: '/locations/thrissur' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <header className="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 sticky top-0 left-0 w-full z-50 transition-all duration-200">
+    <header className="bg-white border-b border-outline-variant/30 sticky top-0 left-0 w-full z-50">
       <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
         {/* Brand Logo */}
-        <Link href="/" className="font-heading font-extrabold text-xl md:text-2xl text-primary tracking-tight">
-          BCare Bakery & Kitchen
+        <Link href="/" className="font-heading font-extrabold text-2xl md:text-[28px] text-primary tracking-tight leading-tight shrink-0">
+          BCare Bakery &amp;<br className="sm:hidden" /> Kitchen
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`font-label-md text-xs uppercase tracking-wider transition-all duration-200 ${
+                className={`text-sm font-medium transition-all duration-200 ${
                   isActive
-                    ? 'text-primary font-bold border-b-2 border-primary pb-1'
-                    : link.isHighlight
-                    ? 'text-[#F97316] font-bold flex items-center gap-1'
-                    : 'text-secondary hover:text-primary'
+                    ? 'text-on-surface font-semibold border-b-2 border-on-surface pb-0.5'
+                    : 'text-on-surface-variant hover:text-on-surface'
                 }`}
               >
-                {link.isHighlight && <Sparkles className="w-3.5 h-3.5" />}
                 {link.name}
               </Link>
             );
           })}
         </nav>
 
-        {/* Action Controls */}
-        <div className="hidden sm:flex items-center gap-3">
-          <Link href="/compare" className="relative p-2 rounded-lg text-secondary hover:bg-surface-container transition-colors" title="Compare Products">
-            <Scale className="w-5 h-5 text-primary" />
-            {compareProducts.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-[#F97316] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">
-                {compareProducts.length}
-              </span>
-            )}
-          </Link>
-
-          <a href={`https://wa.me/${COMPANY_DETAILS.whatsapp}`} target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" className="border-outline text-on-surface hover:bg-surface-container font-label-md text-xs px-4 h-9">
-              <MessageCircle className="w-3.5 h-3.5 mr-1.5 text-emerald-600" /> WhatsApp
-            </Button>
-          </a>
-
+        {/* Action Buttons */}
+        <div className="hidden lg:flex items-center gap-3">
           <Link href="/contact">
-            <Button className="bg-primary hover:bg-primary-container text-white font-label-md text-xs px-4 h-9 shadow-sm">
+            <Button className="bg-primary text-on-primary hover:bg-primary-container font-semibold text-sm px-5 h-10 rounded-md shadow-sm">
               Request Quote
             </Button>
           </Link>
+
+          <a href={`https://wa.me/${COMPANY_DETAILS.whatsapp}`} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" className="border-outline-variant text-on-surface hover:bg-surface-container-low font-medium text-sm px-5 h-10 rounded-md">
+              <MessageCircle className="w-4 h-4 mr-2" /> WhatsApp
+            </Button>
+          </a>
         </div>
 
-        {/* Mobile Header Trigger */}
-        <div className="flex lg:hidden items-center gap-3">
-          <Link href="/compare" className="relative p-2 text-primary">
-            <Scale className="w-5 h-5" />
-            {compareProducts.length > 0 && (
-              <span className="absolute top-0 right-0 bg-[#F97316] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-                {compareProducts.length}
-              </span>
-            )}
-          </Link>
-          <button className="text-primary p-2">
-            <Menu className="w-6 h-6" />
-          </button>
-        </div>
+        {/* Mobile Toggle */}
+        <button 
+          className="lg:hidden text-primary p-2"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-white border-t border-outline-variant/20 px-margin-mobile py-4 space-y-1 shadow-lg">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`block py-2.5 px-3 rounded-md text-sm font-medium transition-colors ${
+                  isActive
+                    ? 'bg-primary/5 text-primary font-semibold'
+                    : 'text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+          <div className="pt-3 border-t border-outline-variant/20 flex flex-col gap-2">
+            <Link href="/contact" onClick={() => setMobileOpen(false)}>
+              <Button className="w-full bg-primary text-on-primary font-semibold h-10">Request Quote</Button>
+            </Link>
+            <a href={`https://wa.me/${COMPANY_DETAILS.whatsapp}`} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="w-full border-outline-variant text-on-surface font-medium h-10">
+                <MessageCircle className="w-4 h-4 mr-2" /> WhatsApp
+              </Button>
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

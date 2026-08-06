@@ -4,95 +4,130 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Product, Category } from '@/types';
 import { ProductCard } from '@/components/ui/ProductCard';
-import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
+import { X } from 'lucide-react';
 
 interface ProductsClientProps {
   initialProducts: Product[];
   categories: Category[];
 }
 
+const applicationTypes = ["Commercial Bakery", "Industrial Kitchen", "Hospitality"];
+
 export function ProductsClient({ initialProducts, categories }: ProductsClientProps) {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [activeCategories, setActiveCategories] = useState<string[]>([]);
+  const [activeApplication, setActiveApplication] = useState<string>('');
 
   const filteredProducts = useMemo(() => {
     return initialProducts.filter((product) => {
-      const matchesCategory = activeCategory === 'all' || product.categoryId === activeCategory;
-      const query = searchQuery.toLowerCase();
-      const matchesSearch = 
-        product.name.toLowerCase().includes(query) ||
-        product.categoryName.toLowerCase().includes(query) ||
-        (product.shortDescription && product.shortDescription.toLowerCase().includes(query));
-      
-      return matchesCategory && matchesSearch;
+      const matchesCategory = activeCategories.length === 0 || activeCategories.includes(product.categoryId);
+      return matchesCategory;
     });
-  }, [initialProducts, activeCategory, searchQuery]);
+  }, [initialProducts, activeCategories]);
+
+  const toggleCategory = (id: string) => {
+    setActiveCategories(prev => 
+      prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
+    );
+  };
+
+  const removeFilter = (id: string) => {
+    setActiveCategories(prev => prev.filter(c => c !== id));
+  };
+
+  const activeCategoryNames = categories.filter(c => activeCategories.includes(c.id));
 
   return (
-    <div className="flex flex-col md:flex-row gap-8">
-      {/* Sidebar Filters */}
-      <aside className="w-full md:w-64 shrink-0 flex flex-col gap-6">
-        {/* Search */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant" />
-          <Input 
-            placeholder="Search equipment..." 
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9 h-11 border-outline focus-visible:ring-primary rounded-md"
-          />
+    <div className="flex flex-col gap-6">
+      {/* Active Filters + Result count bar */}
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-3 flex-wrap">
+          {activeCategoryNames.length > 0 && (
+            <>
+              <span className="text-sm font-medium text-on-surface-variant">Active Filters:</span>
+              {activeCategoryNames.map(cat => (
+                <button
+                  key={cat.id}
+                  onClick={() => removeFilter(cat.id)}
+                  className="inline-flex items-center gap-1.5 text-sm bg-surface-container-low border border-outline-variant/40 px-3 py-1.5 rounded-md text-on-surface font-medium hover:border-on-surface transition-colors"
+                >
+                  {cat.name} <X className="w-3.5 h-3.5 text-on-surface-variant" />
+                </button>
+              ))}
+            </>
+          )}
         </div>
+        <span className="text-sm text-on-surface-variant">
+          Showing <span className="font-semibold text-on-surface">{filteredProducts.length}</span> Results
+        </span>
+      </div>
 
-        {/* Categories list */}
-        <div className="flex flex-col gap-2 bg-white p-4 rounded-xl border border-outline-variant/30">
-          <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-on-surface-variant mb-2">Categories</h3>
-          <button
-            onClick={() => setActiveCategory('all')}
-            className={`w-full text-left px-3 py-2 rounded-md font-label-md text-xs transition-colors ${
-              activeCategory === 'all' 
-                ? 'bg-primary text-white font-bold' 
-                : 'text-secondary hover:bg-muted'
-            }`}
-          >
-            All Products
-          </button>
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`w-full text-left px-3 py-2 rounded-md font-label-md text-xs transition-colors ${
-                activeCategory === category.id 
-                  ? 'bg-primary text-white font-bold' 
-                  : 'text-secondary hover:bg-muted'
-              }`}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
-      </aside>
+      <div className="flex flex-col md:flex-row gap-8">
+        {/* Sidebar Filters */}
+        <aside className="w-full md:w-56 shrink-0">
+          <div className="bg-white p-5 rounded-lg border border-outline-variant/30">
+            {/* Filter heading */}
+            <h3 className="font-heading font-bold text-lg text-on-surface mb-5 pb-3 border-b border-outline-variant/30">Filters</h3>
 
-      {/* Main product catalog grid */}
-      <div className="flex-1 flex flex-col gap-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.03 }}
-            >
-              <ProductCard product={product} />
-            </motion.div>
-          ))}
-        </div>
+            {/* Category checkboxes */}
+            <div className="mb-6">
+              <h4 className="font-semibold text-sm text-on-surface mb-3">Category</h4>
+              <div className="space-y-2.5">
+                {categories.map((category) => (
+                  <label key={category.id} className="flex items-center gap-2.5 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={activeCategories.includes(category.id)}
+                      onChange={() => toggleCategory(category.id)}
+                      className="w-4 h-4 rounded border-outline text-primary focus:ring-primary accent-primary"
+                    />
+                    <span className="text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">{category.name}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-        {filteredProducts.length === 0 && (
-          <div className="text-center py-20 bg-white rounded-xl border border-outline-variant/30">
-            <p className="text-on-surface-variant font-body-lg">No food equipment matching your criteria.</p>
+            {/* Application radio buttons */}
+            <div>
+              <h4 className="font-semibold text-sm text-on-surface mb-3">Application</h4>
+              <div className="space-y-2.5">
+                {applicationTypes.map((app) => (
+                  <label key={app} className="flex items-center gap-2.5 cursor-pointer group">
+                    <input
+                      type="radio"
+                      name="application"
+                      checked={activeApplication === app}
+                      onChange={() => setActiveApplication(activeApplication === app ? '' : app)}
+                      className="w-4 h-4 border-outline text-primary focus:ring-primary accent-primary"
+                    />
+                    <span className="text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">{app}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
           </div>
-        )}
+        </aside>
+
+        {/* Main product grid — 2 columns as per stitch reference */}
+        <div className="flex-1 flex flex-col gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {filteredProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.03 }}
+              >
+                <ProductCard product={product} />
+              </motion.div>
+            ))}
+          </div>
+
+          {filteredProducts.length === 0 && (
+            <div className="text-center py-20 bg-white rounded-lg border border-outline-variant/30">
+              <p className="text-on-surface-variant text-base">No equipment matching your filters.</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

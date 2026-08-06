@@ -8,181 +8,175 @@ import {
 
 export default function HomePage() {
   return (
-    <div className="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+    <div className="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[80vh] flex items-center bg-surface-container-lowest overflow-hidden border-b border-outline-variant/30">
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="bg-cover bg-center w-full h-full opacity-25" 
-            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2000&auto=format&fit=crop')` }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/90 to-transparent"></div>
-        </div>
+      <section className="relative h-[85vh] min-h-[600px] flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-outline-variant/30">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30" 
+          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2000&auto=format&fit=crop')` }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent"></div>
 
-        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full py-section-padding">
-          <div className="max-w-3xl">
-            <span className="bg-primary/10 text-primary font-label-sm text-xs px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5 mb-6">
-              <ShieldCheck className="w-4 h-4 text-primary" /> Verified Commercial Kitchen Manufacturer
+        <div className="relative z-10 max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-gutter py-12">
+          <div className="flex flex-col gap-4">
+            <span className="bg-primary/10 text-primary font-label-sm text-xs px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5 w-fit">
+              <ShieldCheck className="w-4 h-4 text-primary" /> Verified Commercial Equipment Manufacturer
             </span>
 
-            <h1 className="font-display-lg text-display-lg text-primary mb-6">
-              Complete Commercial Kitchen &amp; Bakery Solutions
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-[56px] lg:leading-[64px] font-extrabold text-primary tracking-tight">
+              Complete Bakery &amp; Commercial Kitchen Solutions
             </h1>
 
-            <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">
-              From meticulous planning and precision manufacturing to flawless installation and dedicated after-sales support. We engineer heavy-duty elegance for the modern culinary industry.
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+              Precision engineered equipment for professional chefs and B2B procurement. Built to last, designed for ultimate culinary performance.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
-                <Button className="bg-[#F97316] text-white px-8 py-6 rounded font-label-sm text-label-sm shadow-ambient hover:shadow-ambient-hover hover:bg-orange-600 transition-all duration-300">
-                  Request Quote
-                </Button>
-              </Link>
+            <div className="flex flex-wrap gap-4 mt-4">
               <Link href="/products">
-                <Button variant="outline" className="border-[1.5px] border-steel-silver text-on-surface px-8 py-6 rounded font-label-sm text-label-sm hover:bg-surface-container transition-colors duration-300">
+                <Button className="bg-[#F97316] text-white font-label-md text-sm px-7 py-6 rounded-md hover:bg-orange-600 transition-colors shadow-sm font-semibold">
                   Explore Products
                 </Button>
               </Link>
+              <Link href="/contact">
+                <Button className="bg-primary text-white font-label-md text-sm px-7 py-6 rounded-md hover:bg-primary-container transition-colors shadow-sm font-semibold">
+                  Request Quote
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Statistics Bar */}
-      <section className="bg-primary-container text-on-primary border-y border-outline-variant">
-        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-outline-variant/30 text-center">
-            <div>
-              <div className="font-headline-lg text-headline-lg mb-1 text-white">4.8+</div>
-              <div className="font-label-sm text-label-sm text-primary-fixed-dim">Google Ratings</div>
-            </div>
-            <div>
-              <div className="font-headline-lg text-headline-lg mb-1 text-white">500+</div>
-              <div className="font-label-sm text-label-sm text-primary-fixed-dim">Projects Delivered</div>
-            </div>
-            <div>
-              <div className="font-headline-lg text-headline-lg mb-1 text-white">15+</div>
-              <div className="font-label-sm text-label-sm text-primary-fixed-dim">Years Experience</div>
-            </div>
-            <div>
-              <div className="font-headline-lg text-headline-lg mb-1 text-white">200+</div>
-              <div className="font-label-sm text-label-sm text-primary-fixed-dim">Premium Equipment Items</div>
-            </div>
+      {/* Trust Statistics */}
+      <section className="py-12 px-margin-mobile md:px-margin-desktop bg-surface-container-low border-y border-outline-variant/30">
+        <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-gutter text-center">
+          <div className="flex flex-col gap-2 items-center p-6 bg-white border border-outline-variant/30 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <span className="font-heading text-4xl font-extrabold text-primary">15+</span>
+            <span className="font-label-sm text-xs text-on-surface-variant uppercase tracking-widest font-semibold">Years Experience</span>
+          </div>
+
+          <div className="flex flex-col gap-2 items-center p-6 bg-white border border-outline-variant/30 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <span className="font-heading text-4xl font-extrabold text-primary">10k+</span>
+            <span className="font-label-sm text-xs text-on-surface-variant uppercase tracking-widest font-semibold">Equipment Machines Delivered</span>
+          </div>
+
+          <div className="flex flex-col gap-2 items-center p-6 bg-white border border-outline-variant/30 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <span className="font-heading text-4xl font-extrabold text-primary">500+</span>
+            <span className="font-label-sm text-xs text-on-surface-variant uppercase tracking-widest font-semibold">Kitchen Projects Completed</span>
           </div>
         </div>
       </section>
 
-      {/* Featured Categories */}
-      <section className="py-section-padding bg-background">
-        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div className="text-center mb-16">
-            <h2 className="font-headline-xl text-headline-xl text-primary mb-4">Featured Categories</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-              Explore our comprehensive range of heavy-duty, professional-grade equipment engineered in Thrissur, Kerala.
+      {/* Category Showcase */}
+      <section className="py-16 px-margin-mobile md:px-margin-desktop bg-background">
+        <div className="max-w-container-max mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-primary mb-3">Featured Equipment Categories</h2>
+            <p className="font-body-lg text-on-surface-variant max-w-xl mx-auto">
+              Heavy-duty stainless steel machinery designed for commercial bakeries, hotels, restaurants, and cloud kitchens.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             <Link href="/products?category=bakery-equipment">
-              <div className="bg-surface-container-lowest rounded-2xl p-6 text-center shadow-ambient hover:-translate-y-1 hover:shadow-ambient-hover transition-all cursor-pointer border border-transparent hover:border-surface-tint group">
-                <ChefHat className="w-12 h-12 text-surface-tint mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-title-md text-title-md text-on-surface">Bakery</h3>
+              <div className="bg-white rounded-xl p-6 text-center border border-outline-variant/30 shadow-sm hover:-translate-y-1 hover:border-primary transition-all cursor-pointer group">
+                <ChefHat className="w-10 h-10 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="font-heading font-bold text-on-surface text-base">Bakery Equipment</h3>
               </div>
             </Link>
 
             <Link href="/products?category=commercial-kitchen-equipment">
-              <div className="bg-surface-container-lowest rounded-2xl p-6 text-center shadow-ambient hover:-translate-y-1 hover:shadow-ambient-hover transition-all cursor-pointer border border-transparent hover:border-surface-tint group">
-                <Utensils className="w-12 h-12 text-surface-tint mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-title-md text-title-md text-on-surface">Kitchen</h3>
+              <div className="bg-white rounded-xl p-6 text-center border border-outline-variant/30 shadow-sm hover:-translate-y-1 hover:border-primary transition-all cursor-pointer group">
+                <Utensils className="w-10 h-10 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="font-heading font-bold text-on-surface text-base">Kitchen Ranges</h3>
               </div>
             </Link>
 
             <Link href="/products?category=refrigeration-equipment">
-              <div className="bg-surface-container-lowest rounded-2xl p-6 text-center shadow-ambient hover:-translate-y-1 hover:shadow-ambient-hover transition-all cursor-pointer border border-transparent hover:border-surface-tint group">
-                <Snowflake className="w-12 h-12 text-surface-tint mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-title-md text-title-md text-on-surface">Refrigeration</h3>
+              <div className="bg-white rounded-xl p-6 text-center border border-outline-variant/30 shadow-sm hover:-translate-y-1 hover:border-primary transition-all cursor-pointer group">
+                <Snowflake className="w-10 h-10 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="font-heading font-bold text-on-surface text-base">Refrigeration</h3>
               </div>
             </Link>
 
             <Link href="/products?category=display-counters">
-              <div className="bg-surface-container-lowest rounded-2xl p-6 text-center shadow-ambient hover:-translate-y-1 hover:shadow-ambient-hover transition-all cursor-pointer border border-transparent hover:border-surface-tint group">
-                <Layers className="w-12 h-12 text-surface-tint mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-title-md text-title-md text-on-surface">Display Counters</h3>
+              <div className="bg-white rounded-xl p-6 text-center border border-outline-variant/30 shadow-sm hover:-translate-y-1 hover:border-primary transition-all cursor-pointer group">
+                <Layers className="w-10 h-10 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="font-heading font-bold text-on-surface text-base">Display Counters</h3>
               </div>
             </Link>
 
             <Link href="/products?category=ss-fabrication">
-              <div className="bg-surface-container-lowest rounded-2xl p-6 text-center shadow-ambient hover:-translate-y-1 hover:shadow-ambient-hover transition-all cursor-pointer border border-transparent hover:border-surface-tint group">
-                <Cpu className="w-12 h-12 text-surface-tint mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-title-md text-title-md text-on-surface">SS Fabrication</h3>
+              <div className="bg-white rounded-xl p-6 text-center border border-outline-variant/30 shadow-sm hover:-translate-y-1 hover:border-primary transition-all cursor-pointer group">
+                <Cpu className="w-10 h-10 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="font-heading font-bold text-on-surface text-base">SS Fabrication</h3>
               </div>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Verified Location Banner */}
-      <section className="bg-surface-container-high py-12 border-y border-outline-variant/30">
+      {/* Verified Single Location Banner */}
+      <section className="bg-primary text-white py-12">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-[#F97316] text-white flex items-center justify-center shrink-0">
               <MapPin className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="font-title-md font-bold text-primary">{COMPANY_DETAILS.name}</h3>
-              <p className="text-on-surface-variant text-sm">{COMPANY_DETAILS.positioningText}</p>
+              <h3 className="font-heading text-xl font-bold text-white">{COMPANY_DETAILS.name}</h3>
+              <p className="text-white/80 text-sm mt-0.5">{COMPANY_DETAILS.positioningText}</p>
             </div>
           </div>
           <Link href="/locations/thrissur">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white gap-2 font-semibold shrink-0">
-              Visit Thrissur HQ Page <ArrowRight className="w-4 h-4" />
+            <Button className="bg-white text-primary hover:bg-slate-100 font-bold gap-2 shrink-0 h-11 px-6">
+              View Thrissur Headquarters <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-section-padding bg-surface-container-low">
-        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div className="mb-16">
-            <h2 className="font-headline-xl text-headline-xl text-primary mb-4">Why Choose BCare</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-              Uncompromising quality and end-to-end service for the most demanding culinary environments.
+      {/* Engineering Pillars */}
+      <section className="py-16 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+        <div className="max-w-container-max mx-auto">
+          <div className="mb-12">
+            <h2 className="font-heading text-3xl font-extrabold text-primary mb-3">Precision Engineering Standard</h2>
+            <p className="font-body-lg text-on-surface-variant max-w-2xl">
+              Heavy-duty durability, food grade 304 stainless steel fabrication, and seamless local service support.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-ambient border border-outline-variant/30">
-              <div className="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-6">
-                <Ruler className="w-6 h-6" />
+            <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+              <div className="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4">
+                <Ruler className="w-5 h-5" />
               </div>
-              <h3 className="font-title-md text-title-md text-on-surface mb-2">Kitchen Solutions</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">Customized layout planning for optimal workflow and spatial efficiency.</p>
+              <h3 className="font-heading font-bold text-on-surface text-lg mb-2">Layout Planning</h3>
+              <p className="font-body-md text-on-surface-variant text-sm">Optimal workflow ergonomics designed for high-volume commercial kitchens.</p>
             </div>
 
-            <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-ambient border border-outline-variant/30">
-              <div className="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-6">
-                <Wrench className="w-6 h-6" />
+            <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+              <div className="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4">
+                <Wrench className="w-5 h-5" />
               </div>
-              <h3 className="font-title-md text-title-md text-on-surface mb-2">Expert Engineers</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">Highly trained technicians ensuring precision installation and maintenance.</p>
+              <h3 className="font-heading font-bold text-on-surface text-lg mb-2">Expert Fabrication</h3>
+              <p className="font-body-md text-on-surface-variant text-sm">Custom stainless steel fabrication engineered to exact technical specs.</p>
             </div>
 
-            <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-ambient border border-outline-variant/30">
-              <div className="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-6">
-                <Award className="w-6 h-6" />
+            <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+              <div className="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4">
+                <Award className="w-5 h-5" />
               </div>
-              <h3 className="font-title-md text-title-md text-on-surface mb-2">Quality Manufacturing</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">Using highest grade stainless steel 304 for durability and hygiene compliance.</p>
+              <h3 className="font-heading font-bold text-on-surface text-lg mb-2">Food Grade SS 304</h3>
+              <p className="font-body-md text-on-surface-variant text-sm">Hygienic, corrosion-resistant steel construction for commercial food safety.</p>
             </div>
 
-            <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-ambient border border-outline-variant/30">
-              <div className="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-6">
-                <Headset className="w-6 h-6" />
+            <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+              <div className="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4">
+                <Headset className="w-5 h-5" />
               </div>
-              <h3 className="font-title-md text-title-md text-on-surface mb-2">Dedicated Support</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">Rapid local technical service across Kerala to minimize equipment downtime.</p>
+              <h3 className="font-heading font-bold text-on-surface text-lg mb-2">Dedicated Service</h3>
+              <p className="font-body-md text-on-surface-variant text-sm">Prompt local technician support across Kerala to minimize operational downtime.</p>
             </div>
           </div>
         </div>

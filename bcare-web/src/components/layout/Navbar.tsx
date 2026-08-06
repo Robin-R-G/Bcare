@@ -1,54 +1,96 @@
 'use client';
 
 import Link from 'next/link';
-import { Globe, Menu, Sparkles, Scale } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu, Sparkles, Scale, MessageCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCompare } from '@/context/CompareContext';
+import { COMPANY_DETAILS } from '@/lib/constants/company';
 
 export function Navbar() {
+  const pathname = usePathname();
   const { compareProducts } = useCompare();
 
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Products', href: '/products' },
+    { name: 'Solution Builder', href: '/kitchen-solution-builder', isHighlight: true },
+    { name: 'Services', href: '/services' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Blogs', href: '/blogs' },
+    { name: 'Thrissur HQ', href: '/locations/thrissur' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
   return (
-    <header className="bg-surface dark:bg-surface font-label-sm text-label-sm sticky top-0 border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none z-50">
-      <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto hidden md:flex">
-        <Link href="/" className="font-title-md text-title-md font-bold text-primary dark:text-primary-fixed-dim">
-          BCare Bakery & Kitchen Equipments
+    <header className="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 sticky top-0 left-0 w-full z-50 transition-all duration-200">
+      <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+        {/* Brand Logo */}
+        <Link href="/" className="font-heading font-extrabold text-xl md:text-2xl text-primary tracking-tight">
+          BCare Bakery & Kitchen
         </Link>
-        <nav className="flex items-center gap-6">
-          <Link className="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="/products">Products</Link>
-          <Link className="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-1 font-semibold text-primary" href="/kitchen-solution-builder">
-            <Sparkles className="w-3.5 h-3.5" /> Solution Builder
-          </Link>
-          <Link className="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="/services">Services</Link>
-          <Link className="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="/projects">Projects</Link>
-          <Link className="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="/blogs">Blog</Link>
-          <Link className="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="/contact">Contact</Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-6">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`font-label-md text-xs uppercase tracking-wider transition-all duration-200 ${
+                  isActive
+                    ? 'text-primary font-bold border-b-2 border-primary pb-1'
+                    : link.isHighlight
+                    ? 'text-[#F97316] font-bold flex items-center gap-1'
+                    : 'text-secondary hover:text-primary'
+                }`}
+              >
+                {link.isHighlight && <Sparkles className="w-3.5 h-3.5" />}
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
-        <div className="flex items-center gap-4">
-          <Link href="/compare" className="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors flex items-center gap-1">
+
+        {/* Action Controls */}
+        <div className="hidden sm:flex items-center gap-3">
+          <Link href="/compare" className="relative p-2 rounded-lg text-secondary hover:bg-surface-container transition-colors" title="Compare Products">
             <Scale className="w-5 h-5 text-primary" />
             {compareProducts.length > 0 && (
-              <span className="bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+              <span className="absolute -top-1 -right-1 bg-[#F97316] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">
                 {compareProducts.length}
               </span>
             )}
           </Link>
+
+          <a href={`https://wa.me/${COMPANY_DETAILS.whatsapp}`} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" className="border-outline text-on-surface hover:bg-surface-container font-label-md text-xs px-4 h-9">
+              <MessageCircle className="w-3.5 h-3.5 mr-1.5 text-emerald-600" /> WhatsApp
+            </Button>
+          </a>
+
           <Link href="/contact">
-            <Button className="bg-[#F97316] text-white hover:bg-orange-600 font-label-sm px-6">
+            <Button className="bg-primary hover:bg-primary-container text-white font-label-md text-xs px-4 h-9 shadow-sm">
               Request Quote
             </Button>
           </Link>
         </div>
-      </div>
-      
-      {/* Mobile Header */}
-      <div className="flex justify-between items-center w-full px-margin-mobile py-4 md:hidden">
-        <Link href="/" className="font-title-md text-title-md font-bold text-primary">
-          BCare Equipments
-        </Link>
-        <button className="text-primary">
-          <Menu className="w-6 h-6" />
-        </button>
+
+        {/* Mobile Header Trigger */}
+        <div className="flex lg:hidden items-center gap-3">
+          <Link href="/compare" className="relative p-2 text-primary">
+            <Scale className="w-5 h-5" />
+            {compareProducts.length > 0 && (
+              <span className="absolute top-0 right-0 bg-[#F97316] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                {compareProducts.length}
+              </span>
+            )}
+          </Link>
+          <button className="text-primary p-2">
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
       </div>
     </header>
   );

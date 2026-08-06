@@ -1,6 +1,19 @@
 import { createClient } from './server';
 import { Product, Project, BlogPost, Category } from '@/types';
 
+type ProductRow = {
+  id: string;
+  category_id: string;
+  name: string;
+  slug: string;
+  short_description: string | null;
+  description: string | null;
+  featured_image: string | null;
+  product_categories: { name: string; slug: string } | null;
+  product_images?: { image_url: string; alt_text?: string; display_order: number }[];
+  product_specifications?: { specification_name: string; specification_value: string }[];
+};
+
 // ==========================================
 // PRODUCTS & CATEGORIES
 // ==========================================
@@ -42,8 +55,8 @@ export async function getProducts(categoryId?: string): Promise<Product[]> {
   const { data, error } = await query.order('created_at', { ascending: false });
   if (error || !data) return [];
   
-  return data.map((p: any) => {
-    const images = p.product_images?.sort((a: any, b: any) => a.display_order - b.display_order).map((img: any) => img.image_url) || [];
+  return (data as unknown as ProductRow[]).map((p) => {
+    const images = p.product_images?.sort((a, b) => a.display_order - b.display_order).map((img) => img.image_url) || [];
     
     return {
       id: p.id,
@@ -53,7 +66,7 @@ export async function getProducts(categoryId?: string): Promise<Product[]> {
       categoryName: p.product_categories?.name || '',
       shortDescription: p.short_description || '',
       description: p.description || '',
-      images: [p.featured_image, ...images].filter(Boolean),
+      images: [p.featured_image, ...images].filter((url): url is string => Boolean(url)),
       specifications: {},
       applications: [],
       features: [],
@@ -78,25 +91,27 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     .single();
     
   if (error || !data) return null;
+
+  const p = data as unknown as ProductRow;
   
-  const images = data.product_images?.sort((a: any, b: any) => a.display_order - b.display_order).map((img: any) => img.image_url) || [];
+  const images = p.product_images?.sort((a, b) => a.display_order - b.display_order).map((img) => img.image_url) || [];
   
   const specs: Record<string, string> = {};
-  if (data.product_specifications) {
-    data.product_specifications.forEach((spec: any) => {
+  if (p.product_specifications) {
+    p.product_specifications.forEach((spec) => {
       specs[spec.specification_name] = spec.specification_value;
     });
   }
   
   return {
-    id: data.id,
-    name: data.name,
-    slug: data.slug,
-    categoryId: data.category_id,
-    categoryName: data.product_categories?.name || '',
-    shortDescription: data.short_description || '',
-    description: data.description || '',
-    images: [data.featured_image, ...images].filter(Boolean),
+    id: p.id,
+    name: p.name,
+    slug: p.slug,
+    categoryId: p.category_id,
+    categoryName: p.product_categories?.name || '',
+    shortDescription: p.short_description || '',
+    description: p.description || '',
+    images: [p.featured_image, ...images].filter((url): url is string => Boolean(url)),
     specifications: specs,
     applications: [],
     features: [],
@@ -146,7 +161,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     
   if (error || !data) return null;
   
-  const images = data.project_images?.map((img: any) => img.image_url) || [];
+  const images = data.project_images?.map((img: { image_url: string }) => img.image_url) || [];
   
   return {
     id: data.id,
@@ -158,7 +173,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     completionDate: data.completion_year?.toString() || '',
     equipmentSupplied: [],
     description: data.description || '',
-    images: [data.featured_image, ...images].filter(Boolean)
+    images: [data.featured_image, ...images].filter((url): url is string => Boolean(url))
   };
 }
 
@@ -184,7 +199,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
     title: b.title,
     slug: b.slug,
     category: b.category || '',
-    author: (b.profiles as any)?.full_name || 'BCare Team',
+    author: (b.profiles as unknown as { full_name: string } | null)?.full_name || 'BCare Team',
     date: b.published_at || b.created_at,
     content: b.content || '',
     coverImage: b.cover_image || '',

@@ -17,7 +17,7 @@ export default function ComparePage() {
           </div>
           <h1 className="font-display-md text-2xl font-bold text-primary mb-2">No Products Selected</h1>
           <p className="text-on-surface-variant text-sm mb-6">
-            Explore our product catalog and click "Compare" on equipment items to compare specifications side-by-side.
+            Explore our product catalog and click &quot;Compare&quot; on equipment items to compare specifications side-by-side.
           </p>
           <Link href="/products">
             <Button className="bg-primary text-white hover:bg-primary-container">Browse Catalog</Button>

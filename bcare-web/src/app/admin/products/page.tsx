@@ -82,7 +82,7 @@ export default async function AdminProductsPage() {
 
         {products.length === 0 && (
           <div className="p-12 text-center text-on-surface-variant">
-            No products found in database. Click "Add New Product" to create one.
+            No products found in database. Click &quot;Add New Product&quot; to create one.
           </div>
         )}
       </div>

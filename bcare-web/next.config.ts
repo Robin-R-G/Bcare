@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  basePath: "/Bcare", // Required for GitHub Pages with a repo named 'Bcare'
+  // Enables static export for GitHub Pages when explicitly building
+  ...(process.env.NODE_ENV === 'production' ? { output: "export" } : {}),
+  basePath: "/Bcare",
   images: {
     unoptimized: true,
   },

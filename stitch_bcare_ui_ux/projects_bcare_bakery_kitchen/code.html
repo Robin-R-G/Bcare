@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects - BCare Bakery &amp; Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#3d4756",
+                        "on-secondary-container": "#596373",
+                        "tertiary-fixed-dim": "#b9c8de",
+                        "inverse-surface": "#303032",
+                        "surface-dim": "#dbd9db",
+                        "on-primary-container": "#7587a0",
+                        "on-surface": "#1b1c1d",
+                        "surface": "#fbf9fb",
+                        "secondary-container": "#d6e0f3",
+                        "tertiary": "#00050e",
+                        "inverse-primary": "#b5c8e3",
+                        "surface-variant": "#e4e2e4",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#39485a",
+                        "surface-container": "#efedef",
+                        "secondary-fixed": "#d9e3f6",
+                        "surface-tint": "#4e6077",
+                        "on-primary-fixed": "#081d30",
+                        "surface-container-high": "#e9e7e9",
+                        "outline": "#74777d",
+                        "primary": "#00050e",
+                        "tertiary-container": "#101f2f",
+                        "on-surface-variant": "#44474c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#121c2a",
+                        "on-primary-fixed-variant": "#36485e",
+                        "primary-container": "#0b1f33",
+                        "secondary": "#555f6f",
+                        "tertiary-fixed": "#d4e4fa",
+                        "primary-fixed": "#d1e4ff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bdc7d9",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "background": "#fbf9fb",
+                        "on-background": "#1b1c1d",
+                        "inverse-on-surface": "#f2f0f2",
+                        "surface-container-low": "#f5f3f5",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#78879b",
+                        "primary-fixed-dim": "#b5c8e3",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-bright": "#fbf9fb",
+                        "on-tertiary-fixed": "#0d1c2d",
+                        "outline-variant": "#c4c6cd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "stack-xl": "64px",
+                        "stack-sm": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen pt-20">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto bg-surface/90 backdrop-blur-md border-b border-outline/30">
+<div class="font-display-lg text-display-lg font-extrabold text-primary tracking-tighter hidden md:block">BCare Bakery &amp; Kitchen</div>
+<div class="font-display-lg-mobile text-display-lg-mobile font-extrabold text-primary tracking-tighter md:hidden">BCare</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:bg-surface-variant/50 px-2 py-1 rounded" href="#">Home</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:bg-surface-variant/50 px-2 py-1 rounded" href="#">About</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:bg-surface-variant/50 px-2 py-1 rounded" href="#">Products</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:bg-surface-variant/50 px-2 py-1 rounded" href="#">Solutions</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md scale-95 transition-transform duration-150" href="#">Projects</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:bg-surface-variant/50 px-2 py-1 rounded" href="#">Gallery</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:bg-surface-variant/50 px-2 py-1 rounded" href="#">Blogs</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md hover:bg-surface-variant/50 px-2 py-1 rounded" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4 hidden md:flex">
+<button class="font-label-md text-label-md px-4 py-2 bg-primary-container text-on-tertiary rounded font-bold hover:bg-opacity-90 transition-all">Request Quote</button>
+<button class="font-label-md text-label-md px-4 py-2 border border-outline text-primary rounded hover:bg-surface-variant/50 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                WhatsApp
+            </button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl space-y-stack-xl">
+<!-- Header Section -->
+<section class="text-center space-y-stack-md max-w-3xl mx-auto">
+<h1 class="font-display-lg text-display-lg md:font-display-lg md:text-display-lg text-primary">Industrial Precision, Installed.</h1>
+<p class="font-body-lg text-body-lg text-secondary">A curated portfolio of high-performance commercial kitchens engineered for elite culinary teams across hotels, restaurants, and institutions.</p>
+</section>
+<!-- Filters -->
+<section class="flex flex-wrap justify-center gap-4 border-b border-outline/30 pb-4">
+<button class="px-6 py-2 bg-primary-container text-on-tertiary font-label-md text-label-md rounded shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-all">All Projects</button>
+<button class="px-6 py-2 border border-[#94A3B8]/30 bg-surface text-secondary hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-all font-label-md text-label-md rounded">Hotels &amp; Resorts</button>
+<button class="px-6 py-2 border border-[#94A3B8]/30 bg-surface text-secondary hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-all font-label-md text-label-md rounded">Restaurants</button>
+<button class="px-6 py-2 border border-[#94A3B8]/30 bg-surface text-secondary hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-all font-label-md text-label-md rounded">Hospitals</button>
+</section>
+<!-- Featured Projects (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Feature -->
+<div class="md:col-span-8 group relative bg-surface border border-[#94A3B8]/30 rounded-lg overflow-hidden hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-all duration-300 h-[600px] flex flex-col">
+<div class="h-3/4 w-full relative overflow-hidden bg-[#F8FAFC]">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="A massive, gleaming commercial kitchen in a luxury hotel. High-end stainless steel ranges, massive extraction hoods, and pristine prep islands are visible. The lighting is bright, clean, and cool-toned, emphasizing the sterile and professional environment of a top-tier culinary facility. The aesthetic is strictly modern and industrial, focusing on durability and precision engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwFXS0t2aXSZrvsQ-Wvf4FumJDA4bMQFkyylx95WV5QxN25uiun1Mjn2_QQRkxQsWkV0HpEaK_hOKcP7-Pq70_VmcXMjIshZk38-ReXPvAw4hysigIINjgCGZBpb9Nu4nUvaFa1qclL-tRdfRVlX4XnNluVfuY_DV05BtoeoMpECUHFWFsYCwpiew4B8FGMoA2TJjJxM9OQdL8xBVucSuT_GvMQ5wklyLtxZYdmNOFNVZpUt8m_SnYdg"/>
+<div class="absolute top-4 left-4 bg-[#94A3B8] text-primary-container font-label-sm text-label-sm px-3 py-1 rounded-sm uppercase tracking-wider">Hotel</div>
+</div>
+<div class="p-6 h-1/4 flex flex-col justify-between bg-surface z-10">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-2">The Grand Continental Main Galley</h3>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span> Dubai, UAE
+                        </div>
+</div>
+<div class="flex gap-2 mt-4">
+<span class="text-xs bg-surface-container px-2 py-1 rounded text-secondary border border-outline/20">Heavy Duty Ranges</span>
+<span class="text-xs bg-surface-container px-2 py-1 rounded text-secondary border border-outline/20">Custom Fabrication</span>
+<span class="text-xs bg-surface-container px-2 py-1 rounded text-secondary border border-outline/20">Ventilation</span>
+</div>
+</div>
+</div>
+<!-- Two Smaller Features -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="group relative bg-surface border border-[#94A3B8]/30 rounded-lg overflow-hidden hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-all duration-300 h-[288px] flex flex-col">
+<div class="h-1/2 w-full relative overflow-hidden bg-[#F8FAFC]">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="A modern, high-volume bakery production line. Industrial spiral mixers, large deck ovens, and stainless steel cooling racks dominate the space. The setting is a bright, sanitary food production facility with high ceilings. The mood is industrial and efficient, showcasing robust equipment designed for continuous operation in a professional setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMoYDHGtiBjfoZ_0RzYoFDNR28W-rK-Om6QHtX9Pya3dQ8Tm1URcKMJL2f2olBn1VRpQIFVEsxa0X68QSzdfL06jLEvcxYtOObhYbCtSqh7FMOlV41osRKnVlTGYAFMuYtkHpVVw71vgIZjh4gFtAFh64_Cz-Yoah2DFOOeIC-GrMQjgT8cONHIwS5qAtWiAXnuabUkJHmQxx3HdtLAhpemSyQf4VZyYnc047AgSg4MZDxxs4NObdIFA"/>
+<div class="absolute top-4 left-4 bg-[#94A3B8] text-primary-container font-label-sm text-label-sm px-3 py-1 rounded-sm uppercase tracking-wider">Restaurant</div>
+</div>
+<div class="p-4 h-1/2 flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary line-clamp-1">Artisan Bread Co. Facility</h4>
+<div class="flex items-center gap-1 text-secondary font-body-sm text-body-sm mt-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> London, UK
+                            </div>
+</div>
+</div>
+</div>
+<div class="group relative bg-surface border border-[#94A3B8]/30 rounded-lg overflow-hidden hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-all duration-300 h-[288px] flex flex-col">
+<div class="h-1/2 w-full relative overflow-hidden bg-[#F8FAFC]">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="A strictly sanitary hospital kitchen environment. Focus on specialized dietary prep stations, high-capacity combi ovens, and seamless stainless steel wall cladding. The lighting is very bright and clinical. The overall aesthetic communicates absolute hygiene, safety, and precision necessary for healthcare food service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgyHg5F07LM6-Je3MUmofX2n2k3zwaYr9EeW4Us8c3MJzx4cCv7U9axKNhaJ22KI2y6R8SWfMdbONS2JQTTCLpTeh1zD6EyqcRfsGtxXlZNDMmOt7kzheWGNBFJeR9GNwdjfDbXBWZ0ahqUJZAlQSHmWqpC22f15gklqtRolgf01aS_GDA74Bz62L5wYTD9Ib7VPxT9aUKlc7IHGKwmcq71GSYKNBK8A7F6cLH_5zleB2tM6jln6MWdg"/>
+<div class="absolute top-4 left-4 bg-[#94A3B8] text-primary-container font-label-sm text-label-sm px-3 py-1 rounded-sm uppercase tracking-wider">Hospital</div>
+</div>
+<div class="p-4 h-1/2 flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary line-clamp-1">Mercy General Dietary Wing</h4>
+<div class="flex items-center gap-1 text-secondary font-body-sm text-body-sm mt-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> New York, USA
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary w-full py-stack-xl px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto border-t border-on-primary-fixed-variant/30 mt-stack-xl">
+<div class="col-span-1 md:col-span-4 mb-stack-md">
+<div class="font-headline-lg text-headline-lg font-black text-on-primary">BCare Bakery &amp; Kitchen</div>
+</div>
+<div class="md:col-span-2 font-body-sm text-body-sm text-outline-variant">
+            © 2024 BCare Bakery &amp; Kitchen Equipments. All rights reserved. Precision Engineered for Professionals.
+        </div>
+<div class="md:col-span-2 flex flex-wrap gap-4 md:justify-end">
+<a class="text-outline-variant hover:text-on-primary transition-colors duration-200 font-label-sm text-label-sm focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Privacy Policy</a>
+<a class="text-outline-variant hover:text-on-primary transition-colors duration-200 font-label-sm text-label-sm focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Terms of Service</a>
+<a class="text-outline-variant hover:text-on-primary transition-colors duration-200 font-label-sm text-label-sm focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Shipping Info</a>
+<a class="text-outline-variant hover:text-on-primary transition-colors duration-200 font-label-sm text-label-sm focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Warranty</a>
+<a class="text-outline-variant hover:text-on-primary transition-colors duration-200 font-label-sm text-label-sm focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Service Centers</a>
+</div>
+</footer>
+</body></html>

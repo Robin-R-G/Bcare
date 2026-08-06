@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BCare Bakery &amp; Kitchen - Product Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#3d4756",
+                        "on-secondary-container": "#596373",
+                        "tertiary-fixed-dim": "#b9c8de",
+                        "inverse-surface": "#303032",
+                        "surface-dim": "#dbd9db",
+                        "on-primary-container": "#7587a0",
+                        "on-surface": "#1b1c1d",
+                        "surface": "#fbf9fb",
+                        "secondary-container": "#d6e0f3",
+                        "tertiary": "#00050e",
+                        "inverse-primary": "#b5c8e3",
+                        "surface-variant": "#e4e2e4",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#39485a",
+                        "surface-container": "#efedef",
+                        "secondary-fixed": "#d9e3f6",
+                        "surface-tint": "#4e6077",
+                        "on-primary-fixed": "#081d30",
+                        "surface-container-high": "#e9e7e9",
+                        "outline": "#74777d",
+                        "primary": "#00050e",
+                        "tertiary-container": "#101f2f",
+                        "on-surface-variant": "#44474c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#121c2a",
+                        "on-primary-fixed-variant": "#36485e",
+                        "primary-container": "#0b1f33",
+                        "secondary": "#555f6f",
+                        "tertiary-fixed": "#d4e4fa",
+                        "primary-fixed": "#d1e4ff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bdc7d9",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "background": "#fbf9fb",
+                        "on-background": "#1b1c1d",
+                        "inverse-on-surface": "#f2f0f2",
+                        "surface-container-low": "#f5f3f5",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#78879b",
+                        "primary-fixed-dim": "#b5c8e3",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-bright": "#fbf9fb",
+                        "on-tertiary-fixed": "#0d1c2d",
+                        "outline-variant": "#c4c6cd",
+                        // Brand Specific Overrides based on style guide
+                        "brand-orange": "#F97316",
+                        "brand-navy": "#0B1F33",
+                        "brand-charcoal": "#1F2937",
+                        "brand-grey": "#94A3B8",
+                        "brand-bg-studio": "#F8FAFC"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "stack-xl": "64px",
+                        "stack-sm": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .shadow-level-2 {
+            box-shadow: 0px 10px 20px rgba(11, 31, 51, 0.05);
+        }
+        
+        .studio-image-container {
+            background-color: theme('colors.brand-bg-studio');
+        }
+        
+        /* Hide scrollbar for gallery thumbnails */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white flex flex-col min-h-screen">
+<!-- Top Navigation Area -->
+<header class="bg-surface/90 backdrop-blur-md fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto border-b border-outline/30">
+<div class="flex items-center gap-gutter">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-extrabold text-primary tracking-tighter shrink-0" href="#">BCare Bakery &amp; Kitchen</a>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">Home</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">About</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Products</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">Solutions</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">Projects</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">Gallery</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">Blogs</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">Contact</a>
+</nav>
+</div>
+<div class="hidden md:flex items-center gap-4 shrink-0">
+<button class="bg-brand-navy text-white font-label-md text-label-md px-6 py-2.5 rounded hover:shadow-level-2 transition-all">WhatsApp</button>
+<button class="bg-brand-orange text-white font-bold font-label-md text-label-md px-6 py-2.5 rounded hover:shadow-level-2 transition-all">Request Quote</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 mb-stack-md text-secondary font-label-sm text-label-sm uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Products</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Ovens</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary">ProBake Rotary Rack Oven V-900</span>
+</div>
+<!-- Product Hero Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-stack-xl items-start">
+<!-- Left: Image Gallery (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<!-- Main Image -->
+<div class="studio-image-container border border-brand-grey/30 rounded p-6 h-[500px] flex items-center justify-center relative group overflow-hidden">
+<!-- Badge -->
+<div class="absolute top-4 left-4 bg-brand-grey/20 text-brand-navy font-label-sm text-label-sm px-3 py-1 rounded-sm z-10 flex items-center gap-1 border border-brand-grey/30 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span> Premium Series
+                    </div>
+<img alt="ProBake Rotary Rack Oven V-900 Main View" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed, professional studio shot of a massive, stainless steel rotary rack oven. The oven dominates the frame, gleaming under sharp, white lighting that highlights its precision engineering and robust construction. The background is a clean, minimalist seamless white backdrop. The style is strictly industrial, modern, and built-to-last." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFIaXlFNlxHmfnyW_LUcIQCgcL83hdxYtjlPK413vKQlMmsHDos2-3GvBqrc75N2uxDmszCHWvHYDJbUWqCfXs8CjZ2KjFtOQJRfAkhCMDwqR3RyUBnx6Nlga7nVzWRUK1S_2_78Cgfqd8YWROmzRZ2sm8FpQqQKhZ1NiAMATec_5tySovf6-6AvrRnRQH0SvrNkiR4nvIcyc9rmGdPCVFTqY4MimNZsYet7yd0WFGmzClciga0EoWPA"/>
+<!-- Zoom Hint -->
+<button class="absolute bottom-4 right-4 bg-white/80 p-2 rounded-full text-secondary hover:text-primary transition-colors shadow-sm opacity-0 group-hover:opacity-100 backdrop-blur-sm">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+</div>
+<!-- Thumbnails -->
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<button class="studio-image-container border-2 border-brand-orange rounded w-24 h-24 shrink-0 p-2 flex items-center justify-center">
+<img alt="Thumbnail 1" class="w-full h-full object-contain mix-blend-multiply" data-alt="A detailed close-up studio shot focusing on the digital control panel of a stainless steel industrial oven. The buttons and screen are clearly visible, indicating precision and modern technology. White minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfPi29wDhf3Ssh7jfeC9_eeJhizOTCo2OKibaL3qML7xCHPZdUX2HGySaxov2DU7rPu3uvd0g07-DvLuAH5fTz99LuB6NDHV9tdZK6IrAy0oHjnEEBJ1MVYCPNIQSZs1Sx_nFafSV4c8XcCz8FYzMctmIyNX4tQfa1EQsL1VZ9fZ-pob9bEQICIHJ3yw4dn0G8L0P8H_eMIinrEGZ-CfjKjj1DMr4hINiina_4ts964xT6mri9C1V7fQ"/>
+</button>
+<button class="studio-image-container border border-brand-grey/30 hover:border-primary transition-colors rounded w-24 h-24 shrink-0 p-2 flex items-center justify-center">
+<img alt="Thumbnail 2" class="w-full h-full object-contain mix-blend-multiply" data-alt="A studio shot showing the interior of a large stainless steel rotary rack oven. The racks are visible, demonstrating high capacity. The lighting emphasizes the clean, sterile environment. White background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgQML_twEV4JH1X1mQPbFqzTtjNKyQ2pDsMLPxn4Slr1YSgY7JjDl6kcZlKHkToWB_IfithDDsvOt92ZdJgm-n1atzRjNTfLSYJNrHOtVw4N2aJep8INXNRcCdLX3Pig_5GZEuO2HflF5dta6uY4Qc74l1SPYMlhCHc5qrwkX13ztZwTIitb8cJCPK2sHBYsFHiPYDHYWxzAEYpou0E15ZAtkZPuBNp1oP8mv5nTKFYtEhSOArorc7wg"/>
+</button>
+<button class="studio-image-container border border-brand-grey/30 hover:border-primary transition-colors rounded w-24 h-24 shrink-0 p-2 flex items-center justify-center">
+<img alt="Thumbnail 3" class="w-full h-full object-contain mix-blend-multiply" data-alt="A studio shot of the heavy-duty door hinge and handle of a stainless steel industrial oven. The focus is on the robust build quality and thick insulation. Clean, white lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrx77sPEcg5QBjk-D-WjfDBZvAqx1Yp4Xd3lE1n1HFw8TxhoItBHZfuZARH2nx2PToWCtCBrRl9MAdacovCWvQoeQd34caxq4ICxMJ6NIcVOSQpbGArGWfKdrx_Twjw-uRlpQ80bdWeX6rMFPWYV8UsxmLknY6BfmFpKCF2pyY51ir6omKx1tz_qKGfAF7Zuaic58A-WezleRGiXUqkd0nC8fOibbxKGP_CWuPhlCnS-qlEookF4g15Q"/>
+</button>
+<button class="studio-image-container border border-brand-grey/30 hover:border-primary transition-colors rounded w-24 h-24 shrink-0 p-2 flex items-center justify-center">
+<img alt="Thumbnail 4" class="w-full h-full object-contain mix-blend-multiply" data-alt="A technical line drawing or schematic representation of an industrial rotary rack oven, showing dimensions and airflow patterns in blue and white colors, maintaining a professional engineering aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBry5fWp1PVkvPGhwcM79S-2bo59LtTePVxfRL0t_NG6se02r3MMci6BZtQmeKYvPdnkDVa8dtc6N5msNmiiQ5o1kI8pJ2pu50TL48GBnAJrMrNavw0TxPuMYKRMYbW2LCN10P0o4PHXRi6pOSGen_GXh8TPhIlYdzfTMsvhDGVIAVVVVAJ77kmqypkCAjrIAwHa4T5-iw1_uzln314DfTTpCzqtTfXlJ8gCJOXQO0Oart8Q6e5MFjBxA"/>
+</button>
+</div>
+</div>
+<!-- Right: Details (5 cols) -->
+<div class="lg:col-span-5 flex flex-col pt-4">
+<!-- Title & Status -->
+<div class="mb-6">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-brand-orange bg-brand-orange/10 font-label-sm text-label-sm px-2 py-0.5 rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span> In Stock
+                        </span>
+<span class="text-secondary font-body-sm text-body-sm">SKU: PB-V900-SS</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-4">ProBake Rotary Rack Oven V-900</h1>
+<p class="font-body-lg text-body-lg text-secondary border-l-2 border-brand-grey/30 pl-4">
+                        High-capacity, precision-engineered rotary oven designed for continuous production in demanding industrial bakeries. Features advanced heat distribution for perfectly even baking.
+                    </p>
+</div>
+<!-- Quick Specs Highlight -->
+<div class="grid grid-cols-2 gap-4 mb-8 bg-surface-container-low p-4 rounded border border-brand-grey/20">
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase">Capacity</p>
+<p class="font-headline-md text-headline-md text-primary">18 Trays <span class="font-body-sm text-body-sm text-secondary font-normal">(60x40cm)</span></p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase">Power</p>
+<p class="font-headline-md text-headline-md text-primary">45 kW <span class="font-body-sm text-body-sm text-secondary font-normal">(Electric)</span></p>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-col gap-3 mb-8 pb-8 border-b border-brand-grey/30">
+<button class="w-full bg-brand-orange text-white font-bold font-label-md text-label-md py-4 rounded hover:shadow-level-2 transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">request_quote</span>
+                        Request Quote
+                    </button>
+<button class="w-full bg-brand-navy text-white font-label-md text-label-md py-4 rounded hover:shadow-level-2 transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">chat</span>
+                        WhatsApp Enquiry
+                    </button>
+<button class="w-full border border-brand-charcoal text-brand-charcoal font-label-md text-label-md py-3 rounded hover:bg-surface-variant/50 transition-all flex justify-center items-center gap-2 mt-2">
+<span class="material-symbols-outlined">download</span>
+                        Download Brochure (PDF)
+                    </button>
+</div>
+<!-- Secure / Trust Badges -->
+<div class="flex items-center gap-6 text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+<span class="font-label-sm text-label-sm">3-Year Warranty</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">engineering</span>
+<span class="font-label-sm text-label-sm">Free Installation</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Information Tabs Section -->
+<div class="mt-stack-xl mb-stack-xl border-t border-brand-grey/30 pt-stack-lg">
+<!-- Tab Headers -->
+<div class="flex overflow-x-auto no-scrollbar border-b border-brand-grey/30 mb-8">
+<button class="px-6 py-4 font-label-md text-label-md text-primary font-bold border-b-2 border-primary whitespace-nowrap">Overview</button>
+<button class="px-6 py-4 font-label-md text-label-md text-secondary hover:text-primary transition-colors whitespace-nowrap">Specifications</button>
+<button class="px-6 py-4 font-label-md text-label-md text-secondary hover:text-primary transition-colors whitespace-nowrap">Applications</button>
+<button class="px-6 py-4 font-label-md text-label-md text-secondary hover:text-primary transition-colors whitespace-nowrap">Features</button>
+<button class="px-6 py-4 font-label-md text-label-md text-secondary hover:text-primary transition-colors whitespace-nowrap">Downloads</button>
+</div>
+<!-- Tab Content (Overview & Specs Demo) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Content Area -->
+<div class="lg:col-span-8">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">Precision Baking for High Volume</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">
+                        The ProBake V-900 represents the pinnacle of rotary rack oven engineering. Built with heavy-gauge AISI 304 stainless steel, it guarantees durability in the most demanding environments. Its innovative "AeroFlow" heat exchanger system ensures 100% uniform air distribution across all rack levels, resulting in consistent product quality from top to bottom.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded border border-brand-grey/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-orange mt-1">thermostat</span>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Smart Temp Control</h4>
+<p class="font-body-sm text-body-sm text-secondary">PLC based PID controller for extremely accurate temperature management.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded border border-brand-grey/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-orange mt-1">water_drop</span>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Cascade Steam System</h4>
+<p class="font-body-sm text-body-sm text-secondary">High-volume steam generation for perfect crust formation on artisan breads.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Specs Table -->
+<div class="lg:col-span-4">
+<div class="bg-white border border-brand-grey/30 rounded p-6 shadow-level-2">
+<h4 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">manufacturing</span> Tech Specs
+                        </h4>
+<div class="flex flex-col border-t border-brand-grey/30">
+<div class="flex justify-between py-3 border-b border-brand-grey/30">
+<span class="font-label-sm text-label-sm text-secondary uppercase w-1/2">Dimensions (WxDxH)</span>
+<span class="font-body-sm text-body-sm text-primary w-1/2 text-right">1450 x 2150 x 2300 mm</span>
+</div>
+<div class="flex justify-between py-3 border-b border-brand-grey/30">
+<span class="font-label-sm text-label-sm text-secondary uppercase w-1/2">Weight</span>
+<span class="font-body-sm text-body-sm text-primary w-1/2 text-right">1850 kg</span>
+</div>
+<div class="flex justify-between py-3 border-b border-brand-grey/30">
+<span class="font-label-sm text-label-sm text-secondary uppercase w-1/2">Max Temp</span>
+<span class="font-body-sm text-body-sm text-primary w-1/2 text-right">300°C</span>
+</div>
+<div class="flex justify-between py-3 border-b border-brand-grey/30">
+<span class="font-label-sm text-label-sm text-secondary uppercase w-1/2">Energy Source</span>
+<span class="font-body-sm text-body-sm text-primary w-1/2 text-right">Electric / Gas / Diesel</span>
+</div>
+<div class="flex justify-between py-3 border-b border-brand-grey/30">
+<span class="font-label-sm text-label-sm text-secondary uppercase w-1/2">Tray Size</span>
+<span class="font-body-sm text-body-sm text-primary w-1/2 text-right">600 x 400 mm</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto border-t border-on-primary-fixed-variant/30 bg-primary dark:bg-tertiary mt-auto">
+<div class="md:col-span-1 flex flex-col gap-4">
+<span class="font-headline-lg text-headline-lg font-black text-on-primary">BCare</span>
+<p class="font-body-sm text-body-sm text-on-primary">© 2024 BCare Bakery &amp; Kitchen Equipments. All rights reserved. Precision Engineered for Professionals.</p>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-sm text-label-sm text-on-primary uppercase mb-2 tracking-widest">Legal</span>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary transition-colors hover:text-primary-fixed focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary transition-colors hover:text-primary-fixed focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-sm text-label-sm text-on-primary uppercase mb-2 tracking-widest">Support</span>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary transition-colors hover:text-primary-fixed focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Shipping Info</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary transition-colors hover:text-primary-fixed focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Warranty</a>
+<a class="font-body-sm text-body-sm text-outline-variant hover:text-on-primary transition-colors hover:text-primary-fixed focus:outline-none focus:ring-2 focus:ring-primary-fixed" href="#">Service Centers</a>
+</div>
+</footer>
+</body></html>

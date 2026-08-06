@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard - BCare Bakery &amp; Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#3d4756",
+                      "on-secondary-container": "#596373",
+                      "tertiary-fixed-dim": "#b9c8de",
+                      "inverse-surface": "#303032",
+                      "surface-dim": "#dbd9db",
+                      "on-primary-container": "#7587a0",
+                      "on-surface": "#1b1c1d",
+                      "surface": "#fbf9fb",
+                      "secondary-container": "#d6e0f3",
+                      "tertiary": "#00050e",
+                      "inverse-primary": "#b5c8e3",
+                      "surface-variant": "#e4e2e4",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#39485a",
+                      "surface-container": "#efedef",
+                      "secondary-fixed": "#d9e3f6",
+                      "surface-tint": "#4e6077",
+                      "on-primary-fixed": "#081d30",
+                      "surface-container-high": "#e9e7e9",
+                      "outline": "#74777d",
+                      "primary": "#00050e",
+                      "tertiary-container": "#101f2f",
+                      "on-surface-variant": "#44474c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed": "#121c2a",
+                      "on-primary-fixed-variant": "#36485e",
+                      "primary-container": "#0b1f33",
+                      "secondary": "#555f6f",
+                      "tertiary-fixed": "#d4e4fa",
+                      "primary-fixed": "#d1e4ff",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#bdc7d9",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "background": "#fbf9fb",
+                      "on-background": "#1b1c1d",
+                      "inverse-on-surface": "#f2f0f2",
+                      "surface-container-low": "#f5f3f5",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#78879b",
+                      "primary-fixed-dim": "#b5c8e3",
+                      "surface-container-highest": "#e4e2e4",
+                      "surface-bright": "#fbf9fb",
+                      "on-tertiary-fixed": "#0d1c2d",
+                      "outline-variant": "#c4c6cd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "stack-lg": "32px",
+                      "gutter": "24px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "stack-md": "16px",
+                      "stack-xl": "64px",
+                      "stack-sm": "8px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-xl": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-xl": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased flex h-screen overflow-hidden font-body-md text-body-md">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col py-6 bg-primary-container text-on-primary-fixed font-label-md text-label-md shadow-md border-r border-outline-variant/20 w-64 z-40">
+<div class="px-6 mb-8">
+<h2 class="font-headline-md text-headline-md font-bold text-on-primary-fixed">Admin Console</h2>
+<p class="font-body-sm text-body-sm text-on-primary-fixed-variant mt-1">BCare Industrial Ops</p>
+</div>
+<nav class="flex-1 flex flex-col gap-unit overflow-y-auto px-2">
+<!-- Active Tab -->
+<a class="bg-secondary-fixed text-on-secondary-fixed rounded-lg mx-2 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="text-on-primary-fixed-variant hover:bg-surface-variant/20 mx-2 px-4 py-3 flex items-center gap-3 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="text-on-primary-fixed-variant hover:bg-surface-variant/20 mx-2 px-4 py-3 flex items-center gap-3 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Orders</span>
+</a>
+<a class="text-on-primary-fixed-variant hover:bg-surface-variant/20 mx-2 px-4 py-3 flex items-center gap-3 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="text-on-primary-fixed-variant hover:bg-surface-variant/20 mx-2 px-4 py-3 flex items-center gap-3 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>User Management</span>
+</a>
+<a class="text-on-primary-fixed-variant hover:bg-surface-variant/20 mx-2 px-4 py-3 flex items-center gap-3 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-[#0B1F33] text-white font-label-md text-label-md py-3 rounded hover:bg-opacity-90 transition-all">
+                Export Report
+            </button>
+</div>
+<div class="mt-6 border-t border-outline-variant/20 pt-4 flex flex-col gap-unit px-2">
+<a class="text-on-primary-fixed-variant hover:bg-surface-variant/20 mx-2 px-4 py-3 flex items-center gap-3 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="text-on-primary-fixed-variant hover:bg-surface-variant/20 mx-2 px-4 py-3 flex items-center gap-3 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col h-full bg-surface-container-low overflow-y-auto">
+<!-- Header -->
+<header class="h-20 bg-surface border-b border-outline/30 px-margin-desktop flex items-center justify-between shrink-0 sticky top-0 z-30">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface">Dashboard Overview</h1>
+<div class="flex items-center gap-gutter">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 border border-[#94A3B8] rounded bg-white focus:border-[#0B1F33] focus:ring-2 focus:ring-[#0B1F33]/10 outline-none font-body-sm text-body-sm w-64 transition-all" placeholder="Search..." type="text"/>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant/30 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A close-up, highly detailed portrait of a professional corporate administrator in a modern office setting. The lighting is bright and clean, typical of a high-end corporate headshot, with a minimalist background. The individual appears focused and professional, fitting an industrial or tech company profile. Colors are muted with a focus on stainless steel neutrals and navy blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz6ahzDKo5fj7c8IcBuinHVk_Swjb7DP-gVdncM7ITv0OHvpxJpBAvyfMYjNeQ5nvFSD_XLo9MtqE2P1F_lP3DdWLPXiZsr3OTU14iMMLwDZFq9qIHr7EVH4-sJ1jnQEBZOgFZxrEHjHYLUX-bZ19cCfMhCe_ZOeYHs1hQuCDLQGSmu--IW3VUr9jM35sGKfLVfvvTfIHayO4GjfebUZoTvBVjZX-yUC0K6dFlTBLU8eHH2epto9fNIA"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-margin-desktop flex flex-col gap-stack-lg max-w-container-max mx-auto w-full">
+<!-- Key Metrics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Metric Card 1 -->
+<div class="bg-white border border-[#94A3B8]/30 rounded-lg p-6 hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Total Leads</p>
+<h3 class="font-display-lg text-display-lg text-on-surface mt-1">1,284</h3>
+</div>
+<div class="p-2 bg-secondary-container rounded text-primary-container">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-sm">
+<span class="text-green-600 font-medium flex items-center"><span class="material-symbols-outlined text-[16px]">arrow_upward</span> 12%</span>
+<span class="text-outline">vs last month</span>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-white border border-[#94A3B8]/30 rounded-lg p-6 hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Active Products</p>
+<h3 class="font-display-lg text-display-lg text-on-surface mt-1">342</h3>
+</div>
+<div class="p-2 bg-secondary-container rounded text-primary-container">
+<span class="material-symbols-outlined">kitchen</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-sm">
+<span class="text-green-600 font-medium flex items-center"><span class="material-symbols-outlined text-[16px]">arrow_upward</span> 4%</span>
+<span class="text-outline">vs last month</span>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-white border border-[#94A3B8]/30 rounded-lg p-6 hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Ongoing Projects</p>
+<h3 class="font-display-lg text-display-lg text-on-surface mt-1">56</h3>
+</div>
+<div class="p-2 bg-secondary-container rounded text-primary-container">
+<span class="material-symbols-outlined">engineering</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-sm">
+<span class="text-red-600 font-medium flex items-center"><span class="material-symbols-outlined text-[16px]">arrow_downward</span> 2%</span>
+<span class="text-outline">vs last month</span>
+</div>
+</div>
+</section>
+<!-- Main Data Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Chart Area (Spans 2 columns) -->
+<div class="lg:col-span-2 bg-white border border-[#94A3B8]/30 rounded-lg p-6 hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-shadow flex flex-col h-96">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Monthly Enquiry Trends</h3>
+<select class="border border-[#94A3B8] rounded bg-white text-body-sm px-3 py-1 outline-none focus:border-[#0B1F33]">
+<option>Last 6 Months</option>
+<option>This Year</option>
+</select>
+</div>
+<div class="flex-1 bg-surface-variant/20 rounded border border-outline-variant/10 relative overflow-hidden flex items-end justify-between px-4 pb-4">
+<!-- Abstract Bar Chart Representation -->
+<div class="w-1/12 bg-[#0B1F33] h-[30%] rounded-t opacity-80"></div>
+<div class="w-1/12 bg-[#0B1F33] h-[45%] rounded-t opacity-80"></div>
+<div class="w-1/12 bg-[#0B1F33] h-[60%] rounded-t opacity-80"></div>
+<div class="w-1/12 bg-[#0B1F33] h-[40%] rounded-t opacity-80"></div>
+<div class="w-1/12 bg-[#0B1F33] h-[75%] rounded-t opacity-80"></div>
+<div class="w-1/12 bg-[#F97316] h-[90%] rounded-t"></div>
+</div>
+</div>
+<!-- Recent Activity / Leads -->
+<div class="bg-white border border-[#94A3B8]/30 rounded-lg p-6 hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] transition-shadow overflow-hidden flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Recent Leads</h3>
+<div class="flex-1 overflow-y-auto pr-2 flex flex-col gap-4">
+<!-- Lead Item -->
+<div class="flex justify-between items-center p-3 hover:bg-surface-variant/30 rounded transition-colors border border-transparent hover:border-outline-variant/20 cursor-pointer">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Nova Industrial Kitchens</p>
+<p class="font-body-sm text-body-sm text-secondary">Looking for bulk ovens...</p>
+</div>
+<span class="px-2 py-1 bg-[#F97316]/10 text-[#F97316] font-label-sm text-label-sm rounded uppercase">Hot</span>
+</div>
+<!-- Lead Item -->
+<div class="flex justify-between items-center p-3 hover:bg-surface-variant/30 rounded transition-colors border border-transparent hover:border-outline-variant/20 cursor-pointer">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Apex Bakery Chains</p>
+<p class="font-body-sm text-body-sm text-secondary">Mixer quote requested</p>
+</div>
+<span class="px-2 py-1 bg-surface-dim text-[#0B1F33] font-label-sm text-label-sm rounded uppercase">Warm</span>
+</div>
+<!-- Lead Item -->
+<div class="flex justify-between items-center p-3 hover:bg-surface-variant/30 rounded transition-colors border border-transparent hover:border-outline-variant/20 cursor-pointer">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Culinary Institute West</p>
+<p class="font-body-sm text-body-sm text-secondary">Full setup inquiry</p>
+</div>
+<span class="px-2 py-1 bg-[#F97316]/10 text-[#F97316] font-label-sm text-label-sm rounded uppercase">Hot</span>
+</div>
+</div>
+<button class="mt-4 w-full text-center font-label-md text-label-md text-[#0B1F33] hover:underline">View All Leads</button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

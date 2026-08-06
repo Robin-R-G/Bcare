@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
-  // Enables static export for GitHub Pages when explicitly building
-  ...(process.env.NODE_ENV === 'production' ? { output: "export" } : {}),
-  basePath: "/Bcare",
+  output: "export",
+  // Only set basePath in production build for GitHub Pages repo 'Bcare'
+  basePath: isProd ? "/Bcare" : "",
   images: {
     unoptimized: true,
   },

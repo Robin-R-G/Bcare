@@ -25,7 +25,7 @@ export function ProductsClient({ initialProducts, categories }: ProductsClientPr
   }, [initialProducts, activeCategories]);
 
   const toggleCategory = (id: string) => {
-    setActiveCategories(prev => 
+    setActiveCategories(prev =>
       prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
     );
   };
@@ -39,21 +39,21 @@ export function ProductsClient({ initialProducts, categories }: ProductsClientPr
   return (
     <div className="flex flex-col gap-6">
       {/* Active Filters + Result count bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-lg border border-outline-variant/30">
         <div className="flex items-center gap-3 flex-wrap">
-          {activeCategoryNames.length > 0 && (
-            <>
-              <span className="text-sm font-medium text-on-surface-variant">Active Filters:</span>
-              {activeCategoryNames.map(cat => (
-                <button
-                  key={cat.id}
-                  onClick={() => removeFilter(cat.id)}
-                  className="inline-flex items-center gap-1.5 text-sm bg-surface-container-low border border-outline-variant/40 px-3 py-1.5 rounded-md text-on-surface font-medium hover:border-on-surface transition-colors"
-                >
-                  {cat.name} <X className="w-3.5 h-3.5 text-on-surface-variant" />
-                </button>
-              ))}
-            </>
+          <span className="text-sm font-medium text-on-surface-variant">Active Filters:</span>
+          {activeCategoryNames.length > 0 ? (
+            activeCategoryNames.map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => removeFilter(cat.id)}
+                className="inline-flex items-center gap-1.5 text-sm bg-surface-container-low border border-outline-variant/40 px-3 py-1.5 rounded-md text-on-surface font-medium hover:border-on-surface transition-colors"
+              >
+                {cat.name} <X className="w-3.5 h-3.5 text-on-surface-variant" />
+              </button>
+            ))
+          ) : (
+            <span className="text-sm text-on-surface-variant">No filters applied</span>
           )}
         </div>
         <span className="text-sm text-on-surface-variant">
@@ -65,7 +65,6 @@ export function ProductsClient({ initialProducts, categories }: ProductsClientPr
         {/* Sidebar Filters */}
         <aside className="w-full md:w-56 shrink-0">
           <div className="bg-white p-5 rounded-lg border border-outline-variant/30">
-            {/* Filter heading */}
             <h3 className="font-heading font-bold text-lg text-on-surface mb-5 pb-3 border-b border-outline-variant/30">Filters</h3>
 
             {/* Category checkboxes */}
@@ -107,7 +106,7 @@ export function ProductsClient({ initialProducts, categories }: ProductsClientPr
           </div>
         </aside>
 
-        {/* Main product grid — 2 columns as per stitch reference */}
+        {/* Main product grid */}
         <div className="flex-1 flex flex-col gap-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {filteredProducts.map((product, index) => (

@@ -84,14 +84,14 @@ export default function ProjectsPage() {
           {filteredProjects.map((project) => {
             if (project.size === 'large') {
               return (
-                <div 
-                  key={project.id} 
+                <div
+                  key={project.id}
                   className="md:col-span-7 group relative bg-white border border-outline-variant/30 rounded-lg overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col"
                 >
                   <div className="h-[380px] w-full relative overflow-hidden bg-surface-container-low">
-                    <img 
-                      src={project.image} 
-                      alt={project.name} 
+                    <img
+                      src={project.image}
+                      alt={project.name}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4 bg-on-surface/80 text-white font-semibold text-[11px] px-3 py-1 rounded uppercase tracking-wider">
@@ -116,14 +116,14 @@ export default function ProjectsPage() {
             }
 
             return (
-              <div 
-                key={project.id} 
+              <div
+                key={project.id}
                 className="md:col-span-5 group relative bg-white border border-outline-variant/30 rounded-lg overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col"
               >
                 <div className="h-[180px] w-full relative overflow-hidden bg-surface-container-low">
-                  <img 
-                    src={project.image} 
-                    alt={project.name} 
+                  <img
+                    src={project.image}
+                    alt={project.name}
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-3 left-3 bg-on-surface/80 text-white font-semibold text-[11px] px-2.5 py-0.5 rounded uppercase tracking-wider">

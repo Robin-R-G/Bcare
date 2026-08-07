@@ -15,20 +15,17 @@ export function Footer() {
               Professional culinary solutions engineered for excellence. Delivering premium commercial kitchen and bakery equipment across Kerala.
             </p>
             <p className="text-white/30 text-xs">
-              &copy; {new Date().getFullYear()} {COMPANY_DETAILS.legalName}. All rights reserved.
+              &copy; {new Date().getFullYear()} {COMPANY_DETAILS.legalName}. All rights reserved. Precision Engineered for Professionals.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Legal */}
           <div>
-            <h4 className="font-heading font-bold text-xs uppercase tracking-[0.15em] mb-5 text-white/60">Quick Links</h4>
+            <h4 className="font-heading font-bold text-xs uppercase tracking-[0.15em] mb-5 text-white/60">Legal</h4>
             <ul className="space-y-3">
               {[
-                { name: 'Products', href: '/products' },
-                { name: 'Services', href: '/services' },
-                { name: 'Projects', href: '/projects' },
-                { name: 'About', href: '/about' },
-                { name: 'Contact', href: '/contact' },
+                { name: 'Privacy Policy', href: '/privacy' },
+                { name: 'Terms of Service', href: '/terms' },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-white/50 hover:text-white text-sm transition-colors duration-200">
@@ -44,12 +41,9 @@ export function Footer() {
             <h4 className="font-heading font-bold text-xs uppercase tracking-[0.15em] mb-5 text-white/60">Support</h4>
             <ul className="space-y-3">
               {[
-                { name: 'FAQs', href: '/faqs' },
-                { name: 'Warranty', href: '/warranty' },
                 { name: 'Shipping Info', href: '/shipping' },
+                { name: 'Warranty', href: '/warranty' },
                 { name: 'Service Centers', href: '/service-centers' },
-                { name: 'Privacy Policy', href: '/privacy' },
-                { name: 'Terms of Service', href: '/terms' },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-white/50 hover:text-white text-sm transition-colors duration-200">

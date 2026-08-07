@@ -37,7 +37,7 @@ export default function HomePage() {
       <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2000&auto=format&fit=crop')` }}
+          style={{ backgroundImage: `url('/products/europya-3-deck-9-tray-automatic-gas-oven/main.webp')` }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b1f33]/95 via-[#0b1f33]/70 to-transparent"></div>
 

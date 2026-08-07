@@ -23,6 +23,20 @@ export default function BlogsPage() {
 
       {/* Blogs List */}
       <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-12">
+        {blogs.length === 0 && (
+          <div className="max-w-2xl mx-auto text-center bg-white border border-outline-variant/30 rounded-xl p-10">
+            <h2 className="font-heading text-2xl font-bold text-primary mb-3">Articles coming soon</h2>
+            <p className="text-on-surface-variant mb-8 leading-relaxed">
+              We are preparing technical guides on selecting and maintaining bakery equipment. In the
+              meantime, our team is happy to advise you directly.
+            </p>
+            <Link href="/contact">
+              <Button className="font-bold">
+                Talk to Our Team <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog, index) => (
             <motion.div

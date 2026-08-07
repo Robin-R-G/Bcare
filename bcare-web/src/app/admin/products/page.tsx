@@ -13,6 +13,15 @@ export default async function AdminProductsPage() {
     // Fallback to mock data
   }
 
+  const formatPrice = (price?: number) => {
+    if (!price) return '—';
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
   return (
     <div className="space-y-6">
       {/* Top Header */}
@@ -36,7 +45,8 @@ export default async function AdminProductsPage() {
               <tr>
                 <th className="px-6 py-4">Product</th>
                 <th className="px-6 py-4">Category</th>
-                <th className="px-6 py-4">Status</th>
+                <th className="px-6 py-4">Price</th>
+                <th className="px-6 py-4">Availability</th>
                 <th className="px-6 py-4 text-right">Actions</th>
               </tr>
             </thead>
@@ -52,7 +62,7 @@ export default async function AdminProductsPage() {
                       />
                       <div>
                         <p className="font-semibold text-on-surface line-clamp-1">{product.name}</p>
-                        <p className="text-xs text-on-surface-variant">Slug: {product.slug}</p>
+                        <p className="text-xs text-on-surface-variant">SKU: {product.sku}</p>
                       </div>
                     </div>
                   </td>
@@ -62,8 +72,21 @@ export default async function AdminProductsPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="bg-emerald-500/10 text-emerald-600 px-2.5 py-1 rounded-full text-xs font-semibold">
-                      Published
+                    {product.priceOnRequest ? (
+                      <span className="text-xs font-semibold text-orange-600">Price on Request</span>
+                    ) : (
+                      <span className="text-sm font-semibold text-on-surface">{formatPrice(product.price)}</span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4">
+                    <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
+                      product.availability === 'In Stock'
+                        ? 'bg-emerald-500/10 text-emerald-600'
+                        : product.availability === 'Made to Order'
+                        ? 'bg-amber-500/10 text-amber-600'
+                        : 'bg-blue-500/10 text-blue-600'
+                    }`}>
+                      {product.availability}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right">

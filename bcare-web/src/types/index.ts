@@ -12,6 +12,11 @@ export type Product = {
   slug: string;
   categoryId: string;
   categoryName: string;
+  sku: string;
+  badge?: string;
+  price?: number;
+  priceOnRequest: boolean;
+  availability: 'In Stock' | 'Made to Order' | 'Contact for Availability';
   shortDescription: string;
   description: string;
   images: string[];
@@ -35,7 +40,7 @@ export type Project = {
   completionDate: string;
   equipmentSupplied: string[];
   description: string;
-  images: string[]; // First image is cover
+  images: string[];
   beforeImages?: string[];
   afterImages?: string[];
   testimonial?: {
@@ -52,7 +57,7 @@ export type BlogPost = {
   category: string;
   author: string;
   date: string;
-  content: string; // HTML or Markdown
+  content: string;
   coverImage: string;
   excerpt: string;
   tags: string[];

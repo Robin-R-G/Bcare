@@ -6,6 +6,11 @@ type ProductRow = {
   category_id: string;
   name: string;
   slug: string;
+  sku: string;
+  badge: string | null;
+  price: number | null;
+  price_on_request: boolean;
+  availability: string;
   short_description: string | null;
   description: string | null;
   featured_image: string | null;
@@ -62,6 +67,11 @@ export async function getProducts(categoryId?: string): Promise<Product[]> {
       id: p.id,
       name: p.name,
       slug: p.slug,
+      sku: p.sku || '',
+      badge: p.badge || undefined,
+      price: p.price || undefined,
+      priceOnRequest: p.price_on_request ?? true,
+      availability: (p.availability as Product['availability']) || 'Contact for Availability',
       categoryId: p.category_id,
       categoryName: p.product_categories?.name || '',
       shortDescription: p.short_description || '',
@@ -107,6 +117,11 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     id: p.id,
     name: p.name,
     slug: p.slug,
+    sku: p.sku || '',
+    badge: p.badge || undefined,
+    price: p.price || undefined,
+    priceOnRequest: p.price_on_request ?? true,
+    availability: (p.availability as Product['availability']) || 'Contact for Availability',
     categoryId: p.category_id,
     categoryName: p.product_categories?.name || '',
     shortDescription: p.short_description || '',

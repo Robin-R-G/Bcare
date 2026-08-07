@@ -2,7 +2,7 @@
 
 import { useB2B } from '@/context/B2BContext';
 import { Button } from '@/components/ui/button';
-import { X, Check, AlertCircle, ShoppingBag, ArrowRight } from 'lucide-react';
+import { X, Check, AlertCircle, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import { ProductImageWithFallback } from '@/components/ui/ProductImageWithFallback';
 

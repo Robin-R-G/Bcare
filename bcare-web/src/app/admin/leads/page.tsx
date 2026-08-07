@@ -1,105 +1,136 @@
-import { createClient } from '@/lib/supabase/server';
-import { Mail, Phone, MapPin, Building, PhoneCall } from 'lucide-react';
+'use client';
 
-export default async function AdminLeadsPage() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let leads: any[] = [];
-  try {
-    const supabase = await createClient();
-    const { data } = await supabase
-      .from('leads')
-      .select('*')
-      .order('created_at', { ascending: false });
-    leads = data || [];
-  } catch {
-    // Fallback: no leads when Supabase is unavailable
-  }
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Trash2, MessageCircle, Phone, Mail, StickyNote, ChevronDown, ChevronUp } from 'lucide-react';
+import { getAdminLeads, updateLeadStatus, addLeadNote, deleteLead } from '@/lib/supabase/admin-mutations';
+
+type Lead = {
+  id: string; name: string; email?: string; phone?: string; company?: string;
+  message?: string; source?: string; status?: string; notes?: string; created_at?: string;
+};
+
+const STATUS_COLORS: Record<string, string> = {
+  new: 'bg-blue-50 text-blue-700 border-blue-200',
+  contacted: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+  qualified: 'bg-purple-50 text-purple-700 border-purple-200',
+  proposal_sent: 'bg-orange-50 text-orange-700 border-orange-200',
+  closed_won: 'bg-green-50 text-green-700 border-green-200',
+  closed_lost: 'bg-red-50 text-red-700 border-red-200',
+};
+
+export default function AdminLeadsPage() {
+  const [leads, setLeads] = useState<Lead[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [noteText, setNoteText] = useState('');
+
+  const load = async () => { setLoading(true); try { setLeads(await getAdminLeads()); } catch {} setLoading(false); };
+  useEffect(() => { load(); }, []);
+
+  const handleStatus = async (id: string, status: string) => {
+    try { await updateLeadStatus(id, status); setLeads(prev => prev.map(l => l.id === id ? { ...l, status } : l)); } catch {}
+  };
+
+  const handleNote = async (id: string) => {
+    if (!noteText.trim()) return;
+    try { await addLeadNote(id, noteText); setLeads(prev => prev.map(l => l.id === id ? { ...l, notes: noteText } : l)); setNoteText(''); } catch {}
+  };
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('Delete this lead?')) return;
+    try { await deleteLead(id); setLeads(prev => prev.filter(l => l.id !== id)); } catch {}
+  };
+
+  const formatDate = (d?: string) => d ? new Date(d).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—';
 
   return (
     <div className="space-y-6">
-      {/* Top Header */}
       <div>
-        <h1 className="font-display-md text-2xl font-bold text-primary">Customer Lead CRM</h1>
-        <p className="text-on-surface-variant text-sm mt-1">Manage incoming quote requests, consultations, and sales workflow.</p>
+        <h1 className="text-2xl font-bold text-[#0B1F33]">Lead CRM</h1>
+        <p className="text-[#44474c] text-sm mt-1">Manage customer inquiries and track pipeline status.</p>
       </div>
 
-      {/* Leads Table */}
-      <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-ambient overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant uppercase text-[10px] tracking-wider font-semibold">
-              <tr>
-                <th className="px-6 py-4">Customer</th>
-                <th className="px-6 py-4">Contact Info</th>
-                <th className="px-6 py-4">Business & Location</th>
-                <th className="px-6 py-4">Status</th>
-                <th className="px-6 py-4">Date</th>
-                <th className="px-6 py-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant/20">
-              {leads && leads.length > 0 ? (
-                leads.map((lead) => (
-                  <tr key={lead.id} className="hover:bg-surface-container-low/50 transition-colors">
-                    <td className="px-6 py-4">
-                      <div>
-                        <p className="font-semibold text-on-surface">{lead.name}</p>
-                        <p className="text-xs text-on-surface-variant flex items-center gap-1 mt-0.5">
-                          <Building className="w-3 h-3" /> {lead.company || 'Individual / Startup'}
-                        </p>
+      {loading ? <div className="text-center py-20 text-[#94A3B8]">Loading...</div> : leads.length === 0 ? (
+        <div className="text-center py-20 bg-white rounded-xl border border-[#94A3B8]/30"><p className="text-[#44474c]">No leads yet.</p></div>
+      ) : (
+        <div className="space-y-3">
+          {leads.map(lead => (
+            <div key={lead.id} className="bg-white rounded-xl border border-[#94A3B8]/30 overflow-hidden">
+              <div className="p-4 flex items-center justify-between cursor-pointer hover:bg-[#F8FAFC]" onClick={() => setExpandedId(expandedId === lead.id ? null : lead.id)}>
+                <div className="flex items-center gap-4 flex-1 min-w-0">
+                  <div className="w-10 h-10 bg-[#0B1F33]/10 text-[#0B1F33] rounded-full flex items-center justify-center font-bold text-sm shrink-0">
+                    {lead.name?.charAt(0)?.toUpperCase() || '?'}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-[#0B1F33] truncate">{lead.name}</p>
+                    <p className="text-xs text-[#94A3B8]">{lead.email || lead.phone || 'No contact'} · {formatDate(lead.created_at)}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <select
+                    value={lead.status || 'new'}
+                    onChange={e => { e.stopPropagation(); handleStatus(lead.id, e.target.value); }}
+                    className={`text-xs font-semibold px-2 py-1 rounded-full border ${STATUS_COLORS[lead.status || 'new'] || STATUS_COLORS.new}`}
+                    onClick={e => e.stopPropagation()}
+                  >
+                    <option value="new">New</option>
+                    <option value="contacted">Contacted</option>
+                    <option value="qualified">Qualified</option>
+                    <option value="proposal_sent">Proposal Sent</option>
+                    <option value="closed_won">Closed Won</option>
+                    <option value="closed_lost">Closed Lost</option>
+                  </select>
+                  {expandedId === lead.id ? <ChevronUp className="w-4 h-4 text-[#94A3B8]" /> : <ChevronDown className="w-4 h-4 text-[#94A3B8]" />}
+                </div>
+              </div>
+
+              {expandedId === lead.id && (
+                <div className="border-t border-[#94A3B8]/20 p-4 space-y-4 bg-[#F8FAFC]">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+                    {lead.phone && (
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-4 h-4 text-[#F97316]" />
+                        <a href={`tel:${lead.phone}`} className="text-[#0B1F33] hover:underline">{lead.phone}</a>
                       </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="space-y-1 text-xs text-on-surface-variant">
-                        <p className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-primary" /> {lead.phone || 'N/A'}</p>
-                        <p className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-primary" /> {lead.email || 'N/A'}</p>
+                    )}
+                    {lead.email && (
+                      <div className="flex items-center gap-2">
+                        <Mail className="w-4 h-4 text-[#F97316]" />
+                        <a href={`mailto:${lead.email}`} className="text-[#0B1F33] hover:underline">{lead.email}</a>
                       </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="space-y-1 text-xs">
-                        <span className="bg-surface-container text-on-surface-variant px-2.5 py-0.5 rounded-full font-medium inline-block">
-                          {lead.business_type || 'General Kitchen'}
-                        </span>
-                        <p className="flex items-center gap-1 text-on-surface-variant text-[11px]">
-                          <MapPin className="w-3 h-3" /> {lead.location || 'Kerala'}
-                        </p>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className="bg-blue-500/10 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-                        {lead.status}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-xs text-on-surface-variant">
-                      {new Date(lead.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        {lead.phone && (
-                          <a
-                            href={`https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 text-xs font-medium flex items-center gap-1"
-                          >
-                            <PhoneCall className="w-3.5 h-3.5" /> WhatsApp
-                          </a>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={6} className="p-12 text-center text-on-surface-variant">
-                    No CRM leads recorded yet. Customer submissions from website forms will appear here in real time.
-                  </td>
-                </tr>
+                    )}
+                    {lead.phone && (
+                      <a href={`https://wa.me/${lead.phone.replace(/\D/g, '').replace(/^91/, '91')}`} target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" variant="outline" className="h-7 text-green-600 border-green-200 hover:bg-green-50"><MessageCircle className="w-3 h-3 mr-1" /> WhatsApp</Button>
+                      </a>
+                    )}
+                  </div>
+                  {lead.company && <p className="text-sm"><span className="font-semibold">Company:</span> {lead.company}</p>}
+                  {lead.message && <p className="text-sm"><span className="font-semibold">Message:</span> {lead.message}</p>}
+                  {lead.source && <p className="text-xs text-[#94A3B8]">Source: {lead.source}</p>}
+
+                  {/* Notes */}
+                  <div className="space-y-2">
+                    <Label className="text-xs font-semibold flex items-center gap-1"><StickyNote className="w-3 h-3" /> Notes</Label>
+                    {lead.notes && <p className="text-sm bg-white p-2 rounded border border-[#94A3B8]/20">{lead.notes}</p>}
+                    <div className="flex gap-2">
+                      <Textarea value={noteText} onChange={e => setNoteText(e.target.value)} placeholder="Add a note..." rows={1} className="flex-1 text-sm" />
+                      <Button size="sm" variant="outline" onClick={() => handleNote(lead.id)} disabled={!noteText.trim()}>Save</Button>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-end">
+                    <Button size="sm" variant="outline" className="text-red-600 hover:bg-red-50" onClick={() => handleDelete(lead.id)}><Trash2 className="w-3 h-3 mr-1" /> Delete</Button>
+                  </div>
+                </div>
               )}
-            </tbody>
-          </table>
+            </div>
+          ))}
         </div>
-      </div>
+      )}
     </div>
   );
 }

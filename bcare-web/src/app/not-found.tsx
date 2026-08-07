@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { PackageSearch, Home, ArrowLeft, Search, Phone, MessageCircle } from 'lucide-react';
+import { PackageSearch, Home, Search, Phone, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 import { useB2B } from '@/context/B2BContext';

@@ -1,5 +1,12 @@
 import { createClient } from './server';
-import { Product, Project, BlogPost, Category } from '@/types';
+import { Product, Project, BlogPost, Category, GoogleReview } from '@/types';
+import {
+  categories as mockCategories,
+  products as mockProducts,
+  projects as mockProjects,
+  blogs as mockBlogs,
+  googleReviews as mockReviews,
+} from '@/lib/data/mock';
 
 type ProductRow = {
   id: string;
@@ -19,177 +26,231 @@ type ProductRow = {
   product_specifications?: { specification_name: string; specification_value: string }[];
 };
 
+export interface Lead {
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  company?: string;
+  product_name?: string;
+  source: string;
+  message?: string;
+  status: 'New' | 'Contacted' | 'Quoted' | 'Closed';
+  created_at: string;
+}
+
+export interface VideoItem {
+  id: string;
+  title: string;
+  youtube_url: string;
+  thumbnail_url?: string;
+  category?: string;
+  description?: string;
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  album: string;
+  image_url: string;
+  caption?: string;
+}
+
 // ==========================================
-// PRODUCTS & CATEGORIES
+// CATEGORIES & PRODUCTS
 // ==========================================
 
 export async function getCategories(): Promise<Category[]> {
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from('product_categories')
-    .select('*')
-    .eq('is_active', true)
-    .order('name');
-    
-  if (error || !data) return [];
-  
-  return data.map(c => ({
-    id: c.id,
-    name: c.name,
-    slug: c.slug,
-    description: c.description || '',
-    image: c.image_url || ''
-  }));
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('product_categories')
+      .select('*')
+      .eq('is_active', true)
+      .order('name');
+
+    if (!error && data && data.length > 0) {
+      return data.map((c) => ({
+        id: c.id,
+        name: c.name,
+        slug: c.slug,
+        description: c.description || '',
+        image: c.image_url || '',
+      }));
+    }
+  } catch {
+    // Fallback to seed mock data
+  }
+  return mockCategories;
 }
 
 export async function getProducts(categoryId?: string): Promise<Product[]> {
-  const supabase = await createClient();
-  let query = supabase
-    .from('products')
-    .select(`
-      *,
-      product_categories (name, slug),
-      product_images (image_url, display_order)
-    `)
-    .eq('status', 'published');
-    
-  if (categoryId) {
-    query = query.eq('category_id', categoryId);
+  try {
+    const supabase = await createClient();
+    let query = supabase
+      .from('products')
+      .select(`
+        *,
+        product_categories (name, slug),
+        product_images (image_url, display_order)
+      `)
+      .eq('status', 'published');
+
+    if (categoryId) {
+      query = query.eq('category_id', categoryId);
+    }
+
+    const { data, error } = await query.order('created_at', { ascending: false });
+
+    if (!error && data && data.length > 0) {
+      return (data as unknown as ProductRow[]).map((p) => {
+        const images = p.product_images?.sort((a, b) => a.display_order - b.display_order).map((img) => img.image_url) || [];
+        return {
+          id: p.id,
+          name: p.name,
+          slug: p.slug,
+          sku: p.sku || '',
+          badge: p.badge || undefined,
+          price: p.price || undefined,
+          priceOnRequest: p.price_on_request ?? true,
+          availability: (p.availability as Product['availability']) || 'In Stock',
+          categoryId: p.category_id,
+          categoryName: p.product_categories?.name || '',
+          shortDescription: p.short_description || '',
+          description: p.description || '',
+          images: [p.featured_image, ...images].filter((url): url is string => Boolean(url)),
+          specifications: {},
+          applications: [],
+          features: [],
+          benefits: [],
+        };
+      });
+    }
+  } catch {
+    // Fallback to seed mock data
   }
-  
-  const { data, error } = await query.order('created_at', { ascending: false });
-  if (error || !data) return [];
-  
-  return (data as unknown as ProductRow[]).map((p) => {
-    const images = p.product_images?.sort((a, b) => a.display_order - b.display_order).map((img) => img.image_url) || [];
-    
-    return {
-      id: p.id,
-      name: p.name,
-      slug: p.slug,
-      sku: p.sku || '',
-      badge: p.badge || undefined,
-      price: p.price || undefined,
-      priceOnRequest: p.price_on_request ?? true,
-      availability: (p.availability as Product['availability']) || 'Contact for Availability',
-      categoryId: p.category_id,
-      categoryName: p.product_categories?.name || '',
-      shortDescription: p.short_description || '',
-      description: p.description || '',
-      images: [p.featured_image, ...images].filter((url): url is string => Boolean(url)),
-      specifications: {},
-      applications: [],
-      features: [],
-      benefits: []
-    };
-  });
+
+  if (categoryId) {
+    return mockProducts.filter((p) => p.categoryId === categoryId);
+  }
+  return mockProducts;
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from('products')
-    .select(`
-      *,
-      product_categories (name, slug),
-      product_images (image_url, alt_text, display_order),
-      product_specifications (specification_name, specification_value),
-      product_documents (file_name, file_url, document_type)
-    `)
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-    
-  if (error || !data) return null;
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('products')
+      .select(`
+        *,
+        product_categories (name, slug),
+        product_images (image_url, alt_text, display_order),
+        product_specifications (specification_name, specification_value)
+      `)
+      .eq('slug', slug)
+      .eq('status', 'published')
+      .single();
 
-  const p = data as unknown as ProductRow;
-  
-  const images = p.product_images?.sort((a, b) => a.display_order - b.display_order).map((img) => img.image_url) || [];
-  
-  const specs: Record<string, string> = {};
-  if (p.product_specifications) {
-    p.product_specifications.forEach((spec) => {
-      specs[spec.specification_name] = spec.specification_value;
-    });
+    if (!error && data) {
+      const p = data as unknown as ProductRow;
+      const images = p.product_images?.sort((a, b) => a.display_order - b.display_order).map((img) => img.image_url) || [];
+      const specs: Record<string, string> = {};
+      if (p.product_specifications) {
+        p.product_specifications.forEach((spec) => {
+          specs[spec.specification_name] = spec.specification_value;
+        });
+      }
+
+      return {
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        sku: p.sku || '',
+        badge: p.badge || undefined,
+        price: p.price || undefined,
+        priceOnRequest: p.price_on_request ?? true,
+        availability: (p.availability as Product['availability']) || 'In Stock',
+        categoryId: p.category_id,
+        categoryName: p.product_categories?.name || '',
+        shortDescription: p.short_description || '',
+        description: p.description || '',
+        images: [p.featured_image, ...images].filter((url): url is string => Boolean(url)),
+        specifications: specs,
+        applications: [],
+        features: [],
+        benefits: [],
+      };
+    }
+  } catch {
+    // Fallback
   }
-  
-  return {
-    id: p.id,
-    name: p.name,
-    slug: p.slug,
-    sku: p.sku || '',
-    badge: p.badge || undefined,
-    price: p.price || undefined,
-    priceOnRequest: p.price_on_request ?? true,
-    availability: (p.availability as Product['availability']) || 'Contact for Availability',
-    categoryId: p.category_id,
-    categoryName: p.product_categories?.name || '',
-    shortDescription: p.short_description || '',
-    description: p.description || '',
-    images: [p.featured_image, ...images].filter((url): url is string => Boolean(url)),
-    specifications: specs,
-    applications: [],
-    features: [],
-    benefits: []
-  };
+  return mockProducts.find((p) => p.slug === slug) || null;
 }
 
 // ==========================================
-// PROJECTS
+// PROJECTS & SHOWCASE
 // ==========================================
 
 export async function getProjects(): Promise<Project[]> {
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from('projects')
-    .select('*')
-    .eq('status', 'published')
-    .order('completion_year', { ascending: false });
-    
-  if (error || !data) return [];
-  
-  return data.map(p => ({
-    id: p.id,
-    title: p.title,
-    slug: p.slug,
-    clientName: p.client_name || '',
-    industry: p.industry || '',
-    location: p.location || '',
-    completionDate: p.completion_year?.toString() || '',
-    equipmentSupplied: [],
-    description: p.description || '',
-    images: p.featured_image ? [p.featured_image] : []
-  }));
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('status', 'published')
+      .order('completion_year', { ascending: false });
+
+    if (!error && data && data.length > 0) {
+      return data.map((p) => ({
+        id: p.id,
+        title: p.title,
+        slug: p.slug,
+        clientName: p.client_name || '',
+        industry: p.industry || '',
+        location: p.location || '',
+        completionDate: p.completion_year?.toString() || '',
+        equipmentSupplied: [],
+        description: p.description || '',
+        images: p.featured_image ? [p.featured_image] : [],
+      }));
+    }
+  } catch {
+    // Fallback
+  }
+  return mockProjects;
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from('projects')
-    .select(`
-      *,
-      project_images (image_url, image_type)
-    `)
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
-    
-  if (error || !data) return null;
-  
-  const images = data.project_images?.map((img: { image_url: string }) => img.image_url) || [];
-  
-  return {
-    id: data.id,
-    title: data.title,
-    slug: data.slug,
-    clientName: data.client_name || '',
-    industry: data.industry || '',
-    location: data.location || '',
-    completionDate: data.completion_year?.toString() || '',
-    equipmentSupplied: [],
-    description: data.description || '',
-    images: [data.featured_image, ...images].filter((url): url is string => Boolean(url))
-  };
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('projects')
+      .select(`
+        *,
+        project_images (image_url)
+      `)
+      .eq('slug', slug)
+      .single();
+
+    if (!error && data) {
+      const images = data.project_images?.map((img: { image_url: string }) => img.image_url) || [];
+      return {
+        id: data.id,
+        title: data.title,
+        slug: data.slug,
+        clientName: data.client_name || '',
+        industry: data.industry || '',
+        location: data.location || '',
+        completionDate: data.completion_year?.toString() || '',
+        equipmentSupplied: [],
+        description: data.description || '',
+        images: [data.featured_image, ...images].filter((url): url is string => Boolean(url)),
+      };
+    }
+  } catch {
+    // Fallback
+  }
+  return mockProjects.find((p) => p.slug === slug) || null;
 }
 
 // ==========================================
@@ -197,28 +258,108 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
 // ==========================================
 
 export async function getBlogs(): Promise<BlogPost[]> {
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from('blogs')
-    .select(`
-      *,
-      profiles:author (full_name, avatar_url)
-    `)
-    .eq('status', 'published')
-    .order('published_at', { ascending: false });
-    
-  if (error || !data) return [];
-  
-  return data.map(b => ({
-    id: b.id,
-    title: b.title,
-    slug: b.slug,
-    category: b.category || '',
-    author: (b.profiles as unknown as { full_name: string } | null)?.full_name || 'BCare Team',
-    date: b.published_at || b.created_at,
-    content: b.content || '',
-    coverImage: b.cover_image || '',
-    excerpt: b.excerpt || '',
-    tags: b.tags || []
-  }));
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('blogs')
+      .select('*')
+      .eq('status', 'published')
+      .order('created_at', { ascending: false });
+
+    if (!error && data && data.length > 0) {
+      return data.map((b) => ({
+        id: b.id,
+        title: b.title,
+        slug: b.slug,
+        category: b.category || '',
+        author: b.author || 'BCare Team',
+        date: b.published_at || b.created_at,
+        content: b.content || '',
+        coverImage: b.cover_image || '',
+        excerpt: b.excerpt || '',
+        tags: b.tags || [],
+      }));
+    }
+  } catch {
+    // Fallback
+  }
+  return mockBlogs;
+}
+
+// ==========================================
+// REVIEWS & TESTIMONIALS
+// ==========================================
+
+export async function getGoogleReviews(): Promise<GoogleReview[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('google_reviews')
+      .select('*')
+      .eq('is_approved', true)
+      .order('created_at', { ascending: false });
+
+    if (!error && data && data.length > 0) {
+      return data.map((r) => ({
+        id: r.id,
+        reviewerName: r.customer_name,
+        reviewerPhoto: r.avatar_url || undefined,
+        rating: r.rating,
+        reviewText: r.review_text,
+        reviewDate: r.created_at ? new Date(r.created_at).toLocaleDateString('en-IN') : 'Recent',
+        source: 'google' as const,
+        isFeatured: true,
+        isVisible: true,
+      }));
+    }
+  } catch {
+    // Fallback
+  }
+  return mockReviews;
+}
+
+// ==========================================
+// LEADS & QUOTES (ADMIN)
+// ==========================================
+
+export async function getLeads(): Promise<Lead[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('leads')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (!error && data) {
+      return data as Lead[];
+    }
+  } catch {
+    // Fallback
+  }
+  return [
+    {
+      id: 'lead-1',
+      name: 'John Abraham',
+      phone: '+91 98470 12345',
+      email: 'john@royalbakers.com',
+      company: 'Royal Bakery Thrissur',
+      product_name: 'EUROPYA 30L Planetary Mixer',
+      source: 'WhatsApp Enquiry',
+      message: 'Looking for delivery timelines and commercial invoice for 30L mixer.',
+      status: 'New',
+      created_at: new Date().toISOString(),
+    },
+    {
+      id: 'lead-2',
+      name: 'Anil Kumar',
+      phone: '+91 94471 99887',
+      email: 'anil@hotellotus.in',
+      company: 'Hotel Lotus Kochi',
+      product_name: 'BCARE Spiral Dough Kneader 25kg',
+      source: 'Quote Request',
+      message: 'Need formal quotation for hotel kitchen setup.',
+      status: 'Quoted',
+      created_at: new Date(Date.now() - 86400000).toISOString(),
+    },
+  ];
 }

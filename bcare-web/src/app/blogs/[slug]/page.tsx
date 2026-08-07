@@ -1,19 +1,32 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronRight, Calendar, User, ArrowLeft } from 'lucide-react';
-import { blogs } from '@/lib/data/mock';
+import { blogs as mockBlogs } from '@/lib/data/mock';
+import { getBlogs } from '@/lib/supabase/queries';
 
 export async function generateStaticParams() {
-  return blogs.map((blog) => ({ slug: blog.slug }));
+  return mockBlogs.map((blog) => ({ slug: blog.slug }));
 }
 
-export default function BlogDetailPage({ params }: { params: { slug: string } }) {
-  const blog = blogs.find(b => b.slug === params.slug);
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
+  // Try Supabase first
+  let blog = null;
+  try {
+    const allBlogs = await getBlogs();
+    blog = allBlogs.find(b => b.slug === slug) || null;
+  } catch {}
+
+  // Fallback to mock
+  if (!blog) {
+    blog = mockBlogs.find(b => b.slug === slug) || null;
+  }
+
   if (!blog) notFound();
 
   return (
     <div className="bg-background min-h-screen pb-16">
-      {/* Breadcrumbs */}
       <div className="border-b border-outline-variant/30 py-4 bg-white">
         <div className="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop flex items-center text-xs font-label-sm uppercase tracking-wider text-secondary">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -24,7 +37,6 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
         </div>
       </div>
 
-      {/* Hero */}
       <section className="py-12 px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto">
         <Link href="/blogs" className="inline-flex items-center gap-1.5 text-sm text-on-surface-variant hover:text-primary transition-colors mb-6">
           <ArrowLeft className="w-4 h-4" /> Back to Blogs

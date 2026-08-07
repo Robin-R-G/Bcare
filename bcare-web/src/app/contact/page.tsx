@@ -33,7 +33,7 @@ function ContactForm() {
   const searchParams = useSearchParams();
   const productSlug = searchParams.get('product');
   const requestType = searchParams.get('type');
-  const { basket, clearBasket } = useB2B();
+  const { basket } = useB2B();
   const product = productSlug ? products.find(p => p.slug === productSlug) : null;
 
   let defaultMessage = '';

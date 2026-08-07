@@ -38,6 +38,11 @@ export const COMPANY_DETAILS = {
     indiamart: 'https://www.indiamart.com/bcare/',
   },
 
+  website: 'https://robin-r-g.github.io/Bcare',
+  instagram: 'https://www.instagram.com/bcare_bakery_machinery_kerala/',
+  indiamart: 'https://www.indiamart.com/bcare/',
+  gst: '32AAAAA0000A1Z5',
+
   highlights: [
     'Established in 2010 — 15+ years of industry experience',
     'Trusted EUROPYA and BCARE brands',

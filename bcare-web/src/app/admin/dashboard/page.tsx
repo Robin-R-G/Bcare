@@ -1,12 +1,23 @@
 import { getProducts, getProjects, getBlogs, getCategories } from '@/lib/supabase/queries';
+import { products as mockProducts, projects as mockProjects, blogs as mockBlogs, categories as mockCategories } from '@/lib/data/mock';
 import { Package, Layers, FolderKanban, FileText, Users, MessageSquareQuote, TrendingUp, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function AdminDashboardPage() {
-  const products = await getProducts();
-  const categories = await getCategories();
-  const projects = await getProjects();
-  const blogs = await getBlogs();
+  let products = mockProducts;
+  let categories = mockCategories;
+  let projects = mockProjects;
+  let blogs = mockBlogs;
+
+  try {
+    const [p, c, pr, b] = await Promise.all([getProducts(), getCategories(), getProjects(), getBlogs()]);
+    if (p.length > 0) products = p;
+    if (c.length > 0) categories = c;
+    if (pr.length > 0) projects = pr;
+    if (b.length > 0) blogs = b;
+  } catch {
+    // Fallback to mock data
+  }
 
   const stats = [
     { title: 'Total Products', value: products.length, icon: Package, color: 'text-blue-500 bg-blue-500/10' },

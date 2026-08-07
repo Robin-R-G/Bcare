@@ -95,7 +95,9 @@ export default function AboutPage() {
               <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">
                 Our approach is rooted in understanding the unique workflows of each client, allowing us to design spaces and provide equipment that not only fits perfectly but enhances productivity and safety.
               </p>
-              <Button size="lg" className="bg-[#0A4A7A] text-white">Meet Our Team</Button>
+              <a href="/contact">
+                <Button size="lg" className="bg-[#0A4A7A] text-white">Meet Our Team</Button>
+              </a>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}

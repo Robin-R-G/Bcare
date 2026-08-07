@@ -31,11 +31,13 @@ export default function ContactPage() {
   const onSubmit = async (data: FormData) => {
     try {
       await submitContactMessage(data);
-      alert('Thank you for contacting BCare. Our team in Thrissur will get back to you shortly.');
+      alert('Thank you for contacting BCare. Our team will get back to you shortly.');
       reset();
-    } catch (err) {
-      console.error(err);
-      alert('Failed to send message. Please reach us directly via WhatsApp.');
+    } catch {
+      // Fallback: open WhatsApp with pre-filled message
+      const msg = encodeURIComponent(`Hello BCare, I'm ${data.name} (${data.company || 'N/A'}). ${data.message}`);
+      window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      reset();
     }
   };
 

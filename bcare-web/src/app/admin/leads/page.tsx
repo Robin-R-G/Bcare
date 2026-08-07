@@ -2,11 +2,18 @@ import { createClient } from '@/lib/supabase/server';
 import { Mail, Phone, MapPin, Building, Calendar, CheckCircle2, Clock, PhoneCall } from 'lucide-react';
 
 export default async function AdminLeadsPage() {
-  const supabase = await createClient();
-  const { data: leads } = await supabase
-    .from('leads')
-    .select('*')
-    .order('created_at', { ascending: false });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let leads: any[] = [];
+  try {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('leads')
+      .select('*')
+      .order('created_at', { ascending: false });
+    leads = data || [];
+  } catch {
+    // Fallback: no leads when Supabase is unavailable
+  }
 
   return (
     <div className="space-y-6">

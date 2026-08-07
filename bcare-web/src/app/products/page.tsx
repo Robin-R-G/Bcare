@@ -1,10 +1,22 @@
 import { getProducts, getCategories } from '@/lib/supabase/queries';
 import { ProductsClient } from './ProductsClient';
+import { products as mockProducts, categories as mockCategories } from '@/lib/data/mock';
 import Link from 'next/link';
 
 export default async function ProductsPage() {
-  const products = await getProducts();
-  const categories = await getCategories();
+  let products = mockProducts;
+  let categories = mockCategories;
+
+  try {
+    const [supabaseProducts, supabaseCategories] = await Promise.all([
+      getProducts(),
+      getCategories(),
+    ]);
+    if (supabaseProducts.length > 0) products = supabaseProducts;
+    if (supabaseCategories.length > 0) categories = supabaseCategories;
+  } catch {
+    // Fallback to mock data when Supabase is unavailable
+  }
 
   return (
     <div className="bg-background min-h-screen">

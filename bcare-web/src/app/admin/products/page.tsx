@@ -1,10 +1,17 @@
 import { getProducts } from '@/lib/supabase/queries';
+import { products as mockProducts } from '@/lib/data/mock';
 import { Button } from '@/components/ui/button';
 import { Plus, Edit3, Trash2, Eye } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function AdminProductsPage() {
-  const products = await getProducts();
+  let products = mockProducts;
+  try {
+    const supabaseProducts = await getProducts();
+    if (supabaseProducts.length > 0) products = supabaseProducts;
+  } catch {
+    // Fallback to mock data
+  }
 
   return (
     <div className="space-y-6">

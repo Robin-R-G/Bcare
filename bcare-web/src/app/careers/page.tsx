@@ -114,9 +114,11 @@ export default function CareersPage() {
                     <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {job.type}</span>
                   </div>
                 </div>
-                <Button className="shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
-                  Apply Now <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <a href={`mailto:careers@bcareequipments.com?subject=Application: ${job.title}`}>
+                  <Button className="shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                    Apply Now <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
               </motion.div>
             ))}
           </div>

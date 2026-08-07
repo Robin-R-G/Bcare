@@ -15,6 +15,8 @@ export type Product = {
   sku: string;
   badge?: string;
   price?: number;
+  priceUnit?: string;
+  indiamartUrl?: string;
   priceOnRequest: boolean;
   availability: 'In Stock' | 'Made to Order' | 'Contact for Availability';
   shortDescription: string;

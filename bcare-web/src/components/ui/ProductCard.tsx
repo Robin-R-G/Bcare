@@ -5,14 +5,16 @@ import { Product } from '@/types';
 import { Button } from './button';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 import { MessageCircle } from 'lucide-react';
+import { ProductImageWithFallback } from './ProductImageWithFallback';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const currentUrl = typeof window !== 'undefined' ? `${window.location.origin}/products/${product.slug}` : `/products/${product.slug}`;
   const whatsappMessage = encodeURIComponent(
-    `Hello BCare,\n\nI am interested in the following product:\n\nProduct Name: ${product.name}\nProduct URL: ${typeof window !== 'undefined' ? window.location.origin : ''}/products/${product.slug}\n\nPlease provide:\n- Latest price\n- Product brochure\n- Delivery details\n- Installation details\n\nThank you.`
+    `Hello BCare Bakery & Kitchen Equipments,\n\nI am interested in:\n${product.name}\n\nPlease share:\n• Latest price\n• Product specifications\n• Availability\n• Delivery details\n• Installation details\n\nThank you.\n${currentUrl}`
   );
 
   const specEntries = product.specifications
@@ -27,14 +29,16 @@ export function ProductCard({ product }: ProductCardProps) {
     }).format(price);
   };
 
+  const imageSrc = product.featured_image || (product.images && product.images[0]);
+
   return (
     <div className="group bg-white rounded-lg overflow-hidden border border-[#94A3B8]/30 hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col h-full">
       {/* Product Image */}
-      <div className="relative h-60 w-full bg-[#F8FAFC] overflow-hidden">
-        <img
-          src={product.images[0]}
+      <div className="relative h-60 w-full bg-[#F8FAFC] overflow-hidden p-4">
+        <ProductImageWithFallback
+          src={imageSrc}
           alt={product.name}
-          className="w-full h-full object-contain p-4 mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
         />
         {/* Badge */}
         <div className="absolute top-3 left-3">

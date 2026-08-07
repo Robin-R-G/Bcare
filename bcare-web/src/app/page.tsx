@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { categories, products } from '@/lib/data/mock';
-import { Ruler, Wrench, ShieldCheck, Headset, CheckCircle2, ArrowRight, MapPin, Phone } from 'lucide-react';
+import { categories, products, googleReviews } from '@/lib/data/mock';
+import { Ruler, Wrench, ShieldCheck, Headset, CheckCircle2, ArrowRight, MapPin, Phone, Star } from 'lucide-react';
+import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
+import { CategoryIcon } from '@/components/ui/CategoryIcon';
+import { COMPANY_DETAILS } from '@/lib/constants/company';
 
 const features = [
   { title: 'Kitchen Solutions', desc: 'Customized layout planning for optimal workflow and spatial efficiency.', Icon: Ruler },
@@ -52,7 +55,7 @@ export default function HomePage() {
                   Explore Products
                 </Button>
               </Link>
-              <a href={`https://wa.me/919876543210?text=${encodeURIComponent('Hello BCare, I would like to discuss my kitchen equipment requirements.')}`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${encodeURIComponent('Hello BCare Bakery & Kitchen Equipments,\n\nI would like to discuss my commercial bakery / kitchen equipment requirements.\n\nThank you.')}`} target="_blank" rel="noopener noreferrer">
                 <Button className="bg-white/10 text-white font-semibold text-sm px-8 py-5 rounded-lg hover:bg-white/20 transition-all border border-white/20">
                   <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
                 </Button>
@@ -91,7 +94,7 @@ export default function HomePage() {
               <Link key={cat.id} href="/products">
                 <div className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-[#94A3B8]/20 hover:border-[#F97316]/40 group">
                   <div className="w-16 h-16 bg-[#0b1f33]/5 text-[#0b1f33] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0b1f33] group-hover:text-white transition-all duration-300">
-                    <span className="text-2xl font-bold">{cat.name.charAt(0)}</span>
+                    <CategoryIcon categoryName={cat.name} className="w-8 h-8 group-hover:scale-110 transition-transform" />
                   </div>
                   <h3 className="font-heading font-bold text-sm text-[#0b1f33] group-hover:text-[#F97316] transition-colors">{cat.name}</h3>
                 </div>
@@ -190,6 +193,36 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews */}
+      <section className="py-20 px-margin-mobile md:px-margin-desktop">
+        <div className="max-w-container-max mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-[#F97316] font-label-sm text-xs uppercase tracking-[0.2em] font-semibold mb-3 block">Testimonials</span>
+            <h2 className="font-heading text-3xl font-extrabold text-[#0b1f33] mb-4">Trusted by Our Customers</h2>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex items-center gap-0.5">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-[#F97316] text-[#F97316]" />
+                ))}
+              </div>
+              <span className="text-sm font-semibold text-[#0b1f33]">4.7</span>
+              <span className="text-sm text-[#94A3B8]">({googleReviews.filter(r => r.isVisible).length} reviews)</span>
+            </div>
+            <p className="text-[#44474c] text-lg max-w-2xl mx-auto">Real experiences from businesses that rely on BCare equipment every day.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {googleReviews.filter(r => r.isFeatured && r.isVisible).slice(0, 3).map((review) => (
+              <GoogleReviewCard key={review.id} review={review} variant="compact" />
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link href="/reviews" className="inline-flex items-center gap-2 text-sm font-semibold text-[#F97316] hover:underline">
+              View All Reviews <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

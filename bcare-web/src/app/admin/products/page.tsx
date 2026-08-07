@@ -1,7 +1,8 @@
 import { getProducts } from '@/lib/supabase/queries';
 import { products as mockProducts } from '@/lib/data/mock';
 import { Button } from '@/components/ui/button';
-import { Plus, Edit3, Trash2, Eye } from 'lucide-react';
+import { Plus, Edit3, Trash2, Eye, Image as ImageIcon } from 'lucide-react';
+import { ProductImageWithFallback } from '@/components/ui/ProductImageWithFallback';
 import Link from 'next/link';
 
 export default async function AdminProductsPage() {
@@ -55,11 +56,13 @@ export default async function AdminProductsPage() {
                 <tr key={product.id} className="hover:bg-surface-container-low/50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-4">
-                      <img
-                        src={product.images[0]}
-                        alt={product.name}
-                        className="w-12 h-12 object-cover rounded-xl border border-outline-variant/30"
-                      />
+                      <div className="w-12 h-12 rounded-xl overflow-hidden border border-outline-variant/30 shrink-0 bg-surface-container-low p-1">
+                        <ProductImageWithFallback
+                          src={product.featured_image || product.images[0]}
+                          alt={product.name}
+                          className="w-full h-full object-contain mix-blend-multiply"
+                        />
+                      </div>
                       <div>
                         <p className="font-semibold text-on-surface line-clamp-1">{product.name}</p>
                         <p className="text-xs text-on-surface-variant">SKU: {product.sku}</p>

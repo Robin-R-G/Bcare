@@ -25,6 +25,7 @@ export function Navbar() {
     { name: 'Projects', href: '/projects' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Videos', href: '/videos' },
+    { name: 'Reviews', href: '/reviews' },
     { name: 'Blogs', href: '/blogs' },
     { name: 'Contact', href: '/contact' },
   ];

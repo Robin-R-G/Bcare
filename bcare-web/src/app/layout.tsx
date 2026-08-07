@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
 import { CompareProvider } from "@/context/CompareContext";
+import { COMPANY_DETAILS } from "@/lib/constants/company";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -81,7 +82,7 @@ export default function RootLayout({
               name: "BCare Bakery & Kitchen Equipments",
               image: "/logo.webp",
               url: "https://robin-r-g.github.io/Bcare",
-              telephone: "+919876543210",
+              telephone: COMPANY_DETAILS.phone,
               email: "info@bcareequipments.com",
               address: {
                 "@type": "PostalAddress",
@@ -105,8 +106,10 @@ export default function RootLayout({
               priceRange: "$$",
               aggregateRating: {
                 "@type": "AggregateRating",
-                ratingValue: "4.0",
-                reviewCount: "9",
+                ratingValue: "4.7",
+                reviewCount: "10",
+                bestRating: "5",
+                worstRating: "1",
               },
             }),
           }}

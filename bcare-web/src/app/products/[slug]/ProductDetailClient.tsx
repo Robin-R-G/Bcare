@@ -1,11 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronRight, MessageCircle, FileText, CheckCircle2, Award, Zap, Download, ShieldCheck, Wrench } from 'lucide-react';
+import { ChevronRight, MessageCircle, FileText, CheckCircle2, Award, Zap, Download, ShieldCheck, Wrench, ZoomIn, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Product } from '@/types';
 import { ProductCard } from '@/components/ui/ProductCard';
+import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
+import { ProductImageWithFallback } from '@/components/ui/ProductImageWithFallback';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { googleReviews } from '@/lib/data/mock';
 import { useState } from 'react';
 
 const tabs = ['Overview', 'Specifications', 'Applications', 'Features', 'Downloads'];
@@ -18,6 +21,7 @@ interface ProductDetailClientProps {
 export function ProductDetailClient({ product, relatedProducts }: ProductDetailClientProps) {
   const [activeTab, setActiveTab] = useState('Overview');
   const [activeImage, setActiveImage] = useState(0);
+  const [isZoomOpen, setIsZoomOpen] = useState(false);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -27,11 +31,17 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
     }).format(price);
   };
 
-  const productUrl = `/products/${product.slug}`;
+  const productUrl = typeof window !== 'undefined' ? `${window.location.origin}/products/${product.slug}` : `/products/${product.slug}`;
 
   const whatsappMessage = encodeURIComponent(
-    `Hello BCare,\n\nI am interested in the following product:\n\nProduct Name: ${product.name}\nProduct URL: ${productUrl}\n\nPlease provide:\n- Latest price\n- Product brochure\n- Delivery details\n- Installation details\n\nThank you.`
+    `Hello BCare Bakery & Kitchen Equipments,\n\nI am interested in:\n${product.name}\n\nPlease share:\n• Latest price\n• Product specifications\n• Availability\n• Delivery details\n• Installation details\n\nThank you.\n${productUrl}`
   );
+
+  const imagesList = product.images && product.images.length > 0
+    ? product.images
+    : [product.featured_image || ''];
+
+  const currentImageSrc = imagesList[activeImage] || imagesList[0];
 
   return (
     <div className="bg-background min-h-screen pb-16">
@@ -53,19 +63,25 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left: Image Gallery */}
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <div className="bg-[#F8FAFC] border border-[#94A3B8]/30 rounded-xl p-6 h-[400px] md:h-[500px] flex items-center justify-center relative overflow-hidden group">
+            <div 
+              onClick={() => setIsZoomOpen(true)}
+              className="bg-[#F8FAFC] border border-[#94A3B8]/30 rounded-xl p-6 h-[400px] md:h-[500px] flex items-center justify-center relative overflow-hidden group cursor-zoom-in"
+            >
               <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0B1F33] font-label-sm text-xs px-3 py-1 rounded border border-[#94A3B8]/40 flex items-center gap-1 font-semibold z-10">
                 <Award className="w-3.5 h-3.5 text-[#F97316]" /> {product.badge || product.categoryName}
               </span>
-              <img
-                src={product.images[activeImage] || product.images[0]}
+              <span className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-[#0B1F33] text-xs px-2.5 py-1 rounded border border-[#94A3B8]/40 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                <ZoomIn className="w-3.5 h-3.5 text-[#0B1F33]" /> Click to Zoom
+              </span>
+              <ProductImageWithFallback
+                src={currentImageSrc}
                 alt={product.name}
                 className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            {product.images.length > 1 && (
+            {imagesList.length > 1 && (
               <div className="flex gap-3 overflow-x-auto no-scrollbar">
-                {product.images.map((img, i) => (
+                {imagesList.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImage(i)}
@@ -73,7 +89,7 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
                       activeImage === i ? 'border-[#F97316]' : 'border-[#94A3B8]/30 hover:border-[#0B1F33]/50'
                     }`}
                   >
-                    <img src={img} alt="" className="w-full h-full object-contain p-1 mix-blend-multiply" />
+                    <ProductImageWithFallback src={img} alt={`${product.name} view ${i + 1}`} className="w-full h-full object-contain p-1 mix-blend-multiply" />
                   </button>
                 ))}
               </div>
@@ -322,6 +338,54 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
             </div>
           </div>
         </section>
+      )}
+
+      {/* Customer Reviews */}
+      <section className="py-16 border-t border-[#94A3B8]/30">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <div className="text-center mb-10">
+            <h2 className="font-heading text-2xl font-extrabold text-[#0B1F33] mb-2">Customer Reviews</h2>
+            <p className="text-[#44474c] text-sm">What our customers say about this type of equipment</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {googleReviews.filter(r => r.rating >= 4 && r.isVisible).slice(0, 3).map((review) => (
+              <GoogleReviewCard key={review.id} review={review} variant="product" />
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/reviews">
+              <Button variant="outline" className="border-[#0B1F33] text-[#0B1F33] font-semibold rounded-xl hover:bg-[#0B1F33]/5 px-6 py-3">
+                View All Reviews
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox Modal */}
+      {isZoomOpen && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setIsZoomOpen(false)}
+        >
+          <button 
+            onClick={() => setIsZoomOpen(false)}
+            className="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors z-50"
+            aria-label="Close image zoom"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <div 
+            className="relative max-w-4xl max-h-[85vh] w-full h-full flex items-center justify-center p-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ProductImageWithFallback
+              src={currentImageSrc}
+              alt={product.name}
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
       )}
     </div>
   );

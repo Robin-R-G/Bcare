@@ -9,18 +9,20 @@ export const COMPANY_DETAILS = {
   aboutBrief: 'Established in 2010, BCare is a leading manufacturer and trader of commercial bakery and kitchen equipment based in Nadathara, Thrissur, Kerala. Under the guidance of Managing Director A Abraham, we have grown to serve 500+ clients across Kerala and beyond with premium EUROPYA and BCARE brand equipment.',
 
   address: {
-    street: 'Nadathara',
-    area: 'Mannuthy',
+    street: 'Mudikode Junction, Opposite Temple, Pattikkad',
+    area: 'Nadathara, Mannuthy',
     city: 'Thrissur',
     state: 'Kerala',
-    pincode: '680651',
+    pincode: '680652',
     country: 'India',
-    full: 'Nadathara, Mannuthy, Thrissur, Kerala 680651, India'
+    full: 'BCare Bakery & Kitchen Equipments, Mudikode Junction, Opposite Temple, Pattikkad, Thrissur, Kerala 680652'
   },
 
-  phone: '+91 98765 43210',
-  whatsapp: '919876543210',
-  email: 'info@bcareequipments.com',
+  phone: '+91 94470 51430',
+  phoneAlt: '+91 94000 51430',
+  whatsapp: '919447051430',
+  email: 'bcarebakery@gmail.com',
+  emailAlt: 'info@bcareequipments.com',
 
   businessHours: 'Monday - Saturday: 9:00 AM - 6:00 PM | Sunday: Closed',
   positioningText: 'Based in Nadathara, Thrissur, Kerala — serving commercial bakery and kitchen equipment needs across Kerala and South India.',

@@ -43,7 +43,7 @@ export default function ServiceCentersPage() {
               </div>
             </div>
             <div className="space-y-2 text-sm text-on-surface-variant border-t border-outline-variant/30 pt-4">
-              <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> +91 98765 43211</div>
+              <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> {COMPANY_DETAILS.phone}</div>
               <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Mon-Sat: 9:00 AM - 6:00 PM</div>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function ServiceCentersPage() {
               </div>
             </div>
             <div className="space-y-2 text-sm text-on-surface-variant border-t border-outline-variant/30 pt-4">
-              <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> +91 98765 43212</div>
+              <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> {COMPANY_DETAILS.phoneAlt}</div>
               <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Mon-Sat: 9:00 AM - 6:00 PM</div>
             </div>
           </div>

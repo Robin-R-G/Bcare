@@ -14,7 +14,9 @@ import { Suspense } from 'react';
 
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 import { submitContactMessage } from '@/lib/supabase/mutations';
-import { products } from '@/lib/data/mock';
+import { products, googleReviews } from '@/lib/data/mock';
+import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
+import { Star, Navigation } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -160,7 +162,7 @@ function ContactForm() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <Label htmlFor="phone" className="text-xs font-semibold">Phone Number *</Label>
-                  <Input id="phone" type="tel" {...register('phone')} placeholder="+91 98765 43210" className={errors.phone ? 'border-red-600' : 'border-[#94A3B8]/40'} />
+                  <Input id="phone" type="tel" {...register('phone')} placeholder="+91 94470 51430" className={errors.phone ? 'border-red-600' : 'border-[#94A3B8]/40'} />
                   {errors.phone && <p className="text-red-600 text-xs">{errors.phone.message}</p>}
                 </div>
                 <div className="space-y-1">
@@ -180,6 +182,86 @@ function ContactForm() {
               </Button>
             </form>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Google Reviews Trust Section */}
+      <section className="py-16 px-margin-mobile md:px-margin-desktop bg-[#F8FAFC] border-t border-[#94A3B8]/30">
+        <div className="max-w-container-max mx-auto">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <div className="flex items-center gap-0.5">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-[#F97316] text-[#F97316]" />
+                ))}
+              </div>
+              <span className="text-lg font-bold text-[#0b1f33]">4.7</span>
+              <span className="text-sm text-[#94A3B8]">on Google</span>
+            </div>
+            <h2 className="font-heading text-2xl font-extrabold text-[#0b1f33] mb-2">What Our Customers Say</h2>
+            <p className="text-[#44474c] text-sm">Trusted by 500+ businesses across Kerala</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {googleReviews.filter(r => r.isFeatured && r.isVisible).slice(0, 3).map((review) => (
+              <GoogleReviewCard key={review.id} review={review} variant="compact" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps Section */}
+      <section className="py-16 px-margin-mobile md:px-margin-desktop">
+        <div className="max-w-container-max mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Map */}
+            <div className="rounded-xl overflow-hidden border border-[#94A3B8]/30 h-[400px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.8!2d76.21!3d10.53!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDMxJzQ4LjAiTiA3NsKwMTInMzYuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="BCare Location"
+              />
+            </div>
+            {/* Location Info */}
+            <div className="flex flex-col justify-center">
+              <h2 className="font-heading text-2xl font-extrabold text-[#0b1f33] mb-4">Visit Us</h2>
+              <p className="text-[#44474c] mb-6">We are located at Nadathara, Mannuthy, Thrissur, Kerala. Visit our showroom to see our equipment in person.</p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-5 h-5 text-[#F97316]" />
+                  <span className="text-sm text-[#44474c]">{COMPANY_DETAILS.address.full}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-[#F97316]" />
+                  <span className="text-sm text-[#44474c]">{COMPANY_DETAILS.phone}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Clock className="w-5 h-5 text-[#F97316]" />
+                  <span className="text-sm text-[#44474c]">Mon-Sat: 9:00 AM - 6:00 PM</span>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://www.google.com/maps/search/Nadathara+Mannuthy+Thrissur+Kerala+680651"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="bg-[#0b1f33] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#0b1f33]/90">
+                    <Navigation className="w-4 h-4 mr-2" /> Get Directions
+                  </Button>
+                </a>
+                <a href={`tel:${COMPANY_DETAILS.phone}`}>
+                  <Button variant="outline" className="border-[#0b1f33] text-[#0b1f33] font-semibold px-6 py-3 rounded-lg hover:bg-[#0b1f33]/5">
+                    <Phone className="w-4 h-4 mr-2" /> Call Now
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

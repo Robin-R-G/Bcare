@@ -20,6 +20,12 @@ export type Product = {
   shortDescription: string;
   description: string;
   images: string[];
+  featured_image?: string;
+  product_images?: Array<{
+    image_url: string;
+    alt_text: string;
+    display_order: number;
+  }>;
   specifications: Record<string, string>;
   applications: string[];
   features: string[];
@@ -61,4 +67,18 @@ export type BlogPost = {
   coverImage: string;
   excerpt: string;
   tags: string[];
+};
+
+export type GoogleReview = {
+  id: string;
+  reviewerName: string;
+  reviewerPhoto?: string;
+  rating: number;
+  reviewText: string;
+  reviewDate: string;
+  googleReviewUrl?: string;
+  source: 'google' | 'indiamart' | 'manual';
+  isFeatured: boolean;
+  isVisible: boolean;
+  category?: string;
 };

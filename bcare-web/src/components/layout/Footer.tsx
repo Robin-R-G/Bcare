@@ -33,6 +33,7 @@ export function Footer() {
                 { name: 'Products', href: '/products' },
                 { name: 'Projects', href: '/projects' },
                 { name: 'Gallery', href: '/gallery' },
+                { name: 'Reviews', href: '/reviews' },
                 { name: 'Contact', href: '/contact' },
               ].map((link) => (
                 <li key={link.name}>

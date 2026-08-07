@@ -13,7 +13,8 @@ import {
   Users, 
   Globe, 
   Settings,
-  LogOut
+  LogOut,
+  Star
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
@@ -24,6 +25,7 @@ const navItems = [
   { name: 'Categories', href: '/admin/categories', icon: Layers },
   { name: 'Projects', href: '/admin/projects', icon: FolderKanban },
   { name: 'Blogs & News', href: '/admin/blogs', icon: FileText },
+  { name: 'Reviews', href: '/admin/reviews', icon: Star },
   { name: 'Testimonials', href: '/admin/testimonials', icon: MessageSquareQuote },
   { name: 'Media Library', href: '/admin/media', icon: Image },
   { name: 'Lead CRM', href: '/admin/leads', icon: Users },

@@ -3,6 +3,7 @@
 import { Phone, MessageCircle, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { COMPANY_DETAILS } from '@/lib/constants/company';
 
 export function MobileStickyBar() {
   const pathname = usePathname();
@@ -16,7 +17,7 @@ export function MobileStickyBar() {
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest border-t border-outline-variant/30 px-4 py-2.5 flex items-center justify-between shadow-ambient">
       {/* Call Button */}
       <a
-        href="tel:+919876543210"
+        href={`tel:${COMPANY_DETAILS.phone.replace(/[^0-9+]/g, '')}`}
         className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-surface-container text-on-surface font-label-sm text-xs font-semibold hover:bg-surface-container-high transition-colors"
       >
         <Phone className="w-4 h-4 text-primary" /> Call Us
@@ -24,7 +25,7 @@ export function MobileStickyBar() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/919876543210"
+        href={`https://wa.me/${COMPANY_DETAILS.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-emerald-600 text-white font-label-sm text-xs font-semibold mx-2 hover:bg-emerald-700 transition-colors shadow-sm"

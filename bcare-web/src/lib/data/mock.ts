@@ -1,4 +1,4 @@
-import { Category, Product, Project, BlogPost } from '@/types';
+import { Category, Product, Project, BlogPost, GoogleReview } from '@/types';
 
 export const categories: Category[] = [
   {
@@ -6,35 +6,35 @@ export const categories: Category[] = [
     name: 'Mixers & Processors',
     slug: 'mixers-processors',
     description: 'Planetary mixers, spiral mixers, dough kneaders, and food processing equipment for bakeries and commercial kitchens.',
-    image: 'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=800&auto=format&fit=crop',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/planetary-mixer-40ltr-500x500.jpg',
   },
   {
     id: 'c2',
     name: 'Ovens & Baking',
     slug: 'ovens-baking',
     description: 'Deck ovens, rotary rack ovens, and baking equipment for high-volume bread and pastry production.',
-    image: 'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=800&auto=format&fit=crop',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/deck-oven-2deck-4tray-500x500.jpg',
   },
   {
     id: 'c3',
     name: 'Dough & Bread Equipment',
     slug: 'dough-bread-equipment',
     description: 'Dough sheeters, bread slicers, waffle machines, and specialty bakery accessories.',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/hot-bread-slicer-500x500.jpg',
   },
   {
     id: 'c4',
     name: 'Commercial Kitchen',
     slug: 'commercial-kitchen',
     description: 'Heavy-duty cooking ranges, burners, and kitchen equipment for restaurants and hotels.',
-    image: 'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=800&auto=format&fit=crop',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/4-burner-cooking-range-500x500.jpg',
   },
   {
     id: 'c5',
     name: 'Refrigeration',
     slug: 'refrigeration',
     description: 'Industrial chillers, freezers, and cold storage solutions for commercial food preservation.',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/4-door-commercial-chiller-500x500.jpg',
   },
 ];
 
@@ -54,8 +54,8 @@ export const products: Product[] = [
     shortDescription: 'Compact 10-liter planetary mixer ideal for small bakeries and pastry shops.',
     description: 'The EUROPYA 10 LTR Planetary Mixer is designed for small-scale bakeries and pastry shops. With 3 speeds and 3 functions (hook, whip, beater), it handles a variety of mixing tasks. Features an oil bath gearbox for smooth, quiet operation and a safety guard for operator protection. CE certified with 1-year warranty.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1585664811087-47f65abbad64?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '10 Liters',
@@ -87,7 +87,7 @@ export const products: Product[] = [
     shortDescription: 'Versatile 20-liter planetary mixer for medium-scale bakery operations.',
     description: 'The EUROPYA 20 LTR Planetary Mixer offers the perfect balance of capacity and footprint for growing bakeries. With 3 speeds and 3 functions, it handles bread dough, cake batter, and whipping cream with ease. The oil bath gearbox ensures smooth, maintenance-free operation.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '20 Liters',
@@ -119,7 +119,7 @@ export const products: Product[] = [
     shortDescription: 'Semi-automatic 30-liter planetary mixer for commercial biscuit and cookie production.',
     description: 'The EUROPYA 30 LTR Planetary Mixer is a semi-automatic unit designed for commercial biscuit and cookie production. With a larger bowl capacity and robust motor, it handles high-volume mixing tasks efficiently. Features 3 speeds, oil bath gearbox, and complete safety guard system.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '30 Liters',
@@ -152,7 +152,7 @@ export const products: Product[] = [
     shortDescription: 'Heavy-duty 40-liter planetary mixer for large commercial bakeries.',
     description: 'The EUROPYA 40 LTR Planetary Mixer is built for large commercial bakeries requiring high-capacity mixing. With a powerful motor and 3-speed gear-driven transmission, it handles heavy bread doughs and large batches of batter with ease. The SS bowl and safety guard ensure hygiene and operator safety.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '40 Liters',
@@ -185,7 +185,7 @@ export const products: Product[] = [
     shortDescription: 'Industrial-grade 60-liter planetary mixer for high-volume biscuit and cookie production.',
     description: 'The BCARE 60 LTR Planetary Mixer is an industrial-grade unit designed for high-volume biscuit and cookie production. With a massive 60-liter capacity and powerful motor, it handles the most demanding mixing tasks. Built entirely from mild steel with an SS bowl for hygiene compliance.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '60 Liters',
@@ -218,7 +218,7 @@ export const products: Product[] = [
     shortDescription: 'Maximum-capacity 100-liter planetary mixer for industrial-scale production.',
     description: 'The BCARE 100 LTR Planetary Mixer is the largest in the lineup, designed for industrial-scale biscuit and cookie production. With a 100-liter capacity, it handles massive batches with ease. Built for continuous operation in demanding production environments.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '100 Liters',
@@ -251,7 +251,7 @@ export const products: Product[] = [
     shortDescription: 'Specialized 7-liter mixer designed for whipping fresh cream and meringue.',
     description: 'The EUROPYA 7 LTR Fresh Cream Mixer is a specialized unit designed for whipping fresh cream, meringue, and light batters. With 3 speeds and a compact footprint, it is perfect for pastry shops and cafes that need consistent, high-quality cream whipping.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '7 Liters',
@@ -285,7 +285,7 @@ export const products: Product[] = [
     shortDescription: 'Automatic spiral mixer with 8 kg flour capacity for artisan bread production.',
     description: 'The EUROPYA Spiral Mixer 8 KG Flour is an automatic unit designed for artisan bread production. With a fixed bowl and spiral mixing action, it develops gluten efficiently for superior bread quality. Features 3 speeds, oil bath gearbox, and SS construction for hygiene.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Flour Capacity': '8 kg',
@@ -318,7 +318,7 @@ export const products: Product[] = [
     shortDescription: 'ISO-certified spiral mixer with 12 kg flour capacity for hotels and restaurants.',
     description: 'The EUROPYA Spiral Mixer 12 KG Flour is ISO certified and designed for hotels and restaurants. With a 12 kg flour capacity, it handles medium-scale bread production efficiently. The fixed bowl design ensures consistent mixing results batch after batch.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Flour Capacity': '12 kg',
@@ -352,7 +352,7 @@ export const products: Product[] = [
     shortDescription: 'High-capacity spiral mixer with 25 kg flour capacity for commercial bakeries.',
     description: 'The EUROPYA Spiral Mixer 25 KG Flour is built for commercial bakeries requiring high-capacity bread production. With a 25 kg flour capacity and automatic operation, it delivers consistent dough quality for large-scale bread and roll production.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Flour Capacity': '25 kg',
@@ -385,7 +385,7 @@ export const products: Product[] = [
     shortDescription: 'Industrial spiral mixer with 50 kg flour capacity for large-scale bread production.',
     description: 'The EUROPYA Spiral Mixer 50 KG Flour is the largest spiral mixer in the range, designed for industrial-scale bread production. With a 50 kg flour capacity, it handles massive batches for bread factories and large hotel operations.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Flour Capacity': '50 kg',
@@ -419,7 +419,7 @@ export const products: Product[] = [
     shortDescription: 'Compact single-deck, single-tray gas oven for small bakeries and cafes.',
     description: 'The EUROPYA 1 Deck 1 Tray Gas Oven is a compact, CE-certified unit ideal for small bakeries and cafes. With automatic temperature control and efficient gas heating, it delivers consistent baking results for bread, buns, and pastries.',
     images: [
-      'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Decks': '1',
@@ -450,7 +450,7 @@ export const products: Product[] = [
     shortDescription: 'Single-deck, 2-tray automatic gas oven for bread and bun baking.',
     description: 'The EUROPYA 1 Deck 2 Tray Gas Oven is an automatic, CE-certified unit designed for bread and bun baking. With 2 trays per deck, it doubles the output of single-tray models while maintaining a compact footprint.',
     images: [
-      'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Decks': '1',
@@ -481,7 +481,7 @@ export const products: Product[] = [
     shortDescription: 'Single-deck, 3-tray gas oven with low consumption for commercial bakeries.',
     description: 'The EUROPYA 1 Deck 3 Tray Gas Oven offers high output with low gas consumption. CE certified with automatic temperature control, it is ideal for commercial bakeries that need consistent, high-volume bread and bun production.',
     images: [
-      'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Decks': '1',
@@ -511,7 +511,7 @@ export const products: Product[] = [
     shortDescription: 'Double-deck, 4-tray automatic gas oven for growing bakeries.',
     description: 'The EUROPYA 2 Deck 4 Tray Gas Oven is an automatic double-deck unit designed for growing bakeries. With 4 trays total, it provides substantial baking capacity while maintaining a manageable footprint.',
     images: [
-      'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Decks': '2',
@@ -541,7 +541,7 @@ export const products: Product[] = [
     shortDescription: 'High-capacity double-deck, 6-tray gas oven for commercial bread production.',
     description: 'The EUROPYA 2 Deck 6 Tray Gas Oven is a high-capacity unit for commercial bread production. With 6 trays across 2 decks, it handles high-volume baking with consistent results.',
     images: [
-      'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Decks': '2',
@@ -572,7 +572,7 @@ export const products: Product[] = [
     shortDescription: 'Premium 3-deck, 6-tray electric oven with overheat protection and fast heating.',
     description: 'The EUROPYA 3 Deck 6 Tray Electric Oven is a premium unit with SS construction, 2.4 kW/hr power consumption, and overheat protection. Heats to 200°C in just 12 minutes. Comes with a 10-year element warranty for peace of mind.',
     images: [
-      'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Decks': '3',
@@ -606,7 +606,7 @@ export const products: Product[] = [
     shortDescription: 'Maximum-capacity 3-deck, 9-tray gas oven for industrial baking operations.',
     description: 'The EUROPYA 3 Deck 9 Tray Gas Oven is the largest deck oven in the range, designed for industrial baking operations. With 9 trays across 3 independent decks, it delivers maximum throughput for large-scale bread and pastry production.',
     images: [
-      'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Decks': '3',
@@ -638,8 +638,8 @@ export const products: Product[] = [
     shortDescription: 'High-capacity rotary rack oven ideal for large-scale bread and pastry production.',
     description: 'The BCare Industrial Rotary Rack Oven is engineered for consistent, high-volume baking. Featuring advanced airflow technology and a robust stainless steel heat exchanger, it ensures perfectly even baking across all 72 trays. Its programmable control panel allows for precision temperature and steam management, making it an indispensable asset for large bakeries and industrial canteens.',
     images: [
-      'https://images.unsplash.com/photo-1584285418504-0359837267eb?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Dimensions (WxDxH)': '1800 x 2200 x 2400 mm',
@@ -671,7 +671,7 @@ export const products: Product[] = [
     shortDescription: 'Automatic hot bread slicer with 31 blades for 200-300 slices per hour.',
     description: 'The EUROPYA Hot Bread Slicer (Model A) features 31 precision blades that slice hot bread up to 12mm thick at 200-300 slices per hour. Designed for bakeries that need consistent, clean slices immediately after baking.',
     images: [
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Blades': '31',
@@ -702,7 +702,7 @@ export const products: Product[] = [
     shortDescription: 'Premium hot bread slicer with enhanced configuration for high-volume bakeries.',
     description: 'The EUROPYA Hot Bread Slicer (Model B) offers an enhanced configuration over Model A, with improved blade mechanism and higher throughput for demanding bakery environments.',
     images: [
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Blades': '31',
@@ -735,7 +735,7 @@ export const products: Product[] = [
     shortDescription: 'Professional dough sheeter for croissant, puff pastry, and laminated dough production.',
     description: 'The EUROPYA Dough Sheeter is designed for croissant, puff pastry, and laminated dough production. With SS construction and precise thickness control, it laminates dough sheets to uniform thickness for consistent, professional results.',
     images: [
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Material': 'Stainless Steel',
@@ -765,7 +765,7 @@ export const products: Product[] = [
     shortDescription: 'SS 304 automatic dough kneader with 20 kg capacity and slow-speed bowl rotation.',
     description: 'The BCare Automatic Dough Kneader features SS 304 construction, 20 kg capacity, and a slow-speed rotating bowl with arms for thorough, gentle dough development. The 2 HP motor provides reliable power for heavy doughs.',
     images: [
-      'https://images.unsplash.com/photo-1621252178553-6a37829871db?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '20 kg',
@@ -798,7 +798,7 @@ export const products: Product[] = [
     shortDescription: 'Electric round waffle machine with adjustable temperature and 15-minute timer.',
     description: 'The EUROPYA Round Waffle Machine produces perfect round waffles with adjustable temperature (50-300°C) and a 15-minute timer. With 1180W power and Ø190mm waffle plates, it delivers consistent results for cafes and dessert shops.',
     images: [
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Power': '1180W',
@@ -829,7 +829,7 @@ export const products: Product[] = [
     shortDescription: 'Commercial bread toaster for high-volume toast and sandwich production.',
     description: 'The EUROPYA Bread Toaster is a commercial-grade unit designed for high-volume toast and sandwich production. Ideal for restaurants, hotels, and cafes that need quick, consistent toasting.',
     images: [
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Type': 'Commercial Conveyor Toaster',
@@ -857,7 +857,7 @@ export const products: Product[] = [
     shortDescription: 'Automatic electric icing machine with SS body for consistent cake decoration.',
     description: 'The EUROPYA Icing Machine is an automatic, electric unit with SS body and CE certification. It delivers consistent, professional icing and decoration for cakes and pastries.',
     images: [
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Type': 'Automatic',
@@ -887,7 +887,7 @@ export const products: Product[] = [
     shortDescription: 'High-output meat mincer processing 150 kg/hr for commercial kitchens.',
     description: 'The EUROPYA Meat Mincer processes up to 150 kg/hr of meat for commercial kitchens, hotels, and catering operations. With automatic operation and aluminium construction, it delivers consistent mincing results.',
     images: [
-      'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Output': '150 kg/hr',
@@ -919,7 +919,7 @@ export const products: Product[] = [
     shortDescription: 'Heavy-duty 4-burner gas range designed for high-traffic restaurant kitchens.',
     description: 'The BCare 4-Burner Commercial Cooking Range is fabricated entirely from SS 304. It features high-BTU brass burners that provide rapid heating and precise simmering controls. The heavy-duty cast iron pan supports can withstand constant use with heavy pots and pans.',
     images: [
-      'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Dimensions (WxDxH)': '900 x 900 x 850 mm',
@@ -950,7 +950,7 @@ export const products: Product[] = [
     shortDescription: 'Large capacity 1000L vertical chiller for commercial food storage.',
     description: 'Keep your ingredients fresh and safe with the BCare Double Door Vertical Chiller. Featuring a ventilated cooling system, it ensures uniform temperature distribution across all shelves. The digital thermostat provides precise control, while the auto-defrost feature minimizes maintenance.',
     images: [
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     specifications: {
       'Capacity': '1000 Liters',
@@ -980,8 +980,8 @@ export const projects: Project[] = [
     equipmentSupplied: ['Custom SS Fabrication', 'Walk-in Cold Rooms', 'Cooking Ranges', 'Exhaust Systems'],
     description: 'A complete turnkey project involving the design, manufacture, and installation of the main banqueting kitchen and three specialty restaurant kitchens. The project required strict adherence to international 5-star hygiene and safety standards. BCare executed the project 2 weeks ahead of schedule, providing state-of-the-art SS 304 fabrication and high-end refrigeration solutions.',
     images: [
-      'https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
     testimonial: {
       quote: 'BCare delivered exceptional quality. Their engineering team understood our complex workflow requirements and executed the fabrication flawlessly.',
@@ -1000,7 +1000,7 @@ export const projects: Project[] = [
     equipmentSupplied: ['Rotary Rack Ovens', 'Planetary Mixers', 'Dough Sheeters', 'Proofer Rooms'],
     description: 'Designed and equipped a massive 10,000 sq ft central production facility to supply 15 retail outlets daily. BCare installed heavy-duty rotary rack ovens and automated dough handling systems to maximize yield while maintaining artisanal quality.',
     images: [
-      'https://images.unsplash.com/photo-1579697096985-41fe1430e5d6?q=80&w=1200&auto=format&fit=crop',
+      'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     ],
   },
 ];
@@ -1013,7 +1013,7 @@ export const blogs: BlogPost[] = [
     category: 'Bakery Business',
     author: 'BCare Engineering Team',
     date: '2023-11-12',
-    coverImage: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1200&auto=format&fit=crop',
+    coverImage: 'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     excerpt: 'Starting a bakery? Ensure you have the right foundation. We explore the 5 must-have machines that guarantee efficiency and product consistency.',
     tags: ['Bakery', 'Startup Guide', 'Equipment'],
     content: '<p>When setting up a commercial bakery, the right equipment is the difference between struggling to meet demand and scaling effortlessly...</p>',
@@ -1025,9 +1025,122 @@ export const blogs: BlogPost[] = [
     category: 'Kitchen Design',
     author: 'BCare Design Experts',
     date: '2024-01-05',
-    coverImage: 'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1200&auto=format&fit=crop',
+    coverImage: 'https://5.imimg.com/data5/SELLER/Default/2026/7/628394649/MU/AL/WG/74759165/bcare-bakery-equipment-500x500.jpg',
     excerpt: 'A poorly designed kitchen costs you time and money during rush hours. Learn the key principles of ergonomic kitchen design.',
     tags: ['Kitchen Layout', 'Restaurant Setup', 'Efficiency'],
     content: '<p>The flow of food from prep to plating is critical. In this guide, we break down the assembly line configuration vs the zone configuration...</p>',
+  },
+];
+
+export const googleReviews: GoogleReview[] = [
+  {
+    id: 'gr1',
+    reviewerName: 'Rajesh Kumar',
+    rating: 5,
+    reviewText: 'Excellent quality bakery equipment. We purchased a planetary mixer and a deck oven for our bakery in Kochi. The equipment is performing perfectly. BCare team provided excellent installation support.',
+    reviewDate: '2024-11-15',
+    source: 'google',
+    isFeatured: true,
+    isVisible: true,
+    category: 'Bakery Equipment',
+  },
+  {
+    id: 'gr2',
+    reviewerName: 'Priya Menon',
+    rating: 5,
+    reviewText: 'Best commercial kitchen equipment supplier in Thrissur. We set up our restaurant kitchen with BCare and the quality is outstanding. Professional team with great after-sales support.',
+    reviewDate: '2024-10-22',
+    source: 'google',
+    isFeatured: true,
+    isVisible: true,
+    category: 'Commercial Kitchen',
+  },
+  {
+    id: 'gr3',
+    reviewerName: 'Sunil Thomas',
+    rating: 4,
+    reviewText: 'Good quality EUROPYA spiral mixer. We have been using it for 6 months and it works perfectly. Delivery was on time and installation was smooth. Recommended for bakeries.',
+    reviewDate: '2024-09-18',
+    source: 'google',
+    isFeatured: true,
+    isVisible: true,
+    category: 'Mixers & Processors',
+  },
+  {
+    id: 'gr4',
+    reviewerName: 'Anand Krishnan',
+    rating: 5,
+    reviewText: 'We recently purchased a complete bakery setup from BCare including planetary mixers, deck oven, and dough sheeter. All equipment is working flawlessly. Great value for money.',
+    reviewDate: '2024-08-05',
+    source: 'google',
+    isFeatured: false,
+    isVisible: true,
+    category: 'Bakery Equipment',
+  },
+  {
+    id: 'gr5',
+    reviewerName: 'Deepa Nair',
+    rating: 5,
+    reviewText: 'Outstanding service and quality. BCare helped us set up our hotel kitchen in Munnar. The equipment is heavy-duty and perfect for our high-volume requirements. Highly recommended.',
+    reviewDate: '2024-07-12',
+    source: 'google',
+    isFeatured: true,
+    isVisible: true,
+    category: 'Commercial Kitchen',
+  },
+  {
+    id: 'gr6',
+    reviewerName: 'Mohammed Rafi',
+    rating: 4,
+    reviewText: 'Purchased a hot bread slicer and waffle machine from BCare. Both products are performing well. The team is responsive and helpful. Good after-sales support.',
+    reviewDate: '2024-06-28',
+    source: 'google',
+    isFeatured: false,
+    isVisible: true,
+    category: 'Dough & Bread Equipment',
+  },
+  {
+    id: 'gr7',
+    reviewerName: 'Lakshmi Prasad',
+    rating: 5,
+    reviewText: 'Very professional team. They helped us choose the right equipment for our cloud kitchen. The EUROPYA cooking range is excellent. Fast delivery and proper installation.',
+    reviewDate: '2024-05-15',
+    source: 'google',
+    isFeatured: false,
+    isVisible: true,
+    category: 'Commercial Kitchen',
+  },
+  {
+    id: 'gr8',
+    reviewerName: 'Vijay Sharma',
+    rating: 5,
+    reviewText: 'We have been buying equipment from BCare for our chain of bakeries across Kerala. Consistent quality, competitive pricing, and reliable support. A trusted partner.',
+    reviewDate: '2024-04-20',
+    source: 'indiamart',
+    isFeatured: true,
+    isVisible: true,
+    category: 'Bakery Equipment',
+  },
+  {
+    id: 'gr9',
+    reviewerName: 'Sreeja Varma',
+    rating: 4,
+    reviewText: 'Good experience with BCare. Purchased a double door chiller for our restaurant. Cooling is efficient and the digital controls are easy to use. Minor delay in delivery but overall satisfied.',
+    reviewDate: '2024-03-10',
+    source: 'google',
+    isFeatured: false,
+    isVisible: true,
+    category: 'Refrigeration',
+  },
+  {
+    id: 'gr10',
+    reviewerName: 'Arun George',
+    rating: 5,
+    reviewText: 'BCare is the go-to place for commercial bakery equipment in Kerala. We purchased EUROPYA planetary mixer and spiral mixer. Both are excellent quality. Will buy again.',
+    reviewDate: '2024-02-18',
+    source: 'google',
+    isFeatured: false,
+    isVisible: true,
+    category: 'Mixers & Processors',
   },
 ];

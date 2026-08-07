@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
+import { B2BProvider } from "@/context/B2BContext";
 import { CompareProvider } from "@/context/CompareContext";
 import { COMPANY_DETAILS } from "@/lib/constants/company";
 
@@ -118,14 +119,16 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plusJakartaSans.variable} font-sans antialiased min-h-screen flex flex-col bg-background text-on-background pb-16 md:pb-0`}
       >
-        <CompareProvider>
-          <Navbar />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-          <MobileStickyBar />
-        </CompareProvider>
+        <B2BProvider>
+          <CompareProvider>
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+            <MobileStickyBar />
+          </CompareProvider>
+        </B2BProvider>
       </body>
     </html>
   );

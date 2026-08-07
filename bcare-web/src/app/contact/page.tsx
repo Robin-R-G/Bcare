@@ -17,6 +17,7 @@ import { submitContactMessage } from '@/lib/supabase/mutations';
 import { products, googleReviews } from '@/lib/data/mock';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
 import { Star, Navigation } from 'lucide-react';
+import { useB2B } from '@/context/B2BContext';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -31,11 +32,19 @@ type FormData = z.infer<typeof formSchema>;
 function ContactForm() {
   const searchParams = useSearchParams();
   const productSlug = searchParams.get('product');
+  const requestType = searchParams.get('type');
+  const { basket, clearBasket } = useB2B();
   const product = productSlug ? products.find(p => p.slug === productSlug) : null;
 
-  const defaultMessage = product
-    ? `I would like to request a quotation for:\n\nProduct: ${product.name}\nSKU: ${product.sku}\n\nPlease provide pricing, availability, and delivery details.`
-    : '';
+  let defaultMessage = '';
+  if (basket.length > 0 && (requestType === 'bulk' || !product)) {
+    const itemsText = basket
+      .map((item, idx) => `${idx + 1}. ${item.product.name} (Qty: ${item.quantity}) - SKU: ${item.product.sku}`)
+      .join('\n');
+    defaultMessage = `Hello BCare Team,\n\nI would like to request a comprehensive quotation for the following equipment:\n\n${itemsText}\n\nPlease include delivery schedule, installation support, and bulk pricing.`;
+  } else if (product) {
+    defaultMessage = `I would like to request a quotation for:\n\nProduct: ${product.name}\nSKU: ${product.sku}\n\nPlease provide pricing, availability, and delivery details.`;
+  }
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(formSchema),

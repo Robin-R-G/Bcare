@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ImageOff, Package } from 'lucide-react';
+import { Package } from 'lucide-react';
 
 interface ProductImageWithFallbackProps {
   src?: string;

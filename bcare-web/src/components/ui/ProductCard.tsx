@@ -4,14 +4,16 @@ import Link from 'next/link';
 import { Product } from '@/types';
 import { Button } from './button';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, ShoppingBag, SlidersHorizontal } from 'lucide-react';
 import { ProductImageWithFallback } from './ProductImageWithFallback';
+import { useB2B } from '@/context/B2BContext';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const { addToBasket, isInBasket, addToCompare, removeFromCompare, isInCompare } = useB2B();
   const currentUrl = typeof window !== 'undefined' ? `${window.location.origin}/products/${product.slug}` : `/products/${product.slug}`;
   const whatsappMessage = encodeURIComponent(
     `Hello BCare Bakery & Kitchen Equipments,\n\nI am interested in:\n${product.name}\n\nPlease share:\n• Latest price\n• Product specifications\n• Availability\n• Delivery details\n• Installation details\n\nThank you.\n${currentUrl}`
@@ -30,6 +32,8 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   const imageSrc = product.featured_image || (product.images && product.images[0]);
+  const inCart = isInBasket(product.id);
+  const inCompare = isInCompare(product.id);
 
   return (
     <div className="group bg-white rounded-lg overflow-hidden border border-[#94A3B8]/30 hover:shadow-[0px_10px_20px_rgba(11,31,51,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col h-full">
@@ -46,9 +50,42 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.badge || product.categoryName}
           </span>
         </div>
-        {/* Availability */}
-        <div className="absolute top-3 right-3">
-          <span className={`text-[11px] font-semibold px-2.5 py-1 rounded ${
+
+        {/* Quick Top Actions: Compare & Cart */}
+        <div className="absolute top-3 right-3 flex items-center gap-1.5">
+          <button
+            onClick={() => inCompare ? removeFromCompare(product.id) : addToCompare(product)}
+            className={`p-1.5 rounded-lg border text-xs font-semibold transition-all ${
+              inCompare
+                ? 'bg-primary text-white border-primary shadow'
+                : 'bg-white/90 text-on-surface-variant hover:bg-white border-outline-variant/40'
+            }`}
+            title={inCompare ? 'Remove from Compare' : 'Add to Compare'}
+          >
+            <SlidersHorizontal className="w-3.5 h-3.5" />
+          </button>
+          <button
+            onClick={() => addToBasket(product)}
+            className={`p-1.5 rounded-lg border text-xs font-semibold transition-all ${
+              inCart
+                ? 'bg-[#F97316] text-white border-[#F97316] shadow'
+                : 'bg-white/90 text-on-surface-variant hover:bg-white border-outline-variant/40'
+            }`}
+            title={inCart ? 'In Quote Basket' : 'Add to Quote Basket'}
+          >
+            <ShoppingBag className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-5 flex flex-col flex-grow">
+        {/* Category */}
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-[11px] font-semibold uppercase tracking-widest text-[#94A3B8]">
+            {product.categoryName}
+          </span>
+          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${
             product.availability === 'In Stock'
               ? 'bg-emerald-500/10 text-emerald-600'
               : product.availability === 'Made to Order'
@@ -58,14 +95,6 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.availability}
           </span>
         </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-5 flex flex-col flex-grow">
-        {/* Category */}
-        <span className="text-[11px] font-semibold uppercase tracking-widest text-[#94A3B8] mb-1">
-          {product.categoryName}
-        </span>
 
         {/* Product Name */}
         <h3 className="font-heading font-bold text-lg text-[#1b1c1d] mb-2 line-clamp-2" title={product.name}>
@@ -113,15 +142,21 @@ export function ProductCard({ product }: ProductCardProps) {
               className="flex-1"
             >
               <Button variant="outline" className="w-full border-[#0B1F33] text-[#0B1F33] hover:bg-[#0B1F33]/5 text-sm h-10 font-semibold rounded-md">
-                <MessageCircle className="w-4 h-4 mr-1.5" /> WhatsApp
+                <MessageCircle className="w-4 h-4 mr-1.5 text-emerald-600" /> WhatsApp
               </Button>
             </a>
           </div>
-          <Link href={`/contact?product=${product.slug}`}>
-            <Button variant="outline" className="w-full border-[#94A3B8]/40 text-[#44474c] hover:bg-[#F8FAFC] text-sm h-9 font-medium rounded-md">
-              Request Quote
-            </Button>
-          </Link>
+          <Button
+            onClick={() => addToBasket(product)}
+            variant="outline"
+            className={`w-full text-sm h-9 font-medium rounded-md transition-all ${
+              inCart
+                ? 'border-emerald-600 text-emerald-700 bg-emerald-50'
+                : 'border-[#94A3B8]/40 text-[#44474c] hover:bg-[#F8FAFC]'
+            }`}
+          >
+            <ShoppingBag className="w-4 h-4 mr-1.5" /> {inCart ? 'Added to Quote Basket' : '+ Add to Quote Basket'}
+          </Button>
         </div>
       </div>
     </div>

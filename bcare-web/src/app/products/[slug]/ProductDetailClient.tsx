@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronRight, MessageCircle, FileText, CheckCircle2, Award, Zap, Download, ShieldCheck, Wrench, ZoomIn, X } from 'lucide-react';
+import { ChevronRight, MessageCircle, FileText, CheckCircle2, Award, Zap, Download, ShieldCheck, Wrench, ZoomIn, X, ShoppingBag, SlidersHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Product } from '@/types';
 import { ProductCard } from '@/components/ui/ProductCard';
@@ -10,6 +10,7 @@ import { ProductImageWithFallback } from '@/components/ui/ProductImageWithFallba
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 import { googleReviews } from '@/lib/data/mock';
 import { useState } from 'react';
+import { useB2B } from '@/context/B2BContext';
 
 const tabs = ['Overview', 'Specifications', 'Applications', 'Features', 'Downloads'];
 
@@ -19,6 +20,7 @@ interface ProductDetailClientProps {
 }
 
 export function ProductDetailClient({ product, relatedProducts }: ProductDetailClientProps) {
+  const { addToBasket, isInBasket, addToCompare, removeFromCompare, isInCompare, setBrochureModalProduct } = useB2B();
   const [activeTab, setActiveTab] = useState('Overview');
   const [activeImage, setActiveImage] = useState(0);
   const [isZoomOpen, setIsZoomOpen] = useState(false);
@@ -148,30 +150,54 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
 
             {/* CTAs */}
             <div className="flex flex-col gap-3 mb-8 pb-8 border-b border-[#94A3B8]/30">
-              {/* WhatsApp - Primary CTA */}
-              <a
-                href={`https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Add to Quote Basket - Primary CTA */}
+              <Button
+                onClick={() => addToBasket(product)}
+                className={`w-full h-13 text-sm font-bold rounded-xl shadow-md gap-2 transition-all ${
+                  isInBasket(product.id)
+                    ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                    : 'bg-[#F97316] text-white hover:bg-orange-600'
+                }`}
               >
-                <Button className="w-full bg-[#25D366] text-white hover:bg-[#20BD5A] h-13 text-sm font-semibold rounded-lg shadow-sm">
-                  <MessageCircle className="w-5 h-5 mr-2" /> Enquire on WhatsApp
-                </Button>
-              </a>
-              {/* Request Quote */}
-              <Link href={`/contact?product=${product.slug}`}>
-                <Button className="w-full bg-[#F97316] text-white hover:bg-[#F97316]/90 h-12 text-sm font-semibold rounded-lg shadow-sm">
-                  Request Quote
-                </Button>
-              </Link>
-              {/* Brochure */}
-              {product.brochureUrl && (
-                <a href={product.brochureUrl} download>
-                  <Button variant="outline" className="w-full h-12 text-sm font-semibold rounded-lg border-[#94A3B8]/40 text-[#44474c] hover:bg-[#F8FAFC]">
-                    <Download className="w-4 h-4 mr-2" /> Download Brochure (PDF)
+                <ShoppingBag className="w-5 h-5" />
+                {isInBasket(product.id) ? 'Added to Quote Basket' : '+ Add to Quote Basket'}
+              </Button>
+
+              <div className="grid grid-cols-2 gap-3">
+                {/* WhatsApp */}
+                <a
+                  href={`https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full bg-[#25D366] text-white hover:bg-[#20BD5A] h-12 text-sm font-semibold rounded-xl shadow-sm">
+                    <MessageCircle className="w-4 h-4 mr-1.5" /> WhatsApp
                   </Button>
                 </a>
-              )}
+
+                {/* Compare */}
+                <Button
+                  variant="outline"
+                  onClick={() => isInCompare(product.id) ? removeFromCompare(product.id) : addToCompare(product)}
+                  className={`w-full h-12 text-sm font-semibold rounded-xl border-[#0B1F33] ${
+                    isInCompare(product.id)
+                      ? 'bg-[#0B1F33] text-white'
+                      : 'text-[#0B1F33] hover:bg-[#0B1F33]/5'
+                  }`}
+                >
+                  <SlidersHorizontal className="w-4 h-4 mr-1.5" />
+                  {isInCompare(product.id) ? 'Comparing' : 'Compare'}
+                </Button>
+              </div>
+
+              {/* Brochure Download (Gated Lead Magnet) */}
+              <Button
+                variant="outline"
+                onClick={() => setBrochureModalProduct(product)}
+                className="w-full h-12 text-sm font-semibold rounded-xl border-[#94A3B8]/40 text-[#44474c] hover:bg-[#F8FAFC]"
+              >
+                <Download className="w-4 h-4 mr-2" /> Download Catalogue & Specs (PDF)
+              </Button>
             </div>
 
             {/* Trust Badges */}

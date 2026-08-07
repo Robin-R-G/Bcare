@@ -18,8 +18,47 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "BCare Bakery & Kitchen Equipments",
-  description: "Complete Commercial Kitchen & Bakery Solutions in Kerala.",
+  title: {
+    default: "BCare Bakery & Kitchen Equipments | Commercial Kitchen Solutions Kerala",
+    template: "%s | BCare",
+  },
+  description:
+    "Established in 2010, BCare is a leading supplier of commercial bakery and kitchen equipment in Kerala. EUROPYA and BCARE brand mixers, ovens, slicers, and more. Based in Thrissur.",
+  keywords: [
+    "bakery equipment Kerala",
+    "commercial kitchen equipment Thrissur",
+    "planetary mixer India",
+    "spiral mixer Kerala",
+    "deck oven commercial",
+    "bread slicer bakery",
+    "BCare equipment",
+    "EUROPYA mixer",
+    "restaurant kitchen setup",
+    "hotel kitchen equipment",
+  ],
+  authors: [{ name: "BCare Bakery & Kitchen Equipments" }],
+  creator: "BCare",
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://robin-r-g.github.io/Bcare",
+    siteName: "BCare Bakery & Kitchen Equipments",
+    title: "BCare Bakery & Kitchen Equipments | Commercial Kitchen Solutions Kerala",
+    description:
+      "Premium commercial bakery and kitchen equipment. EUROPYA and BCARE brand mixers, ovens, slicers, and dough processing equipment. 15+ years of trust.",
+    images: [
+      {
+        url: "/logo.webp",
+        width: 1200,
+        height: 630,
+        alt: "BCare Bakery & Kitchen Equipments",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +67,51 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" className="light scroll-smooth">
+      <head>
+        <link rel="icon" href="/logo.webp" type="image/webp" />
+        <link rel="apple-touch-icon" href="/logo.webp" />
+        <meta name="theme-color" content="#0b1f33" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "BCare Bakery & Kitchen Equipments",
+              image: "/logo.webp",
+              url: "https://robin-r-g.github.io/Bcare",
+              telephone: "+919876543210",
+              email: "info@bcareequipments.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Nadathara, Mannuthy",
+                addressLocality: "Thrissur",
+                addressRegion: "Kerala",
+                postalCode: "680651",
+                addressCountry: "IN",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 10.5270,
+                longitude: 76.2144,
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                opens: "09:00",
+                closes: "18:00",
+              },
+              priceRange: "$$",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.0",
+                reviewCount: "9",
+              },
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${plusJakartaSans.variable} font-sans antialiased min-h-screen flex flex-col bg-background text-on-background pb-16 md:pb-0`}
       >

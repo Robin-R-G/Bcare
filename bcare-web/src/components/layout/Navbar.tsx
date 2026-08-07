@@ -22,9 +22,9 @@ export function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Products', href: '/products' },
-    { name: 'Solutions', href: '/services' },
     { name: 'Projects', href: '/projects' },
     { name: 'Gallery', href: '/gallery' },
+    { name: 'Videos', href: '/videos' },
     { name: 'Blogs', href: '/blogs' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -33,10 +33,8 @@ export function Navbar() {
     <header className={`bg-white sticky top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'shadow-md border-b border-outline-variant/20' : 'border-b border-outline-variant/30'}`}>
       <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="bg-primary text-white font-bold text-lg w-10 h-10 rounded-xl flex items-center justify-center">
-            B
-          </div>
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <img src="/logo.webp" alt="BCare Bakery & Kitchen Equipments" className="h-10 w-10 object-contain" />
           <div className="hidden sm:block">
             <span className="font-heading font-extrabold text-lg text-primary leading-none block">BCare</span>
             <span className="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold">Bakery & Kitchen</span>

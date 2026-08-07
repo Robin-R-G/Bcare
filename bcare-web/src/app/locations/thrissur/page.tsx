@@ -1,7 +1,7 @@
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 import { MapPin, Phone, Mail, Clock, MessageCircle, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+
 
 export default function ThrissurLocationPage() {
   return (

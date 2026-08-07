@@ -13,8 +13,7 @@ import {
   Users, 
   Globe, 
   Settings,
-  LogOut,
-  Sparkles
+  LogOut
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';

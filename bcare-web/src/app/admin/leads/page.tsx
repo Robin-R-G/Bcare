@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { Mail, Phone, MapPin, Building, Calendar, CheckCircle2, Clock, PhoneCall } from 'lucide-react';
+import { Mail, Phone, MapPin, Building, PhoneCall } from 'lucide-react';
 
 export default async function AdminLeadsPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

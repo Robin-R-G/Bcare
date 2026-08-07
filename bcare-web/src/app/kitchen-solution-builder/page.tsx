@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { 
-  Building2, Utensils, Hotel, Coffee, Flame, Factory, 
+  Utensils, Hotel, Coffee, Flame, Factory, 
   Hospital, School, ChefHat, CheckCircle2, ArrowRight, ArrowLeft,
   Sparkles, PackageCheck
 } from 'lucide-react';

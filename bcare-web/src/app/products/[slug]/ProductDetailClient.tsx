@@ -185,7 +185,7 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
                   <div className="bg-white rounded-xl border border-outline-variant/30 overflow-hidden shadow-xs">
                     <table className="w-full text-left font-body-md text-sm">
                       <tbody>
-                        {Object.entries(product.specifications).map(([key, value], idx) => (
+{Object.entries(product.specifications).map(([key, value], idx) => (
                           <tr key={key} className={idx % 2 === 0 ? 'bg-[#F8FAFC]' : 'bg-white'}>
                             <th className="py-3 px-4 font-semibold text-primary w-1/3 border-r border-outline-variant/20 uppercase text-xs tracking-wider">{key}</th>
                             <td className="py-3 px-4 text-on-surface-variant">{value}</td>

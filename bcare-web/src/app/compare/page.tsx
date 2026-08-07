@@ -2,7 +2,7 @@
 
 import { useCompare } from '@/context/CompareContext';
 import { Button } from '@/components/ui/button';
-import { X, ArrowRight, Check, AlertCircle } from 'lucide-react';
+import { X, Check, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ComparePage() {

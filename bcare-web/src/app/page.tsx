@@ -4,6 +4,7 @@ import { categories, products, googleReviews } from '@/lib/data/mock';
 import { Ruler, Wrench, ShieldCheck, Headset, CheckCircle2, ArrowRight, MapPin, Phone, Star } from 'lucide-react';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
 import { CategoryIcon } from '@/components/ui/CategoryIcon';
+import { ProductImageWithFallback } from '@/components/ui/ProductImageWithFallback';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 
 const features = [
@@ -123,7 +124,7 @@ export default function HomePage() {
                 <Link key={product.id} href={`/products/${product.slug}`}>
                   <div className="bg-white rounded-xl border border-[#94A3B8]/30 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
                     <div className="h-48 bg-[#F8FAFC] flex items-center justify-center p-4 overflow-hidden">
-                      <img src={product.images[0]} alt={product.name} className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" />
+                      <ProductImageWithFallback src={product.featured_image || product.images[0]} alt={product.name} className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div className="p-4">
                       <span className="text-[10px] font-semibold uppercase tracking-widest text-[#94A3B8]">{product.categoryName}</span>

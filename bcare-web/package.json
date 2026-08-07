@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build --turbopack",
+    "deploy": "next build --turbopack && npx gh-pages -d out --dotfiles",
     "start": "next start",
     "lint": "eslint"
   },

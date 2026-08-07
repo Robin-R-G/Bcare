@@ -48,7 +48,7 @@ export function AdminSidebar() {
     <aside className="w-64 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col h-screen sticky top-0">
       {/* Brand Header */}
       <div className="p-6 border-b border-outline-variant/30 flex items-center gap-3">
-        <img src="/logo.webp" alt="BCare" className="h-9 w-9 object-contain" />
+        <img src="/logo.webp" alt="BCare Commercial Kitchen Equipment Admin Hub" className="h-9 w-9 object-contain" />
         <div>
           <h2 className="font-title-md text-primary font-bold leading-none">BCare OS</h2>
           <span className="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold">Enterprise Hub</span>

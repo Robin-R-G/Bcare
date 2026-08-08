@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ChevronRight, Calendar, User, ArrowLeft } from 'lucide-react';
 import { blogs } from '@/lib/data/mock';
 import { asset } from '@/lib/utils';
+import { sanitizeHtml } from '@/lib/utils/sanitize';
 
 export const dynamicParams = false;
 
@@ -53,7 +54,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
         <div
           className="prose prose-slate max-w-none text-on-surface-variant leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(blog.content) }}
         />
 
         <div className="mt-12 pt-8 border-t border-outline-variant/30">

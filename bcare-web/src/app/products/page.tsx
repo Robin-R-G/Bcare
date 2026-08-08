@@ -1,26 +1,14 @@
-import { getProducts, getCategories } from '@/lib/supabase/queries';
+'use client';
+
+import { useProducts } from '@/hooks/use-supabase-data';
 import { ProductsClient } from './ProductsClient';
-import { products as mockProducts, categories as mockCategories } from '@/lib/data/mock';
 import Link from 'next/link';
 
-export default async function ProductsPage() {
-  let products = mockProducts;
-  let categories = mockCategories;
-
-  try {
-    const [supabaseProducts, supabaseCategories] = await Promise.all([
-      getProducts(),
-      getCategories(),
-    ]);
-    if (supabaseProducts.length > 0) products = supabaseProducts;
-    if (supabaseCategories.length > 0) categories = supabaseCategories;
-  } catch {
-    // Fallback to mock data when Supabase is unavailable
-  }
+export default function ProductsPage() {
+  const { products, categories, loading } = useProducts();
 
   return (
     <div className="bg-background min-h-screen">
-      {/* Breadcrumb + Page header */}
       <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-6 pb-2">
         <div className="text-xs text-on-surface-variant flex items-center gap-1.5 mb-6">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -30,9 +18,11 @@ export default async function ProductsPage() {
         <h1 className="font-heading text-3xl md:text-4xl font-extrabold text-on-surface leading-tight">
           Industrial<br />Equipment<br />Catalogue
         </h1>
+        {loading && (
+          <p className="text-sm text-on-surface-variant mt-2 animate-pulse">Loading latest products...</p>
+        )}
       </section>
 
-      {/* Catalog Section */}
       <section className="py-8 pb-20">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <ProductsClient initialProducts={products} categories={categories} />

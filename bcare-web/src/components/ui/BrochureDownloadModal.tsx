@@ -145,7 +145,7 @@ export function BrochureDownloadModal() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 94470 51430"
+                    placeholder="+91 88482 70942"
                     className="h-11 rounded-xl"
                   />
                 </div>

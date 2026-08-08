@@ -287,7 +287,7 @@ export default function KitchenSolutionBuilderPage() {
                         <Label>Phone / WhatsApp Number *</Label>
                         <Input 
                           required 
-                          placeholder="+91 94470 51430" 
+                          placeholder="+91 88482 70942" 
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         />

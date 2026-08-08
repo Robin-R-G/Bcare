@@ -19,9 +19,9 @@ export const COMPANY_DETAILS = {
     full: 'BCare Bakery & Kitchen Equipments, Mudikode Junction, Opposite Temple, Pattikkad, Thrissur, Kerala 680652'
   },
 
-  phone: '+91 94470 51430',
-  phoneAlt: '+91 94000 51430',
-  whatsapp: '919447051430',
+  phone: '+91 88482 70942',
+  phoneAlt: '+91 88482 70942',
+  whatsapp: '918848270942',
   email: 'bcarebakery@gmail.com',
   emailAlt: 'info@bcareequipments.com',
 

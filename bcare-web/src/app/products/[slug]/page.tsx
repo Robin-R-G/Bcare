@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 import { ProductDetailClient } from './ProductDetailClient';
 
-export const dynamicParams = true;
+
 
 export async function generateStaticParams() {
   const slugs = await getAllProductSlugs();

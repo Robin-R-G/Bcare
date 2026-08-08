@@ -20,6 +20,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://bcareequipments.com"),
   title: {
     default: "BCare Bakery & Kitchen Equipments | Commercial Kitchen Solutions Kerala",
     template: "%s | BCare",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://robin-r-g.github.io/Bcare",
+    url: (process.env.NEXT_PUBLIC_SITE_URL || "https://bcareequipments.com") + "/",
     siteName: "BCare Bakery & Kitchen Equipments",
     title: "BCare Bakery & Kitchen Equipments | Commercial Kitchen Solutions Kerala",
     description:
@@ -88,9 +89,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: COMPANY_DETAILS.name,
-              image: `${COMPANY_DETAILS.website}/og-image.png`,
-              logo: `${COMPANY_DETAILS.website}/icon-512.png`,
-              url: COMPANY_DETAILS.website,
+              image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://bcareequipments.com"}/og-image.png`,
+              logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://bcareequipments.com"}/icon-512.png`,
+              url: process.env.NEXT_PUBLIC_SITE_URL || "https://bcareequipments.com",
               telephone: COMPANY_DETAILS.phone,
               email: COMPANY_DETAILS.email,
               foundingDate: COMPANY_DETAILS.established,

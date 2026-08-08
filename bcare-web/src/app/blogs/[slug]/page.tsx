@@ -7,7 +7,7 @@ import { sanitizeHtml } from '@/lib/utils/sanitize';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 import type { Metadata } from 'next';
 
-export const dynamicParams = true;
+
 
 export async function generateStaticParams() {
   const slugs = await getAllBlogSlugs();

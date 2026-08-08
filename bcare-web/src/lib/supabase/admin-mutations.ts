@@ -18,21 +18,21 @@ export async function createCategory(cat: { name: string; slug: string; descript
   const supabase = createClient();
   const { data, error } = await supabase.from('product_categories').insert(cat).select().single();
   if (error) throw error;
-  return data;
+    return data;
 }
 
 export async function updateCategory(id: string, cat: { name?: string; slug?: string; description?: string; image_url?: string; is_active?: boolean }) {
   const supabase = createClient();
   const { data, error } = await supabase.from('product_categories').update(cat).eq('id', id).select().single();
   if (error) throw error;
-  return data;
+    return data;
 }
 
 export async function deleteCategory(id: string) {
   const supabase = createClient();
   const { error } = await supabase.from('product_categories').delete().eq('id', id);
   if (error) throw error;
-}
+  }
 
 // ==========================================
 // PRODUCTS
@@ -52,35 +52,35 @@ export async function createProduct(product: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('products').insert(product).select().single();
   if (error) throw error;
-  return data;
+      return data;
 }
 
 export async function updateProduct(id: string, product: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('products').update(product).eq('id', id).select().single();
   if (error) throw error;
-  return data;
+      return data;
 }
 
 export async function deleteProduct(id: string) {
   const supabase = createClient();
   const { error } = await supabase.from('products').delete().eq('id', id);
   if (error) throw error;
-}
+  }
 
 export async function addProductImages(productId: string, images: { image_url: string; alt_text?: string; display_order: number }[]) {
   const supabase = createClient();
   const rows = images.map(img => ({ ...img, product_id: productId }));
   const { data, error } = await supabase.from('product_images').insert(rows).select();
   if (error) throw error;
-  return data;
+    return data;
 }
 
 export async function deleteProductImage(id: string) {
   const supabase = createClient();
   const { error } = await supabase.from('product_images').delete().eq('id', id);
   if (error) throw error;
-}
+  }
 
 // ==========================================
 // BLOGS
@@ -100,21 +100,21 @@ export async function createBlog(blog: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('blogs').insert(blog).select().single();
   if (error) throw error;
-  return data;
+      return data;
 }
 
 export async function updateBlog(id: string, blog: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('blogs').update(blog).eq('id', id).select().single();
   if (error) throw error;
-  return data;
+      return data;
 }
 
 export async function deleteBlog(id: string) {
   const supabase = createClient();
   const { error } = await supabase.from('blogs').delete().eq('id', id);
   if (error) throw error;
-}
+  }
 
 // ==========================================
 // PROJECTS
@@ -134,21 +134,21 @@ export async function createProject(project: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('projects').insert(project).select().single();
   if (error) throw error;
-  return data;
+      return data;
 }
 
 export async function updateProject(id: string, project: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('projects').update(project).eq('id', id).select().single();
   if (error) throw error;
-  return data;
+      return data;
 }
 
 export async function deleteProject(id: string) {
   const supabase = createClient();
   const { error } = await supabase.from('projects').delete().eq('id', id);
   if (error) throw error;
-}
+  }
 
 // ==========================================
 // TESTIMONIALS
@@ -168,21 +168,21 @@ export async function createTestimonial(t: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('testimonials').insert(t).select().single();
   if (error) throw error;
-  return data;
+    return data;
 }
 
 export async function updateTestimonial(id: string, t: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('testimonials').update(t).eq('id', id).select().single();
   if (error) throw error;
-  return data;
+    return data;
 }
 
 export async function deleteTestimonial(id: string) {
   const supabase = createClient();
   const { error } = await supabase.from('testimonials').delete().eq('id', id);
   if (error) throw error;
-}
+  }
 
 // ==========================================
 // LEADS
@@ -271,21 +271,21 @@ export async function createReview(r: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('reviews').insert(r).select().single();
   if (error) throw error;
-  return data;
+    return data;
 }
 
 export async function updateReview(id: string, r: Record<string, unknown>) {
   const supabase = createClient();
   const { data, error } = await supabase.from('reviews').update(r).eq('id', id).select().single();
   if (error) throw error;
-  return data;
+    return data;
 }
 
 export async function deleteReview(id: string) {
   const supabase = createClient();
   const { error } = await supabase.from('reviews').delete().eq('id', id);
   if (error) throw error;
-}
+  }
 
 // ==========================================
 // DASHBOARD COUNTS

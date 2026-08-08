@@ -3,13 +3,6 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { Product, Category, Project, BlogPost, GoogleReview } from '@/types';
-import {
-  categories as mockCategories,
-  products as mockProducts,
-  projects as mockProjects,
-  blogs as mockBlogs,
-  googleReviews as mockReviews,
-} from '@/lib/data/mock';
 
 type ProductRow = {
   id: string;
@@ -55,14 +48,14 @@ function mapProduct(p: ProductRow): Product {
 }
 
 export function useProducts() {
-  const [products, setProducts] = useState<Product[]>(mockProducts);
-  const [categories, setCategories] = useState<Category[]>(mockCategories);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const supabase = createClient();
 
-    const fetch = async () => {
+    const fetchData = async () => {
       try {
         const [prodRes, catRes] = await Promise.all([
           supabase
@@ -77,10 +70,10 @@ export function useProducts() {
             .order('name'),
         ]);
 
-        if (!prodRes.error && prodRes.data && prodRes.data.length > 0) {
+        if (!prodRes.error && prodRes.data) {
           setProducts(prodRes.data.map(mapProduct));
         }
-        if (!catRes.error && catRes.data && catRes.data.length > 0) {
+        if (!catRes.error && catRes.data) {
           setCategories(catRes.data.map((c) => ({
             id: c.id,
             name: c.name,
@@ -90,13 +83,13 @@ export function useProducts() {
           })));
         }
       } catch {
-        // Keep mock data
+        // Empty state
       } finally {
         setLoading(false);
       }
     };
 
-    fetch();
+    fetchData();
   }, []);
 
   return { products, categories, loading };
@@ -110,7 +103,7 @@ export function useProductBySlug(slug: string) {
   useEffect(() => {
     const supabase = createClient();
 
-    const fetch = async () => {
+    const fetchData = async () => {
       try {
         const { data, error } = await supabase
           .from('products')
@@ -130,7 +123,6 @@ export function useProductBySlug(slug: string) {
           }
           setProduct(p);
 
-          // Fetch related
           const { data: related } = await supabase
             .from('products')
             .select('*, product_categories(name, slug), product_images(image_url, display_order)')
@@ -142,32 +134,22 @@ export function useProductBySlug(slug: string) {
           if (related) {
             setRelatedProducts(related.map(mapProduct));
           }
-        } else {
-          // Fallback to mock
-          const mock = mockProducts.find((p) => p.slug === slug) || null;
-          setProduct(mock);
-          if (mock) {
-            setRelatedProducts(
-              mockProducts.filter((p) => p.categoryId === mock.categoryId && p.id !== mock.id).slice(0, 4)
-            );
-          }
         }
       } catch {
-        const mock = mockProducts.find((p) => p.slug === slug) || null;
-        setProduct(mock);
+        // Empty state
       } finally {
         setLoading(false);
       }
     };
 
-    fetch();
+    fetchData();
   }, [slug]);
 
   return { product, relatedProducts, loading };
 }
 
 export function useBlogs() {
-  const [blogs, setBlogs] = useState<BlogPost[]>(mockBlogs);
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -181,7 +163,7 @@ export function useBlogs() {
           .eq('status', 'published')
           .order('created_at', { ascending: false });
 
-        if (!error && data && data.length > 0) {
+        if (!error && data) {
           setBlogs(data.map((b) => ({
             id: b.id,
             title: b.title,
@@ -196,7 +178,7 @@ export function useBlogs() {
           })));
         }
       } catch {
-        // Keep mock data
+        // Empty state
       } finally {
         setLoading(false);
       }
@@ -209,7 +191,7 @@ export function useBlogs() {
 }
 
 export function useProjects() {
-  const [projects, setProjects] = useState<Project[]>(mockProjects);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -223,7 +205,7 @@ export function useProjects() {
           .eq('status', 'published')
           .order('completion_year', { ascending: false });
 
-        if (!error && data && data.length > 0) {
+        if (!error && data) {
           setProjects(data.map((p) => ({
             id: p.id,
             title: p.title,
@@ -238,7 +220,7 @@ export function useProjects() {
           })));
         }
       } catch {
-        // Keep mock data
+        // Empty state
       } finally {
         setLoading(false);
       }
@@ -251,7 +233,7 @@ export function useProjects() {
 }
 
 export function useReviews() {
-  const [reviews, setReviews] = useState<GoogleReview[]>(mockReviews);
+  const [reviews, setReviews] = useState<GoogleReview[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -265,7 +247,7 @@ export function useReviews() {
           .eq('is_approved', true)
           .order('created_at', { ascending: false });
 
-        if (!error && data && data.length > 0) {
+        if (!error && data) {
           setReviews(data.map((r) => ({
             id: r.id,
             reviewerName: r.customer_name,
@@ -279,7 +261,7 @@ export function useReviews() {
           })));
         }
       } catch {
-        // Keep mock data
+        // Empty state
       } finally {
         setLoading(false);
       }

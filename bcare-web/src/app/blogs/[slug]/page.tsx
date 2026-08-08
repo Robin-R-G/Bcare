@@ -1,23 +1,39 @@
+import { getBlogBySlug, getAllBlogSlugs } from '@/lib/supabase/queries';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronRight, Calendar, User, ArrowLeft } from 'lucide-react';
-import { blogs } from '@/lib/data/mock';
 import { asset } from '@/lib/utils';
 import { sanitizeHtml } from '@/lib/utils/sanitize';
+import { COMPANY_DETAILS } from '@/lib/constants/company';
+import type { Metadata } from 'next';
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  // BCare has no published articles yet. `output: export` still requires at least one
-  // param, so emit a placeholder that renders notFound() until real posts exist.
-  if (blogs.length === 0) return [{ slug: '__placeholder__' }];
-  return blogs.map((blog) => ({ slug: blog.slug }));
+  const slugs = await getAllBlogSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const blog = await getBlogBySlug(slug);
+  if (!blog) return {};
+
+  return {
+    title: `${blog.title} | ${COMPANY_DETAILS.name}`,
+    description: blog.excerpt || blog.title,
+    openGraph: {
+      type: 'article',
+      title: blog.title,
+      description: blog.excerpt || blog.title,
+      ...(blog.coverImage && { images: [{ url: blog.coverImage.startsWith('http') ? blog.coverImage : `${COMPANY_DETAILS.website}${blog.coverImage}`, alt: blog.title }] }),
+    },
+  };
 }
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const blog = blogs.find((b) => b.slug === slug);
-
+  const blog = await getBlogBySlug(slug);
   if (!blog) notFound();
 
   return (

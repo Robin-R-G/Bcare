@@ -1,11 +1,9 @@
-'use client';
-
-import { useProducts } from '@/hooks/use-supabase-data';
+import { getProducts, getCategories } from '@/lib/supabase/queries';
 import { ProductsClient } from './ProductsClient';
 import Link from 'next/link';
 
-export default function ProductsPage() {
-  const { products, categories, loading } = useProducts();
+export default async function ProductsPage() {
+  const [products, categories] = await Promise.all([getProducts(), getCategories()]);
 
   return (
     <div className="bg-background min-h-screen">
@@ -18,14 +16,18 @@ export default function ProductsPage() {
         <h1 className="font-heading text-3xl md:text-4xl font-extrabold text-on-surface leading-tight">
           Industrial<br />Equipment<br />Catalogue
         </h1>
-        {loading && (
-          <p className="text-sm text-on-surface-variant mt-2 animate-pulse">Loading latest products...</p>
-        )}
       </section>
 
       <section className="py-8 pb-20">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <ProductsClient initialProducts={products} categories={categories} />
+          {products.length > 0 ? (
+            <ProductsClient initialProducts={products} categories={categories} />
+          ) : (
+            <div className="text-center py-20 bg-white rounded-lg border border-outline-variant/30">
+              <p className="text-on-surface-variant text-lg mb-2">No products available yet.</p>
+              <p className="text-on-surface-variant/60 text-sm">Our product catalogue is being updated. Check back soon.</p>
+            </div>
+          )}
         </div>
       </section>
     </div>

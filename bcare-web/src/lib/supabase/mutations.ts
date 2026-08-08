@@ -114,7 +114,7 @@ export async function saveProduct(productData: {
       .single();
     if (!error) {
       await logAdminActivity('UPDATE_PRODUCT', 'products', productData.id, productData.name);
-    }
+          }
     return { data, error };
   } else {
     const { data, error } = await supabase
@@ -124,7 +124,7 @@ export async function saveProduct(productData: {
       .single();
     if (!error && data) {
       await logAdminActivity('CREATE_PRODUCT', 'products', data.id, productData.name);
-    }
+          }
     return { data, error };
   }
 }
@@ -134,7 +134,7 @@ export async function deleteProduct(productId: string) {
   const { error } = await supabase.from('products').delete().eq('id', productId);
   if (!error) {
     await logAdminActivity('DELETE_PRODUCT', 'products', productId);
-  }
+      }
   return { success: !error, error };
 }
 

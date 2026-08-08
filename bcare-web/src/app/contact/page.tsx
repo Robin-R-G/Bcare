@@ -171,7 +171,7 @@ function ContactForm() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <Label htmlFor="phone" className="text-xs font-semibold">Phone Number *</Label>
-                  <Input id="phone" type="tel" {...register('phone')} placeholder="+91 88482 70942" className={errors.phone ? 'border-red-600' : 'border-[#94A3B8]/40'} />
+                  <Input id="phone" type="tel" {...register('phone')} placeholder="+91 94470 51430" className={errors.phone ? 'border-red-600' : 'border-[#94A3B8]/40'} />
                   {errors.phone && <p className="text-red-600 text-xs">{errors.phone.message}</p>}
                 </div>
                 <div className="space-y-1">

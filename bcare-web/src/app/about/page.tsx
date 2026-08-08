@@ -86,7 +86,7 @@ export default function AboutPage() {
                 Established in the year 2010, BCare is a manufacturer and trader of a wide spectrum of bakery equipment, commercial kitchen equipment, and food processing machinery. We supply premium-grade products using materials procured from authentic vendors of the market.
               </p>
               <p className="text-[#44474c] leading-relaxed mb-4">
-                Under the valuable guidance of our mentor, Mr. {COMPANY_DETAILS.mentor.replace(/^Mr\.\s*/, '')}, we are growing at a notable rate in the market. He has spent long years in the industry to have rich industrial experience, enabling us to understand the varied requirements of our clients.
+                Under the valuable guidance of our Managing Director, Mr. A Abraham, we have grown at a notable rate in the market. His years of rich industrial experience enable us to understand the varied requirements of our clients.
               </p>
               <p className="text-[#44474c] leading-relaxed mb-6">
                 We offer our products at reasonable rates and deliver within the promised time-frame. Our in-house quality control unit ensures every product meets defined parameters of design, quality, and finish.
@@ -113,18 +113,14 @@ export default function AboutPage() {
               <h3 className="font-heading font-bold text-lg text-[#0b1f33] mb-6">Company Factsheet</h3>
               <div className="space-y-4">
                 {[
-                  { label: 'Established', value: COMPANY_DETAILS.established },
+                  { label: 'Established', value: '2010' },
                   { label: 'Managing Director', value: COMPANY_DETAILS.managingDirector },
-                  { label: 'Mentor', value: COMPANY_DETAILS.mentor },
-                  { label: 'Business Nature', value: COMPANY_DETAILS.businessNature },
-                  { label: 'Legal Status', value: COMPANY_DETAILS.legalStatus },
-                  { label: 'Team Size', value: `${COMPANY_DETAILS.employees} Employees` },
-                  { label: 'GST No.', value: COMPANY_DETAILS.gst },
-                  { label: 'Bankers', value: COMPANY_DETAILS.bankers.join(', ') },
-                  { label: 'Payment Modes', value: COMPANY_DETAILS.paymentModes.join(', ') },
-                  { label: 'Shipment Mode', value: COMPANY_DETAILS.shipmentMode },
-                  { label: 'Location', value: `${COMPANY_DETAILS.address.area}, ${COMPANY_DETAILS.address.city}, ${COMPANY_DETAILS.address.state}` },
-                  { label: 'Brands', value: COMPANY_DETAILS.brands.join(', ') },
+                  { label: 'Business Nature', value: 'Trader - Retailer & Manufacturer' },
+                  { label: 'Legal Status', value: 'Partnership' },
+                  { label: 'Team Size', value: '11-25 Employees' },
+                  { label: 'GST Registered', value: 'Yes' },
+                  { label: 'Location', value: 'Nadathara, Thrissur, Kerala' },
+                  { label: 'Brands', value: 'EUROPYA, BCARE' },
                 ].map((item) => (
                   <div key={item.label} className="flex justify-between py-2 border-b border-[#94A3B8]/20">
                     <span className="text-[11px] text-[#94A3B8] uppercase tracking-wider font-semibold">{item.label}</span>

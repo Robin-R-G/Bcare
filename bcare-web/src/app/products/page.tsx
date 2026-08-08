@@ -1,12 +1,26 @@
 import { getProducts, getCategories } from '@/lib/supabase/queries';
 import { ProductsClient } from './ProductsClient';
+import { products as mockProducts, categories as mockCategories } from '@/lib/data/mock';
 import Link from 'next/link';
 
 export default async function ProductsPage() {
-  const [products, categories] = await Promise.all([getProducts(), getCategories()]);
+  let products = mockProducts;
+  let categories = mockCategories;
+
+  try {
+    const [supabaseProducts, supabaseCategories] = await Promise.all([
+      getProducts(),
+      getCategories(),
+    ]);
+    if (supabaseProducts.length > 0) products = supabaseProducts;
+    if (supabaseCategories.length > 0) categories = supabaseCategories;
+  } catch {
+    // Fallback to mock data when Supabase is unavailable
+  }
 
   return (
     <div className="bg-background min-h-screen">
+      {/* Breadcrumb + Page header */}
       <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-6 pb-2">
         <div className="text-xs text-on-surface-variant flex items-center gap-1.5 mb-6">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -18,16 +32,10 @@ export default async function ProductsPage() {
         </h1>
       </section>
 
+      {/* Catalog Section */}
       <section className="py-8 pb-20">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          {products.length > 0 ? (
-            <ProductsClient initialProducts={products} categories={categories} />
-          ) : (
-            <div className="text-center py-20 bg-white rounded-lg border border-outline-variant/30">
-              <p className="text-on-surface-variant text-lg mb-2">No products available yet.</p>
-              <p className="text-on-surface-variant/60 text-sm">Our product catalogue is being updated. Check back soon.</p>
-            </div>
-          )}
+          <ProductsClient initialProducts={products} categories={categories} />
         </div>
       </section>
     </div>

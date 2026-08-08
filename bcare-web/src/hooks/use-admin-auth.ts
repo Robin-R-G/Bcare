@@ -15,28 +15,26 @@ export function useAdminAuth() {
     const supabase = createClient();
 
     const checkAuth = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { session } } = await supabase.auth.getSession();
 
-      if (!user) {
+      if (!session) {
         router.replace('/admin/login');
         return;
       }
 
-      // Check admin role from profiles table
       const { data: profile } = await supabase
         .from('profiles')
         .select('role')
-        .eq('id', user.id)
+        .eq('id', session.user.id)
         .single();
 
       if (!profile || profile.role !== 'admin') {
-        // Non-admin user: sign out and redirect
         await supabase.auth.signOut();
         router.replace('/admin/login');
         return;
       }
 
-      setUser(user);
+      setUser(session.user);
       setIsAdmin(true);
       setLoading(false);
     };

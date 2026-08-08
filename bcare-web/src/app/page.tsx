@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { getProducts, getCategories, getGoogleReviews } from '@/lib/supabase/queries';
+import { categories, products, googleReviews } from '@/lib/data/mock';
 import { Ruler, Wrench, ShieldCheck, Headset, CheckCircle2, ArrowRight, MapPin, Phone, Star } from 'lucide-react';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
 import { CategoryIcon } from '@/components/ui/CategoryIcon';
@@ -29,16 +29,8 @@ const whyChooseUs = [
   'Comprehensive after-sales support',
 ];
 
-export default async function HomePage() {
-  const [products, categories, reviews] = await Promise.all([
-    getProducts(),
-    getCategories(),
-    getGoogleReviews(),
-  ]);
-
+export default function HomePage() {
   const featuredProducts = products.filter(p => p.badge === 'BCARE' || p.price).slice(0, 4);
-  const visibleReviews = reviews.filter(r => r.isVisible);
-  const featuredReviews = visibleReviews.filter(r => r.isFeatured).slice(0, 3);
 
   return (
     <div className="bg-background text-on-background antialiased overflow-x-hidden">
@@ -99,22 +91,18 @@ export default async function HomePage() {
             <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-[#0b1f33] mb-4">Product Categories</h2>
             <p className="text-[#44474c] text-lg max-w-2xl mx-auto">Explore our comprehensive range of heavy-duty, professional-grade bakery and kitchen equipment.</p>
           </div>
-          {categories.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {categories.map((cat) => (
-                <Link key={cat.id} href="/products">
-                  <div className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-[#94A3B8]/20 hover:border-[#F97316]/40 group">
-                    <div className="w-16 h-16 bg-[#0b1f33]/5 text-[#0b1f33] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0b1f33] group-hover:text-white transition-all duration-300">
-                      <CategoryIcon categoryName={cat.name} className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                    </div>
-                    <h3 className="font-heading font-bold text-sm text-[#0b1f33] group-hover:text-[#F97316] transition-colors">{cat.name}</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {categories.map((cat) => (
+              <Link key={cat.id} href="/products">
+                <div className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-[#94A3B8]/20 hover:border-[#F97316]/40 group">
+                  <div className="w-16 h-16 bg-[#0b1f33]/5 text-[#0b1f33] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0b1f33] group-hover:text-white transition-all duration-300">
+                    <CategoryIcon categoryName={cat.name} className="w-8 h-8 group-hover:scale-110 transition-transform" />
                   </div>
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-[#94A3B8]">Categories coming soon.</p>
-          )}
+                  <h3 className="font-heading font-bold text-sm text-[#0b1f33] group-hover:text-[#F97316] transition-colors">{cat.name}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -130,35 +118,31 @@ export default async function HomePage() {
               View All Products <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          {featuredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredProducts.map((product) => {
-                const formatPrice = (price: number) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(price);
-                return (
-                  <Link key={product.id} href={`/products/${product.slug}`}>
-                    <div className="bg-white rounded-xl border border-[#94A3B8]/30 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                      <div className="h-48 bg-[#F8FAFC] flex items-center justify-center p-4 overflow-hidden">
-                        <ProductImageWithFallback src={product.featured_image || product.images[0]} alt={product.name} className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" />
-                      </div>
-                      <div className="p-4">
-                        <span className="text-[10px] font-semibold uppercase tracking-widest text-[#94A3B8]">{product.categoryName}</span>
-                        <h3 className="font-heading font-bold text-sm text-[#0b1f33] mt-1 line-clamp-2 group-hover:text-[#F97316] transition-colors">{product.name}</h3>
-                        <div className="mt-2">
-                          {product.priceOnRequest ? (
-                            <span className="text-xs font-semibold text-[#F97316]">Price on Request</span>
-                          ) : (
-                            <span className="text-sm font-extrabold text-[#0b1f33]">{formatPrice(product.price!)}</span>
-                          )}
-                        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredProducts.map((product) => {
+              const formatPrice = (price: number) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(price);
+              return (
+                <Link key={product.id} href={`/products/${product.slug}`}>
+                  <div className="bg-white rounded-xl border border-[#94A3B8]/30 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                    <div className="h-48 bg-[#F8FAFC] flex items-center justify-center p-4 overflow-hidden">
+                      <ProductImageWithFallback src={product.featured_image || product.images[0]} alt={product.name} className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div className="p-4">
+                      <span className="text-[10px] font-semibold uppercase tracking-widest text-[#94A3B8]">{product.categoryName}</span>
+                      <h3 className="font-heading font-bold text-sm text-[#0b1f33] mt-1 line-clamp-2 group-hover:text-[#F97316] transition-colors">{product.name}</h3>
+                      <div className="mt-2">
+                        {product.priceOnRequest ? (
+                          <span className="text-xs font-semibold text-[#F97316]">Price on Request</span>
+                        ) : (
+                          <span className="text-sm font-extrabold text-[#0b1f33]">{formatPrice(product.price!)}</span>
+                        )}
                       </div>
                     </div>
-                  </Link>
-                );
-              })}
-            </div>
-          ) : (
-            <p className="text-center text-[#94A3B8] py-10">Products coming soon.</p>
-          )}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
           <div className="mt-8 text-center md:hidden">
             <Link href="/products">
               <Button variant="outline" className="border-[#0b1f33] text-[#0b1f33] font-semibold">View All Products</Button>
@@ -221,30 +205,22 @@ export default async function HomePage() {
           <div className="text-center mb-12">
             <span className="text-[#F97316] font-label-sm text-xs uppercase tracking-[0.2em] font-semibold mb-3 block">Testimonials</span>
             <h2 className="font-heading text-3xl font-extrabold text-[#0b1f33] mb-4">Trusted by Our Customers</h2>
-            {visibleReviews.length > 0 && (
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <div className="flex items-center gap-0.5">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-[#F97316] text-[#F97316]" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-[#0b1f33]">
-                  {(visibleReviews.reduce((sum, r) => sum + r.rating, 0) / visibleReviews.length).toFixed(1)}
-                </span>
-                <span className="text-sm text-[#94A3B8]">({visibleReviews.length} reviews)</span>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex items-center gap-0.5">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-[#F97316] text-[#F97316]" />
+                ))}
               </div>
-            )}
+              <span className="text-sm font-semibold text-[#0b1f33]">4.7</span>
+              <span className="text-sm text-[#94A3B8]">({googleReviews.filter(r => r.isVisible).length} reviews)</span>
+            </div>
             <p className="text-[#44474c] text-lg max-w-2xl mx-auto">Real experiences from businesses that rely on BCare equipment every day.</p>
           </div>
-          {featuredReviews.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {featuredReviews.map((review) => (
-                <GoogleReviewCard key={review.id} review={review} variant="compact" />
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-[#94A3B8]">No reviews yet.</p>
-          )}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {googleReviews.filter(r => r.isFeatured && r.isVisible).slice(0, 3).map((review) => (
+              <GoogleReviewCard key={review.id} review={review} variant="compact" />
+            ))}
+          </div>
           <div className="mt-8 text-center">
             <Link href="/reviews" className="inline-flex items-center gap-2 text-sm font-semibold text-[#F97316] hover:underline">
               View All Reviews <ArrowRight className="w-4 h-4" />

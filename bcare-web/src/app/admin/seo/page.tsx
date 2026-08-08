@@ -1,13 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Save, Globe, FileText, Hash, Image as ImageIcon } from 'lucide-react';
-import { createClient } from '@/lib/supabase/client';
-import { useAdminAuth } from '@/hooks/use-admin-auth';
 
 const defaultSeo = {
   siteTitle: 'BCare Bakery & Kitchen Equipments | Commercial Kitchen Solutions Kerala',
@@ -15,70 +13,45 @@ const defaultSeo = {
   siteKeywords: 'bakery equipment Kerala, commercial kitchen equipment Thrissur, planetary mixer India, spiral mixer Kerala, commercial oven Kerala',
   ogImage: '/logo.webp',
   googleAnalyticsId: '',
+  googleMapsApiKey: '',
   facebookPixelId: '',
 };
 
 export default function AdminSeoPage() {
-  const { isAdmin, loading: authLoading } = useAdminAuth();
-  const [seo, setSeo] = useState(defaultSeo);
+  const [seo, setSeo] = useState(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('bcare_seo');
+        return saved ? JSON.parse(saved) : defaultSeo;
+      } catch {
+        return defaultSeo;
+      }
+    }
+    return defaultSeo;
+  });
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!isAdmin) return;
-    loadSeo();
-  }, [isAdmin]);
-
-  const loadSeo = async () => {
-    const supabase = createClient();
-    const { data } = await supabase
-      .from('seo_settings')
-      .select('page_path, title, description')
-      .eq('page_path', 'global')
-      .single();
-
-    if (data?.description) {
-      try {
-        const parsed = JSON.parse(data.description);
-        setSeo(prev => ({ ...prev, ...parsed }));
-      } catch { /* use defaults */ }
-    }
-    setLoading(false);
-  };
 
   const handleChange = (field: string, value: string) => {
-    setSeo(s => ({ ...s, [field]: value }));
+    setSeo((s: Record<string, string>) => ({ ...s, [field]: value }));
     setSaved(false);
   };
 
   const handleSave = async () => {
     setSaving(true);
     try {
-      const supabase = createClient();
-      await supabase.from('seo_settings').upsert({
-        page_path: 'global',
-        title: seo.siteTitle,
-        description: JSON.stringify(seo),
-        keywords: seo.siteKeywords.split(',').map(k => k.trim()),
-      }, { onConflict: 'page_path' });
+      localStorage.setItem('bcare_seo', JSON.stringify(seo));
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } finally { setSaving(false); }
   };
-
-  if (authLoading || loading) {
-    return <div className="flex items-center justify-center p-12"><p className="text-on-surface-variant">Loading SEO settings...</p></div>;
-  }
-
-  if (!isAdmin) return null;
 
   return (
     <div className="space-y-6 max-w-4xl">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-[#0B1F33]">SEO Management</h1>
-          <p className="text-[#44474c] text-sm mt-1">Search engine settings stored in Supabase.</p>
+          <p className="text-[#44474c] text-sm mt-1">Control search engine optimization and meta tags.</p>
         </div>
         <Button onClick={handleSave} disabled={saving} className="bg-[#0B1F33] text-white hover:bg-[#0B1F33]/90 font-semibold px-6">
           <Save className="w-4 h-4 mr-2" /> {saving ? 'Saving...' : saved ? 'Saved!' : 'Save SEO'}
@@ -120,6 +93,10 @@ export default function AdminSeoPage() {
           <div className="space-y-1">
             <Label className="text-xs font-semibold">Facebook Pixel ID</Label>
             <Input value={seo.facebookPixelId} onChange={e => handleChange('facebookPixelId', e.target.value)} placeholder="1234567890" />
+          </div>
+          <div className="space-y-1">
+            <Label className="text-xs font-semibold">Google Maps API Key</Label>
+            <Input value={seo.googleMapsApiKey} onChange={e => handleChange('googleMapsApiKey', e.target.value)} type="password" />
           </div>
         </div>
       </section>

@@ -1,0 +1,27 @@
+{
+  "common": {
+    "brandName": "BCare Bakery & Kitchen Equipments",
+    "tagline": "Industrial Commercial Kitchen Solutions Across Kerala",
+    "requestQuote": "Request Quote",
+    "contactUs": "Contact Us",
+    "exploreProducts": "Explore Products",
+    "viewProjects": "View Projects",
+    "readMore": "Read More",
+    "searchPlaceholder": "Search equipment, projects, articles..."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Equipment Catalog",
+    "services": "Services",
+    "projects": "Projects",
+    "blogs": "Blog",
+    "faqs": "FAQs",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "© BCare Bakery & Kitchen Equipments. All rights reserved.",
+    "location": "Thrissur, Kerala, India"
+  }
+}

@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock, Wrench } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
 
 export default function ServiceCentersPage() {
@@ -7,12 +7,12 @@ export default function ServiceCentersPage() {
       <section className="bg-white border-b border-outline-variant/30 py-16">
         <div className="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
           <h1 className="font-heading text-4xl font-extrabold text-primary mb-4">Service Centers</h1>
-          <p className="text-on-surface-variant text-lg">Our service network across Kerala for maintenance and support.</p>
+          <p className="text-on-surface-variant text-lg">Sales, installation and after-sales service for bakery and kitchen equipment across Kerala, operated from our Thrissur base.</p>
         </div>
       </section>
 
       <section className="py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {/* Thrissur HQ */}
           <div className="bg-white p-6 rounded-xl border-2 border-primary/30 shadow-sm relative">
             <span className="absolute top-4 right-4 bg-primary text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">Headquarters</span>
@@ -31,32 +31,19 @@ export default function ServiceCentersPage() {
             </div>
           </div>
 
-          {/* Kochi */}
+          {/* Service coverage — BCare operates from a single Thrissur location and
+              travels to customer sites across Kerala. */}
           <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
             <div className="flex items-start gap-3 mb-4">
               <div className="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0">
-                <MapPin className="w-5 h-5" />
+                <Wrench className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-heading font-bold text-lg text-primary">Kochi</h3>
-                <p className="text-on-surface-variant text-sm mt-1">Kalamassery Industrial Area, Kochi, Kerala 683104</p>
-              </div>
-            </div>
-            <div className="space-y-2 text-sm text-on-surface-variant border-t border-outline-variant/30 pt-4">
-              <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> {COMPANY_DETAILS.phone}</div>
-              <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Mon-Sat: 9:00 AM - 6:00 PM</div>
-            </div>
-          </div>
-
-          {/* Trivandrum */}
-          <div className="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-lg text-primary">Trivandrum</h3>
-                <p className="text-on-surface-variant text-sm mt-1">MG Road, Thiruvananthapuram, Kerala 695001</p>
+                <h3 className="font-heading font-bold text-lg text-primary">On-Site Service Across Kerala</h3>
+                <p className="text-on-surface-variant text-sm mt-1">
+                  Our engineers travel to your premises for installation, commissioning and
+                  breakdown support anywhere in Kerala.
+                </p>
               </div>
             </div>
             <div className="space-y-2 text-sm text-on-surface-variant border-t border-outline-variant/30 pt-4">

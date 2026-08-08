@@ -8,6 +8,8 @@ import { ProductCard } from '@/components/ui/ProductCard';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
 import { ProductImageWithFallback } from '@/components/ui/ProductImageWithFallback';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { BCARE_CATALOGUE_PDF } from '@/components/ui/BrochureDownloadModal';
+import { asset } from '@/lib/utils';
 import { googleReviews } from '@/lib/data/mock';
 import { useState } from 'react';
 import { useB2B } from '@/context/B2BContext';
@@ -313,20 +315,22 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
               {activeTab === 'Downloads' && (
                 <div>
                   <h3 className="font-heading text-2xl font-extrabold text-[#0B1F33] mb-6">Downloads</h3>
-                  {product.brochureUrl ? (
-                    <a href={product.brochureUrl} download className="flex items-center gap-4 p-5 bg-[#F8FAFC] rounded-xl border border-[#94A3B8]/20 hover:border-[#0B1F33]/30 transition-colors">
-                      <div className="w-12 h-12 bg-[#0B1F33]/10 text-[#0B1F33] rounded-lg flex items-center justify-center">
-                        <FileText className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-sm text-[#1b1c1d]">Product Specifications Sheet</p>
-                        <p className="text-xs text-[#94A3B8]">PDF Document</p>
-                      </div>
-                      <Download className="w-5 h-5 text-[#94A3B8] ml-auto" />
-                    </a>
-                  ) : (
-                    <p className="text-[#94A3B8] text-sm">No downloadable resources available for this product. Contact us for a brochure.</p>
-                  )}
+                  <a
+                    href={asset(product.brochureUrl || BCARE_CATALOGUE_PDF)}
+                    download
+                    className="flex items-center gap-4 p-5 bg-[#F8FAFC] rounded-xl border border-[#94A3B8]/20 hover:border-[#0B1F33]/30 transition-colors"
+                  >
+                    <div className="w-12 h-12 bg-[#0B1F33]/10 text-[#0B1F33] rounded-lg flex items-center justify-center">
+                      <FileText className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm text-[#1b1c1d]">
+                        {product.brochureUrl ? 'Product Specifications Sheet' : 'BCare Product Catalogue'}
+                      </p>
+                      <p className="text-xs text-[#94A3B8]">PDF Document</p>
+                    </div>
+                    <Download className="w-5 h-5 text-[#94A3B8] ml-auto" />
+                  </a>
                 </div>
               )}
             </div>

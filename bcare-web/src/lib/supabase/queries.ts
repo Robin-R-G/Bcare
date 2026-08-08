@@ -395,30 +395,6 @@ export async function getLeads(): Promise<Lead[]> {
   } catch {
     // Fallback
   }
-  return [
-    {
-      id: 'lead-1',
-      name: 'John Abraham',
-      phone: '+91 98470 12345',
-      email: 'john@royalbakers.com',
-      company: 'Royal Bakery Thrissur',
-      product_name: 'EUROPYA 30L Planetary Mixer',
-      source: 'WhatsApp Enquiry',
-      message: 'Looking for delivery timelines and commercial invoice for 30L mixer.',
-      status: 'New',
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: 'lead-2',
-      name: 'Anil Kumar',
-      phone: '+91 94471 99887',
-      email: 'anil@hotellotus.in',
-      company: 'Hotel Lotus Kochi',
-      product_name: 'BCARE Spiral Dough Kneader 25kg',
-      source: 'Quote Request',
-      message: 'Need formal quotation for hotel kitchen setup.',
-      status: 'Quoted',
-      created_at: new Date(Date.now() - 86400000).toISOString(),
-    },
-  ];
+  // Leads are real customer enquiries — never seed fake ones into the admin CRM.
+  return [];
 }

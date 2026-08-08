@@ -89,6 +89,19 @@ for (const p of manifest.products) {
   });
 }
 
+// IndiaMART publishes one shared BCare catalogue rather than per-product brochures.
+const CATALOGUE_PDF = '/documents/bcare-product-catalogue.pdf';
+if (existsSync(path.join(ROOT, 'public', CATALOGUE_PDF.slice(1)))) {
+  lines.push('', '-- ---------- Product documents (shared BCare catalogue) ----------', 'DELETE FROM product_documents;');
+  for (const p of manifest.products) {
+    lines.push(
+      `INSERT INTO product_documents (product_id, file_name, file_url, document_type) SELECT id, ${esc(
+        'BCare Product Catalogue.pdf'
+      )}, ${esc(CATALOGUE_PDF)}, 'brochure' FROM products WHERE slug = ${esc(p.slug)};`
+    );
+  }
+}
+
 lines.push('', '-- ---------- Gallery (real equipment photography) ----------', 'DELETE FROM gallery;');
 for (const p of manifest.products) {
   const dir = path.join(ROOT, 'public', 'products', p.slug);

@@ -1,0 +1,863 @@
+{
+  "products": {
+    "23950722230": {
+      "slug": "100-kg-spiral-mixer",
+      "images": [
+        "/products/100-kg-spiral-mixer/main.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "22564635373": {
+      "slug": "3-deck-6-tray-automatic-deck-oven",
+      "images": [
+        "/products/3-deck-6-tray-automatic-deck-oven/main.webp",
+        "/products/3-deck-6-tray-automatic-deck-oven/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "22564682491": {
+      "slug": "automatic-dough-kneader",
+      "images": [
+        "/products/automatic-dough-kneader/main.webp",
+        "/products/automatic-dough-kneader/gallery-1.webp",
+        "/products/automatic-dough-kneader/gallery-2.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852059434891": {
+      "slug": "bcare-brand-100-ltr-planetary-mixer-bcare-bakery-and-equipments",
+      "images": [
+        "/products/bcare-brand-100-ltr-planetary-mixer-bcare-bakery-and-equipments/main.webp",
+        "/products/bcare-brand-100-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852059434712": {
+      "slug": "bcare-brand-60-ltr-planetary-mixer-bcare-bakery-and-equipments",
+      "images": [
+        "/products/bcare-brand-60-ltr-planetary-mixer-bcare-bakery-and-equipments/main.webp",
+        "/products/bcare-brand-60-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "24231243712": {
+      "slug": "bread-proofer-machine",
+      "images": [
+        "/products/bread-proofer-machine/main.webp",
+        "/products/bread-proofer-machine/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "22564641991": {
+      "slug": "coconut-scraper-and-banana-slicer-machine",
+      "images": [
+        "/products/coconut-scraper-and-banana-slicer-machine/main.webp",
+        "/products/coconut-scraper-and-banana-slicer-machine/gallery-1.webp",
+        "/products/coconut-scraper-and-banana-slicer-machine/gallery-2.webp",
+        "/products/coconut-scraper-and-banana-slicer-machine/gallery-3.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852052903448": {
+      "slug": "europya-brand-1-deck-1-tray-automatic-gas-oven-bcare-bakery-and-equipm",
+      "images": [
+        "/products/europya-brand-1-deck-1-tray-automatic-gas-oven-bcare-bakery-and-equipm/main.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852053012988": {
+      "slug": "europya-brand-1-deck-2-tray-automatic-gas-oven-bcare-bakery-and-equipm",
+      "images": [
+        "/products/europya-brand-1-deck-2-tray-automatic-gas-oven-bcare-bakery-and-equipm/main.webp",
+        "/products/europya-brand-1-deck-2-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-1.webp",
+        "/products/europya-brand-1-deck-2-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-2.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852053039988": {
+      "slug": "europya-brand-1-deck-3-tray-automatic-gas-oven-bcare-bakery-and-equipm",
+      "images": [
+        "/products/europya-brand-1-deck-3-tray-automatic-gas-oven-bcare-bakery-and-equipm/main.webp",
+        "/products/europya-brand-1-deck-3-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852055957730": {
+      "slug": "europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-4.webp",
+        "/products/europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-5.webp",
+        "/products/europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-6.webp",
+        "/products/europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-7.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852053538912": {
+      "slug": "europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm",
+      "images": [
+        "/products/europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm/main.webp",
+        "/products/europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-1.webp",
+        "/products/europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-2.webp",
+        "/products/europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-3.webp",
+        "/products/europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-4.webp",
+        "/products/europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-5.webp",
+        "/products/europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-6.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852053539155": {
+      "slug": "europya-brand-2-deck-6-tray-automatic-gas-oven-bcare-bakery-and-equipm",
+      "images": [],
+      "brochure": null
+    },
+    "2852056009973": {
+      "slug": "europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-4.webp",
+        "/products/europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-5.webp",
+        "/products/europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-6.webp",
+        "/products/europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-7.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852053539088": {
+      "slug": "europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm",
+      "images": [
+        "/products/europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm/main.webp",
+        "/products/europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-1.webp",
+        "/products/europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-2.webp",
+        "/products/europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-3.webp",
+        "/products/europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-4.webp",
+        "/products/europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-5.webp",
+        "/products/europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm/gallery-6.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852056146755": {
+      "slug": "europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-4.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852057342162": {
+      "slug": "europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-4.webp",
+        "/products/europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments/gallery-5.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852055819591": {
+      "slug": "europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments/gallery-4.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852100790633": {
+      "slug": "europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments",
+      "images": [
+        "/products/europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments/main.webp",
+        "/products/europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments/gallery-1.webp",
+        "/products/europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments/gallery-2.webp",
+        "/products/europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments/gallery-3.webp",
+        "/products/europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments/gallery-4.webp",
+        "/products/europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments/gallery-5.webp",
+        "/products/europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments/gallery-6.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852081309930": {
+      "slug": "europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments/gallery-4.webp",
+        "/products/europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments/gallery-5.webp",
+        "/products/europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments/gallery-6.webp",
+        "/products/europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments/gallery-7.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852081310088": {
+      "slug": "europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments/gallery-4.webp",
+        "/products/europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments/gallery-5.webp",
+        "/products/europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments/gallery-6.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852081310112": {
+      "slug": "europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments/gallery-4.webp",
+        "/products/europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments/gallery-5.webp",
+        "/products/europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments/gallery-6.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852081309862": {
+      "slug": "europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments",
+      "images": [
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/main.webp",
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/gallery-1.webp",
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/gallery-2.webp",
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/gallery-3.webp",
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/gallery-4.webp",
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/gallery-5.webp",
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/gallery-6.webp",
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/gallery-7.webp",
+        "/products/europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments/gallery-8.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2853003359033": {
+      "slug": "europya-bread-toaster",
+      "images": [
+        "/products/europya-bread-toaster/main.webp",
+        "/products/europya-bread-toaster/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2853003359173": {
+      "slug": "europya-dough-sheeter",
+      "images": [
+        "/products/europya-dough-sheeter/main.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2853003417448": {
+      "slug": "europya-icing-machine",
+      "images": [
+        "/products/europya-icing-machine/main.webp",
+        "/products/europya-icing-machine/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2853003417555": {
+      "slug": "europya-meat-mincer",
+      "images": [
+        "/products/europya-meat-mincer/main.webp",
+        "/products/europya-meat-mincer/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2853003359212": {
+      "slug": "europya-meat-slicer",
+      "images": [
+        "/products/europya-meat-slicer/main.webp",
+        "/products/europya-meat-slicer/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2853003417312": {
+      "slug": "europya-vegetable-slicer-imported",
+      "images": [
+        "/products/europya-vegetable-slicer-imported/main.webp",
+        "/products/europya-vegetable-slicer-imported/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "2852305735830": {
+      "slug": "round-waffle-machine",
+      "images": [
+        "/products/round-waffle-machine/main.webp",
+        "/products/round-waffle-machine/gallery-1.webp",
+        "/products/round-waffle-machine/gallery-2.webp",
+        "/products/round-waffle-machine/gallery-3.webp",
+        "/products/round-waffle-machine/gallery-4.webp",
+        "/products/round-waffle-machine/gallery-5.webp",
+        "/products/round-waffle-machine/gallery-6.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    },
+    "22564691191": {
+      "slug": "single-trolley-rotary-rack-oven",
+      "images": [
+        "/products/single-trolley-rotary-rack-oven/main.webp",
+        "/products/single-trolley-rotary-rack-oven/gallery-1.webp"
+      ],
+      "brochure": "/documents/bcare-product-catalogue.pdf"
+    }
+  },
+  "gallery": [
+    {
+      "path": "/gallery/001-europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 40 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/002-europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 40 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/003-europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 40 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/004-europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 40 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/005-europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 40 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/006-europya-brand-40-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 40 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/007-europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 20 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/008-europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 20 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/009-europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 20 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/010-europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 20 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/011-europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 20 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/012-europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 20 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/013-europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 20 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/014-europya-brand-20-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 20 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/015-bcare-brand-100-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "BCARE BRAND 100 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/016-bcare-brand-100-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "BCARE BRAND 100 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/017-bcare-brand-60-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "BCARE BRAND 60 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/018-bcare-brand-60-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "BCARE BRAND 60 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/019-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/020-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/021-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/022-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/023-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/024-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/025-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/026-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/027-europya-brand-spiral-mixer-8-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 8 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/028-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/029-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/030-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/031-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/032-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/033-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/034-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/035-round-waffle-machine.webp",
+      "title": "Round Waffle Machine"
+    },
+    {
+      "path": "/gallery/036-round-waffle-machine.webp",
+      "title": "Round Waffle Machine"
+    },
+    {
+      "path": "/gallery/037-round-waffle-machine.webp",
+      "title": "Round Waffle Machine"
+    },
+    {
+      "path": "/gallery/038-round-waffle-machine.webp",
+      "title": "Round Waffle Machine"
+    },
+    {
+      "path": "/gallery/039-round-waffle-machine.webp",
+      "title": "Round Waffle Machine"
+    },
+    {
+      "path": "/gallery/040-round-waffle-machine.webp",
+      "title": "Round Waffle Machine"
+    },
+    {
+      "path": "/gallery/041-round-waffle-machine.webp",
+      "title": "Round Waffle Machine"
+    },
+    {
+      "path": "/gallery/042-europya-brand-1-deck-3-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 1 DECK 3 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/043-europya-brand-1-deck-3-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 1 DECK 3 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/044-europya-meat-mincer.webp",
+      "title": "EUROPYA MEAT MINCER"
+    },
+    {
+      "path": "/gallery/045-europya-meat-mincer.webp",
+      "title": "EUROPYA MEAT MINCER"
+    },
+    {
+      "path": "/gallery/046-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/047-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/048-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/049-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/050-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/051-europya-brand-hot-bread-slicer-bcare-bakery-and-kitchen-equipments.webp",
+      "title": "EUROPYA BRAND HOT BREAD SLICER BCARE BAKERY AND KITCHEN EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/052-europya-brand-1-deck-2-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 1 DECK 2 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/053-europya-brand-1-deck-2-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 1 DECK 2 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/054-europya-brand-1-deck-2-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 1 DECK 2 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/055-europya-dough-sheeter.webp",
+      "title": "EUROPYA DOUGH SHEETER"
+    },
+    {
+      "path": "/gallery/056-3-deck-6-tray-automatic-deck-oven.webp",
+      "title": "3 Deck 6 Tray Automatic Deck Oven"
+    },
+    {
+      "path": "/gallery/057-3-deck-6-tray-automatic-deck-oven.webp",
+      "title": "3 Deck 6 Tray Automatic Deck Oven"
+    },
+    {
+      "path": "/gallery/058-europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 7 LTR FRESH CREAM MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/059-europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 7 LTR FRESH CREAM MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/060-europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 7 LTR FRESH CREAM MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/061-europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 7 LTR FRESH CREAM MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/062-europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 7 LTR FRESH CREAM MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/063-europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 12 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/064-europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 12 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/065-europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 12 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/066-europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 12 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/067-europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 12 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/068-europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 12 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/069-europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 12 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/070-europya-brand-spiral-mixer-12-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 12 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/071-europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 30 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/072-europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 30 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/073-europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 30 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/074-europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 30 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/075-europya-brand-30-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 30 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/076-europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 10 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/077-europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 10 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/078-europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 10 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/079-europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 10 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/080-europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 10 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/081-europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 10 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/082-europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 10 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/083-europya-brand-10-ltr-planetary-mixer-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND 10 LTR PLANETARY MIXER BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/084-automatic-dough-kneader.webp",
+      "title": "Automatic Dough Kneader"
+    },
+    {
+      "path": "/gallery/085-automatic-dough-kneader.webp",
+      "title": "Automatic Dough Kneader"
+    },
+    {
+      "path": "/gallery/086-automatic-dough-kneader.webp",
+      "title": "Automatic Dough Kneader"
+    },
+    {
+      "path": "/gallery/087-europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 50 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/088-europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 50 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/089-europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 50 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/090-europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 50 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/091-europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 50 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/092-europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 50 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/093-europya-brand-spiral-mixer-50-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 50 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/094-europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 2 DECK 4 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/095-europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 2 DECK 4 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/096-europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 2 DECK 4 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/097-europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 2 DECK 4 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/098-europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 2 DECK 4 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/099-europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 2 DECK 4 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/100-europya-brand-2-deck-4-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 2 DECK 4 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/101-europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 25 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/102-europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 25 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/103-europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 25 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/104-europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 25 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/105-europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 25 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/106-europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 25 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/107-europya-brand-spiral-mixer-25-flour-bcare-bakery-and-equipments.webp",
+      "title": "EUROPYA BRAND SPIRAL MIXER 25 FLOUR BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/108-europya-brand-1-deck-1-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 1 DECK 1 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/109-europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 3 DECK 9 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/110-europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 3 DECK 9 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/111-europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 3 DECK 9 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/112-europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 3 DECK 9 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/113-europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 3 DECK 9 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/114-europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 3 DECK 9 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/115-europya-brand-3-deck-9-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp",
+      "title": "EUROPYA BRAND 3 DECK 9 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS"
+    },
+    {
+      "path": "/gallery/116-europya-icing-machine.webp",
+      "title": "Europya Icing Machine"
+    },
+    {
+      "path": "/gallery/117-europya-icing-machine.webp",
+      "title": "Europya Icing Machine"
+    },
+    {
+      "path": "/gallery/118-europya-bread-toaster.webp",
+      "title": "EUROPYA BREAD TOASTER"
+    },
+    {
+      "path": "/gallery/119-europya-bread-toaster.webp",
+      "title": "EUROPYA BREAD TOASTER"
+    },
+    {
+      "path": "/gallery/120-europya-vegetable-slicer-imported.webp",
+      "title": "EUROPYA VEGETABLE SLICER (IMPORTED)"
+    },
+    {
+      "path": "/gallery/121-europya-vegetable-slicer-imported.webp",
+      "title": "EUROPYA VEGETABLE SLICER (IMPORTED)"
+    },
+    {
+      "path": "/gallery/122-europya-meat-slicer.webp",
+      "title": "EUROPYA MEAT SLICER"
+    },
+    {
+      "path": "/gallery/123-europya-meat-slicer.webp",
+      "title": "EUROPYA MEAT SLICER"
+    },
+    {
+      "path": "/gallery/124-100-kg-spiral-mixer.webp",
+      "title": "100 Kg Spiral Mixer"
+    },
+    {
+      "path": "/gallery/125-bread-proofer-machine.webp",
+      "title": "Bread Proofer Machine"
+    },
+    {
+      "path": "/gallery/126-bread-proofer-machine.webp",
+      "title": "Bread Proofer Machine"
+    },
+    {
+      "path": "/gallery/127-single-trolley-rotary-rack-oven.webp",
+      "title": "Single Trolley Rotary Rack Oven"
+    },
+    {
+      "path": "/gallery/128-single-trolley-rotary-rack-oven.webp",
+      "title": "Single Trolley Rotary Rack Oven"
+    },
+    {
+      "path": "/gallery/129-coconut-scraper-and-banana-slicer-machine.webp",
+      "title": "Coconut Scraper And Banana Slicer Machine"
+    },
+    {
+      "path": "/gallery/130-coconut-scraper-and-banana-slicer-machine.webp",
+      "title": "Coconut Scraper And Banana Slicer Machine"
+    },
+    {
+      "path": "/gallery/131-coconut-scraper-and-banana-slicer-machine.webp",
+      "title": "Coconut Scraper And Banana Slicer Machine"
+    },
+    {
+      "path": "/gallery/132-coconut-scraper-and-banana-slicer-machine.webp",
+      "title": "Coconut Scraper And Banana Slicer Machine"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "2UFdrpyGtXQ",
+      "title": "EUROPYA DOUGH SHEETER",
+      "thumbnail": "/videos/europya-dough-sheeter.webp"
+    },
+    {
+      "youtubeId": "QrOaoW5asdQ",
+      "title": "EUROPYA BRAND 7 LTR FRESH CREAM MIXER BCARE BAKERY & EQUIPMENTS",
+      "thumbnail": "/videos/europya-brand-7-ltr-fresh-cream-mixer-bcare-bakery-and-equipments.webp"
+    },
+    {
+      "youtubeId": "-HYpNHdRSJU",
+      "title": "EUROPYA BRAND 1 DECK 1 TRAY AUTOMATIC GAS OVEN BCARE BAKERY & EQUIPMENTS",
+      "thumbnail": "/videos/europya-brand-1-deck-1-tray-automatic-gas-oven-bcare-bakery-and-equipm.webp"
+    }
+  ],
+  "logo": "/brand/bcare-logo-source.jpg"
+}

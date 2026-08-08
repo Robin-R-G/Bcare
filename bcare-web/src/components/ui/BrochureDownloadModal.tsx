@@ -7,6 +7,9 @@ import { Button } from './button';
 import { Input } from './input';
 import { Label } from './label';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { asset } from '@/lib/utils';
+
+export const BCARE_CATALOGUE_PDF = '/documents/bcare-product-catalogue.pdf';
 
 export function BrochureDownloadModal() {
   const { brochureModalProduct, setBrochureModalProduct } = useB2B();
@@ -26,9 +29,9 @@ export function BrochureDownloadModal() {
 
     setSubmitted(true);
 
-    // Trigger brochure download if URL exists or fallback dummy PDF
+    // IndiaMART publishes one shared BCare catalogue rather than per-product PDFs.
     const link = document.createElement('a');
-    link.href = brochureModalProduct.brochureUrl || '/logo.webp';
+    link.href = asset(brochureModalProduct.brochureUrl || BCARE_CATALOGUE_PDF)!;
     link.download = `${brochureModalProduct.slug}-brochure.pdf`;
     document.body.appendChild(link);
     link.click();

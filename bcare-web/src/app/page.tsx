@@ -12,7 +12,7 @@ const features = [
   { title: 'Kitchen Solutions', desc: 'Customized layout planning for optimal workflow and spatial efficiency.', Icon: Ruler },
   { title: 'Expert Engineers', desc: 'Highly trained technicians ensuring precision installation and maintenance.', Icon: Wrench },
   { title: 'Quality Manufacturing', desc: 'Using highest grade stainless steel for durability and hygiene compliance.', Icon: ShieldCheck },
-  { title: '24/7 Support', desc: 'Dedicated after-sales service to minimize equipment downtime.', Icon: Headset },
+  { title: 'After-Sales Support', desc: 'On-site service across Kerala, Monday to Saturday, to minimise equipment downtime.', Icon: Headset },
 ];
 
 const industries = [

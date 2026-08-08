@@ -5,6 +5,7 @@ import { blogs as mockBlogs } from '@/lib/data/mock';
 import { getBlogs } from '@/lib/supabase/queries';
 
 export async function generateStaticParams() {
+  if (mockBlogs.length === 0) return [{ slug: '__placeholder__' }];
   return mockBlogs.map((blog) => ({ slug: blog.slug }));
 }
 

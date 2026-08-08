@@ -1,0 +1,15 @@
+{
+  "name": "BCare Bakery & Kitchen Equipments",
+  "short_name": "BCare",
+  "description": "Commercial bakery and kitchen equipment manufacturer and supplier in Nadathara, Thrissur, Kerala. EUROPYA and BCARE brand mixers, ovens, slicers and dough processing machinery.",
+  "start_url": "/Bcare/",
+  "scope": "/Bcare/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b1f33",
+  "icons": [
+    { "src": "/Bcare/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/Bcare/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/Bcare/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

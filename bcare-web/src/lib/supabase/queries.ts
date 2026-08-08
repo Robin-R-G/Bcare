@@ -6,6 +6,7 @@ import {
   projects as mockProjects,
   blogs as mockBlogs,
   googleReviews as mockReviews,
+  videos as mockVideos,
 } from '@/lib/data/mock';
 
 type ProductRow = {
@@ -316,6 +317,64 @@ export async function getGoogleReviews(): Promise<GoogleReview[]> {
     // Fallback
   }
   return mockReviews;
+}
+
+// ==========================================
+// GALLERY & VIDEOS
+// ==========================================
+
+export async function getGallery(): Promise<GalleryItem[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase.from('gallery').select('*').order('created_at');
+    if (!error && data && data.length > 0) {
+      return data.map((g) => ({
+        id: g.id,
+        title: g.title,
+        album: g.album || 'General',
+        image_url: g.image_url,
+        caption: g.caption || undefined,
+      }));
+    }
+  } catch {
+    // Fallback to the migrated catalogue below
+  }
+  return mockProducts.flatMap((p) =>
+    p.images.map((url, i) => ({
+      id: `${p.slug}-${i}`,
+      title: p.name,
+      album: p.categoryName,
+      image_url: url,
+      caption: p.shortDescription,
+    }))
+  );
+}
+
+export async function getVideos(): Promise<VideoItem[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase.from('videos').select('*').order('created_at');
+    if (!error && data && data.length > 0) {
+      return data.map((v) => ({
+        id: v.id,
+        title: v.title,
+        youtube_url: v.youtube_url,
+        thumbnail_url: v.thumbnail_url || undefined,
+        category: v.category || undefined,
+        description: v.description || undefined,
+      }));
+    }
+  } catch {
+    // Fallback to the migrated catalogue below
+  }
+  return mockVideos.map((v) => ({
+    id: v.id,
+    title: v.title,
+    youtube_url: `https://www.youtube.com/watch?v=${v.youtubeId}`,
+    thumbnail_url: v.thumbnail,
+    category: 'Product Demo',
+    description: v.description,
+  }));
 }
 
 // ==========================================

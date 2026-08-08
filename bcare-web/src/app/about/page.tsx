@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Award, Factory, Users, Clock, CheckCircle2, Target, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { products } from '@/lib/data/catalogue';
 import Link from 'next/link';
 
 const fadeInUp = {
@@ -14,8 +15,8 @@ const fadeInUp = {
 
 const stats = [
   { number: '15+', label: 'Years of Experience', icon: Clock },
-  { number: '500+', label: 'Clients Served', icon: Users },
-  { number: '30+', label: 'Product Models', icon: Award },
+  { number: '11-25', label: 'Team Members', icon: Users },
+  { number: `${products.length}`, label: 'Equipment Models', icon: Award },
   { number: '2', label: 'Trusted Brands', icon: ShieldCheck },
 ];
 

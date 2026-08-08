@@ -211,10 +211,29 @@ CREATE POLICY "Admin full leads" ON leads FOR ALL TO authenticated USING (true);
 CREATE POLICY "Admin full logs" ON admin_activity_logs FOR ALL TO authenticated USING (true);
 
 -- ========================================================
--- STORAGE BUCKET CONFIGURATION (Run in Supabase Console)
+-- STORAGE BUCKETS
 -- ========================================================
--- INSERT INTO storage.buckets (id, name, public) VALUES ('products', 'products', true);
--- INSERT INTO storage.buckets (id, name, public) VALUES ('projects', 'projects', true);
--- INSERT INTO storage.buckets (id, name, public) VALUES ('gallery', 'gallery', true);
--- INSERT INTO storage.buckets (id, name, public) VALUES ('blogs', 'blogs', true);
--- INSERT INTO storage.buckets (id, name, public) VALUES ('documents', 'documents', true);
+-- 'media' backs the admin media library (src/app/api/media/*).
+INSERT INTO storage.buckets (id, name, public) VALUES
+  ('products', 'products', true),
+  ('projects', 'projects', true),
+  ('gallery', 'gallery', true),
+  ('videos', 'videos', true),
+  ('brand-assets', 'brand-assets', true),
+  ('blogs', 'blogs', true),
+  ('documents', 'documents', true),
+  ('media', 'media', true)
+ON CONFLICT (id) DO NOTHING;
+
+-- Public can read every published asset; only signed-in admins can write.
+CREATE POLICY "Public read storage" ON storage.objects FOR SELECT
+  USING (bucket_id IN ('products','projects','gallery','videos','brand-assets','blogs','documents','media'));
+CREATE POLICY "Admin write storage" ON storage.objects FOR ALL TO authenticated
+  USING (bucket_id IN ('products','projects','gallery','videos','brand-assets','blogs','documents','media'))
+  WITH CHECK (bucket_id IN ('products','projects','gallery','videos','brand-assets','blogs','documents','media'));
+
+-- ========================================================
+-- SEED DATA
+-- ========================================================
+-- Run supabase/seed.sql after this file to load the real BCare catalogue
+-- (32 products, 132 images, 183 specifications, gallery, videos, reviews).

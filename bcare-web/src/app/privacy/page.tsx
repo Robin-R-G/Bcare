@@ -1,3 +1,5 @@
+import { COMPANY_DETAILS } from '@/lib/constants/company';
+
 export default function PrivacyPage() {
   return (
     <div className="bg-background min-h-screen">
@@ -32,7 +34,7 @@ export default function PrivacyPage() {
 
           <div>
             <h2 className="font-heading font-bold text-xl text-primary mb-3">5. Contact Us</h2>
-            <p>For questions about this Privacy Policy, please contact us at <strong>info@bcareequipments.com</strong> or visit our <a href="/contact" className="text-primary underline hover:text-primary-container">Contact page</a>.</p>
+            <p>For questions about this Privacy Policy, please contact us at <strong>{COMPANY_DETAILS.email}</strong> or visit our <a href="/contact" className="text-primary underline hover:text-primary-container">Contact page</a>.</p>
           </div>
         </div>
       </section>

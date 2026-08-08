@@ -4,30 +4,11 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { COMPANY_DETAILS } from '@/lib/constants/company';
 
-const jobs = [
-  {
-    id: 1,
-    title: 'Senior Kitchen Design Engineer',
-    department: 'Design & Engineering',
-    location: 'Kochi, Kerala',
-    type: 'Full-time',
-  },
-  {
-    id: 2,
-    title: 'Installation Technician',
-    department: 'Service & Maintenance',
-    location: 'Kerala (Field Work)',
-    type: 'Full-time',
-  },
-  {
-    id: 3,
-    title: 'Sales Executive (Commercial Equipment)',
-    department: 'Sales',
-    location: 'Trivandrum, Kerala',
-    type: 'Full-time',
-  },
-];
+// BCare has no vacancies published on IndiaMART. Rather than advertise roles that do
+// not exist, the page invites open applications to the real company address.
+const jobs: Array<{ id: number; title: string; department: string; location: string; type: string }> = [];
 
 export default function CareersPage() {
   return (
@@ -114,7 +95,7 @@ export default function CareersPage() {
                     <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {job.type}</span>
                   </div>
                 </div>
-                <a href={`mailto:careers@bcareequipments.com?subject=Application: ${job.title}`}>
+                <a href={`mailto:${COMPANY_DETAILS.email}?subject=Application: ${job.title}`}>
                   <Button className="shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
                     Apply Now <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -126,9 +107,10 @@ export default function CareersPage() {
           <div className="mt-16 bg-surface-container p-8 rounded-2xl text-center border border-outline-variant/50">
             <h3 className="font-title-md text-title-md text-on-surface mb-2">Don&apos;t see a fit?</h3>
             <p className="text-on-surface-variant font-body-md text-body-md mb-6 max-w-lg mx-auto">
-              We&apos;re always looking for talented individuals. Send your resume to careers@bcareequipments.com and we&apos;ll keep you in mind for future openings.
+              We&apos;re always looking for talented individuals. Send your resume to{' '}
+              {COMPANY_DETAILS.email} and we&apos;ll keep you in mind for future openings.
             </p>
-            <Link href="mailto:careers@bcareequipments.com">
+            <Link href={`mailto:${COMPANY_DETAILS.email}`}>
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
                 Submit Resume General
               </Button>

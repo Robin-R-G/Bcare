@@ -6,6 +6,7 @@ import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
 import { CategoryIcon } from '@/components/ui/CategoryIcon';
 import { ProductImageWithFallback } from '@/components/ui/ProductImageWithFallback';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { asset } from '@/lib/utils';
 
 const features = [
   { title: 'Kitchen Solutions', desc: 'Customized layout planning for optimal workflow and spatial efficiency.', Icon: Ruler },
@@ -24,7 +25,7 @@ const whyChooseUs = [
   'GST verified supplier',
   'In-house manufacturing & quality control',
   'EUROPYA and BCARE trusted brands',
-  'Serving 500+ clients across Kerala',
+  '1 year warranty on equipment',
   'Comprehensive after-sales support',
 ];
 
@@ -37,7 +38,7 @@ export default function HomePage() {
       <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/products/europya-3-deck-9-tray-automatic-gas-oven/main.webp')` }}
+          style={{ backgroundImage: `url('${asset('/products/europya-3-deck-9-tray-automatic-gas-oven/main.webp')}')` }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b1f33]/95 via-[#0b1f33]/70 to-transparent"></div>
 
@@ -71,8 +72,8 @@ export default function HomePage() {
         <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           {[
             { number: '15+', label: 'Years Experience' },
-            { number: '500+', label: 'Clients Served' },
-            { number: '30+', label: 'Product Models' },
+            { number: `${products.length}`, label: 'Equipment Models' },
+            { number: '2', label: 'In-House Brands' },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col items-center py-8 px-6 border border-[#94A3B8]/30 rounded-lg hover:shadow-md transition-all">
               <span className="font-heading text-5xl font-extrabold text-[#0b1f33] mb-2">{stat.number}</span>

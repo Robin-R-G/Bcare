@@ -208,7 +208,7 @@ function ContactForm() {
               <span className="text-sm text-[#94A3B8]">on Google</span>
             </div>
             <h2 className="font-heading text-2xl font-extrabold text-[#0b1f33] mb-2">What Our Customers Say</h2>
-            <p className="text-[#44474c] text-sm">Trusted by 500+ businesses across Kerala</p>
+            <p className="text-[#44474c] text-sm">Verified reviews from our IndiaMART buyers</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {googleReviews.filter(r => r.isFeatured && r.isVisible).slice(0, 3).map((review) => (
@@ -255,7 +255,7 @@ function ContactForm() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="https://www.google.com/maps/search/Nadathara+Mannuthy+Thrissur+Kerala+680651"
+                  href={`https://www.google.com/maps/search/${encodeURIComponent(COMPANY_DETAILS.address.full)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Plus, Pencil, Trash2, Eye, Search } from 'lucide-react';
+import { asset } from '@/lib/utils';
 import { getAdminProducts, deleteProduct } from '@/lib/supabase/admin-mutations';
 import { products as mockProducts } from '@/lib/data/mock';
 import Link from 'next/link';
@@ -45,7 +46,7 @@ export default function AdminProductsPage() {
   const filtered = products.filter(p => p.name.toLowerCase().includes(search.toLowerCase()) || p.sku?.toLowerCase().includes(search.toLowerCase()));
 
   const formatPrice = (price?: number) => {
-    if (!price) return '—';
+    if (!price) return 'â€”';
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(price);
   };
 
@@ -85,15 +86,15 @@ export default function AdminProductsPage() {
                 <tr key={product.id} className="border-b border-[#94A3B8]/10 hover:bg-[#F8FAFC]">
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-3">
-                      <img src={product.featured_image || '/logo.webp'} alt={product.name} className="w-10 h-10 object-cover rounded-lg border border-[#94A3B8]/20" />
+                      <img src={asset(product.featured_image || '/logo.webp')} alt={product.name} className="w-10 h-10 object-cover rounded-lg border border-[#94A3B8]/20" />
                       <div>
                         <p className="font-semibold text-[#0B1F33] line-clamp-1">{product.name}</p>
-                        <p className="text-xs text-[#94A3B8]">SKU: {product.sku || '—'}</p>
+                        <p className="text-xs text-[#94A3B8]">SKU: {product.sku || 'â€”'}</p>
                       </div>
                     </div>
                   </td>
                   <td className="py-3 px-4">
-                    <span className="bg-[#F8FAFC] text-[#44474c] px-2 py-0.5 rounded-full text-xs">{product.product_categories?.name || '—'}</span>
+                    <span className="bg-[#F8FAFC] text-[#44474c] px-2 py-0.5 rounded-full text-xs">{product.product_categories?.name || 'â€”'}</span>
                   </td>
                   <td className="py-3 px-4">
                     {product.price_on_request ? <span className="text-xs font-semibold text-orange-600">Price on Request</span> : <span className="text-sm font-semibold">{formatPrice(product.price)}</span>}

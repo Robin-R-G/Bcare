@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Package } from 'lucide-react';
+import { asset } from '@/lib/utils';
 
 interface ProductImageWithFallbackProps {
   src?: string;
@@ -66,7 +67,7 @@ export function ProductImageWithFallback({
         />
       ) : (
         <img
-          src={src}
+          src={asset(src)}
           alt={alt}
           width={width}
           height={height}

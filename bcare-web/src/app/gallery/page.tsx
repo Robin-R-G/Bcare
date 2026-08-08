@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Camera } from 'lucide-react';
+import { asset } from '@/lib/utils';
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { products, categories } from '@/lib/data/catalogue';
@@ -76,7 +77,7 @@ export default function GalleryPage() {
               <Link href={`/products/${img.slug}`}>
                 <div className="aspect-[4/3] overflow-hidden bg-surface-container-low">
                   <img
-                    src={img.src}
+                    src={asset(img.src)}
                     alt={img.alt}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, MessageCircle, Search, ShoppingBag, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { asset } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 import { useB2B } from '@/context/B2BContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -40,7 +41,7 @@ export function Navbar() {
     { name: 'Contact', href: '/contact' },
   ];
 
-  const primaryLogoPath = process.env.NODE_ENV === 'production' ? '/Bcare/logo.webp' : '/logo.webp';
+  const primaryLogoPath = asset('/logo.webp')!;
 
   return (
     <>
@@ -60,16 +61,7 @@ export function Navbar() {
                 src={primaryLogoPath}
                 alt="BCare Bakery & Kitchen Equipments"
                 className="h-10 w-auto max-w-[42px] object-contain transition-transform duration-300 group-hover:scale-105"
-                onError={() => {
-                  if (primaryLogoPath !== '/logo.webp') {
-                    const img = new Image();
-                    img.src = '/logo.webp';
-                    img.onload = () => setLogoFailed(false);
-                    img.onerror = () => setLogoFailed(true);
-                  } else {
-                    setLogoFailed(true);
-                  }
-                }}
+                onError={() => setLogoFailed(true)}
               />
             ) : (
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0B1F33] to-[#1E3A5F] flex items-center justify-center text-white font-extrabold text-sm shadow-sm group-hover:shadow-md transition-all">

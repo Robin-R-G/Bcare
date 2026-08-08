@@ -50,13 +50,22 @@ export const metadata: Metadata = {
       "Premium commercial bakery and kitchen equipment. EUROPYA and BCARE brand mixers, ovens, slicers, and dough processing equipment. 15+ years of trust.",
     images: [
       {
-        url: "/logo.webp",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "BCare Bakery & Kitchen Equipments",
       },
     ],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/manifest.webmanifest",
   robots: {
     index: true,
     follow: true,
@@ -71,8 +80,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="light scroll-smooth">
       <head>
-        <link rel="icon" href="/logo.webp" type="image/webp" />
-        <link rel="apple-touch-icon" href="/logo.webp" />
         <meta name="theme-color" content="#0b1f33" />
         <script
           type="application/ld+json"
@@ -80,17 +87,21 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "BCare Bakery & Kitchen Equipments",
-              image: "/logo.webp",
-              url: "https://robin-r-g.github.io/Bcare",
+              name: COMPANY_DETAILS.name,
+              image: `${COMPANY_DETAILS.website}/og-image.png`,
+              logo: `${COMPANY_DETAILS.website}/icon-512.png`,
+              url: COMPANY_DETAILS.website,
               telephone: COMPANY_DETAILS.phone,
-              email: "info@bcareequipments.com",
+              email: COMPANY_DETAILS.email,
+              foundingDate: COMPANY_DETAILS.established,
+              founder: { "@type": "Person", name: COMPANY_DETAILS.managingDirector },
+              sameAs: [COMPANY_DETAILS.socialMedia.indiamart, COMPANY_DETAILS.socialMedia.instagram],
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Nadathara, Mannuthy",
-                addressLocality: "Thrissur",
-                addressRegion: "Kerala",
-                postalCode: "680651",
+                streetAddress: COMPANY_DETAILS.address.street,
+                addressLocality: COMPANY_DETAILS.address.city,
+                addressRegion: COMPANY_DETAILS.address.state,
+                postalCode: COMPANY_DETAILS.address.pincode,
                 addressCountry: "IN",
               },
               geo: {
@@ -105,13 +116,6 @@ export default function RootLayout({
                 closes: "18:00",
               },
               priceRange: "$$",
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.7",
-                reviewCount: "10",
-                bestRating: "5",
-                worstRating: "1",
-              },
             }),
           }}
         />

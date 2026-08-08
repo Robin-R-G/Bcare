@@ -132,8 +132,11 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
               ) : (
                 <div>
                   <span className="text-sm text-[#44474c] block mb-1">Price</span>
-                  <span className="text-2xl font-extrabold text-[#0B1F33]">{formatPrice(product.price!)}</span>
-                  <p className="text-xs text-[#94A3B8] mt-1">Inclusive of all taxes. Installation included.</p>
+                  <span className="text-2xl font-extrabold text-[#0B1F33]">
+                    {formatPrice(product.price!)}
+                    <span className="text-sm font-semibold text-[#94A3B8]"> / {product.priceUnit ?? 'Piece'}</span>
+                  </span>
+                  <p className="text-xs text-[#94A3B8] mt-1">Indicative price, exclusive of GST. Contact us for a formal quotation.</p>
                 </div>
               )}
             </div>

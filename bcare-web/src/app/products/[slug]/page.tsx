@@ -3,10 +3,10 @@ import { getProductBySlug, getProducts } from '@/lib/supabase/queries';
 import { ProductDetailClient } from './ProductDetailClient';
 import { notFound } from 'next/navigation';
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  return mockProducts.map((product) => ({
-    slug: product.slug,
-  }));
+  return mockProducts.map((product) => ({ slug: product.slug }));
 }
 
 export default async function ProductDetailsPage({ params }: { params: Promise<{ slug: string }> }) {

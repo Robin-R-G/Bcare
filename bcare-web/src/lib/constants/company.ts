@@ -6,7 +6,8 @@ export const COMPANY_DETAILS = {
   established: '2010',
   experience: '15+ years',
   managingDirector: 'A Abraham',
-  aboutBrief: 'Established in 2010, BCare is a leading manufacturer and trader of commercial bakery and kitchen equipment based in Nadathara, Thrissur, Kerala. Under the guidance of Managing Director A Abraham, we have grown to serve 500+ clients across Kerala and beyond with premium EUROPYA and BCARE brand equipment.',
+  mentor: 'Mr. Anish Abraham',
+  aboutBrief: 'Established in 2010, BCare is a manufacturer and trader of commercial bakery and kitchen equipment based in Nadathara, Thrissur, Kerala. Under the guidance of our mentor Mr. Anish Abraham, we supply premium EUROPYA and BCARE brand equipment to bakeries, hotels and restaurants across Kerala.',
 
   address: {
     street: 'Mudikode Junction, Opposite Temple, Pattikkad',
@@ -41,13 +42,19 @@ export const COMPANY_DETAILS = {
   website: 'https://robin-r-g.github.io/Bcare',
   instagram: 'https://www.instagram.com/bcare_bakery_machinery_kerala/',
   indiamart: 'https://www.indiamart.com/bcare/',
-  gst: '32AAAAA0000A1Z5',
+  // IndiaMART displays this GST partially masked; only the verified portion is shown.
+  gst: '32**********1ZX',
+  gstRegistrationDate: '2023',
+  bankers: ['State Bank of India'],
+  paymentModes: ['Credit Card', 'Cash', 'Cheque', 'DD'],
+  shipmentMode: 'By Road',
+  additionalBusiness: ['Retail Business', 'Factory / Manufacturing'],
 
   highlights: [
     'Established in 2010 — 15+ years of industry experience',
     'Trusted EUROPYA and BCARE brands',
     'GST verified supplier',
-    'Serving 500+ clients across Kerala',
+    '1 year warranty on equipment',
     'In-house manufacturing and quality control',
     'Comprehensive after-sales support',
   ],

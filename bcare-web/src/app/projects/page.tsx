@@ -4,6 +4,7 @@ import { MapPin, Building2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { projects } from '@/lib/data/mock';
 import { COMPANY_DETAILS } from '@/lib/constants/company';
+import { asset } from '@/lib/utils';
 
 export default function ProjectsPage() {
   return (
@@ -58,7 +59,7 @@ export default function ProjectsPage() {
                 {project.images[0] && (
                   <div className="h-[220px] w-full overflow-hidden bg-surface-container-low">
                     <img
-                      src={project.images[0]}
+                      src={asset(project.images[0])}
                       alt={project.title}
                       loading="lazy"
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"

@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "deploy": "next build --turbopack && npx gh-pages -d out --dotfiles",
+    "build": "next build",
+    "deploy": "next build && npx gh-pages -d out --dotfiles",
     "start": "next start",
     "lint": "eslint"
   },
@@ -19,6 +19,7 @@
     "framer-motion": "^13.0.0",
     "lucide-react": "^1.28.0",
     "next": "15.5.22",
+    "png-to-ico": "^3.0.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.84.0",
